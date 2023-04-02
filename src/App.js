@@ -9,6 +9,14 @@ import EditProfile from './components/EditProfile';
 import AddRecipe from './components/AddRecipe';
 import RecipePage from './components/RecipePage';
 import ContinentPage from './components/ContinentPage';
+import Asia from './components/Asia';
+import Africa from './components/Africa';
+import NorthAmerica from './components/NorthAmerica';
+import SouthAmerica from './components/SouthAmerica';
+import Antarctica from './components/Antarctica';
+import Europe from './components/Europe';
+import Australia from './components/Australia';
+
 
 function App() {
   return (
@@ -24,6 +32,13 @@ function App() {
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe' elemet={ <RecipePage /> }/>
             <Route path='/continent' element={ <ContinentPage />}/>
+            <Route path='/asia' element={ <Asia />}/>
+            <Route path='/africa' element={ <Africa />}/>
+            <Route path='/northamerica' element={ <NorthAmerica />}/>
+            <Route path='/southamerica' element={ <SouthAmerica />}/>
+            <Route path='/antarctica' element={ <Antarctica />}/>
+            <Route path='/europe' element={ <Europe />}/>
+            <Route path='/australia' element={ <Australia />}/>
           </Route>
         </Routes>
       </BrowserRouter>
