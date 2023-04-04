@@ -9,7 +9,6 @@ const Home = () => {
         <div>
             <Navbar>
                 <Nav>
-< RebekahFixSignInIssue
                     <Link to="/" className='nav-link'>Home</Link>
                     <Link to="/signup" className='nav-link'>Sign Up</Link>
                     <Link to="/signin" className='nav-link'>Login</Link>
@@ -36,7 +35,6 @@ const Home = () => {
                     <Link to="/northamerica" className="nav-link">North America</Link>
                     <Link to="/southamerica" className="nav-link">South America</Link>
                 </NavDropdown>
-> <dev>
                 </Nav>
             </Navbar>
             <Stack>
