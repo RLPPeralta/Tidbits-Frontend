@@ -9,6 +9,21 @@ const Home = () => {
         <div>
             <Navbar>
                 <Nav>
+< RebekahFixSignInIssue
+                    <Link to="/" className='nav-link'>Home</Link>
+                    <Link to="/signup" className='nav-link'>Sign Up</Link>
+                    <Link to="/signin" className='nav-link'>Login</Link>
+                    <Link to="/profile" className='nav-link'>My Profile</Link>
+                    <NavDropdown title="Select Continent" id="basic-nav-dropdown">
+                        <Link to="/africa" className='nav-link'>Africa</Link>
+                        <Link to="/antartica" className='nav-link'>Antarctica</Link>
+                        <Link to="/asia" className='nav-link'>Asia</Link>
+                        <Link to="/australia" className='nav-link'>Australia</Link>
+                        <Link to="/europe" className='nav-link'>Europe</Link>
+                        <Link to="/northamerica" className='nav-link'>North America</Link>
+                        <Link to="/southamerica" className='nav-link'>South America</Link>
+                    </NavDropdown>
+
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/signup" className="nav-link">Sign Up</Link>
                 <Link to="/signin" className="nav-link">Login</Link>
@@ -21,6 +36,7 @@ const Home = () => {
                     <Link to="/northamerica" className="nav-link">North America</Link>
                     <Link to="/southamerica" className="nav-link">South America</Link>
                 </NavDropdown>
+> <dev>
                 </Nav>
             </Navbar>
             <Stack>
