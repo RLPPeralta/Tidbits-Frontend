@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Spinner } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 
 const RecipePage = () => {
@@ -9,12 +9,12 @@ const RecipePage = () => {
     let navigate = useNavigate()
   
     let { getRecipe, deleteRecipe } = useContext(RecipeContext)
-    let [ recipe, setRecipe ] = useState()
+    let [ oneRecipe, setOneRecipe ] = useState()
 
     useEffect(() => {
       async function fetch() {
         await getRecipe(params.recipeId)
-          .then((recipe) => setRecipe(recipe))
+          .then((recipe) => setOneRecipe(recipe))
       }
       fetch()
     }, [params.recipeId]);
@@ -29,12 +29,12 @@ const RecipePage = () => {
       }
 
     function recipeComponent() {
-        let { recipeId, userId, recipeName, instructions,ingredients, continent, image} = recipe
+        let { recipeId, userId, recipe, instructions,ingredients, continent, image} = oneRecipe
         return (
         <div>
             <img src={image}></img>
 
-              <h1>{recipeName}</h1><br></br>
+              <h1>{recipe}</h1><br></br>
               <h2>from {continent}</h2>
 
               <h3>Instructions</h3>
@@ -43,15 +43,14 @@ const RecipePage = () => {
               <h3>Ingredients</h3>
               <p>{ingredients}</p><br></br>
 
-              <Button to={`/recipe/:recipeId/edit`} className="btn btn-primary mx-3">Edit this Recipe</Button>
-              <Button variant="danger" onClick={handleDeleteRecipe.bind(this, recipeId)}>Delete</Button>
-              <Button variant="success" onClick={() => navigate('/')}>Go Back</Button>
-
+              <Link to={`/recipe/:recipeId/edit`} className="btn btn-primary mx-3">Edit this Recipe</Link>
+              <Button className="btn btn-primary mx-3" variant="danger" onClick={handleDeleteRecipe.bind(this, recipeId)}>Delete</Button>
+              <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
           </div>
         )
       }
 
-    return  recipe ? recipeComponent() : loading();
+    return  oneRecipe ? recipeComponent() : loading();
 };
 
 export default RecipePage;
