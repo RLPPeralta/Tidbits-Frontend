@@ -16,6 +16,8 @@ import SouthAmerica from './components/SouthAmerica';
 import Antarctica from './components/Antarctica';
 import Europe from './components/Europe';
 import Australia from './components/Australia';
+import EditRecipe from './components/RecipeEditPage';
+
 
 
 function App() {
@@ -32,7 +34,7 @@ function App() {
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe' elemet={ <RecipePage /> }/>
             <Route path='/recipe/:recipeId' elemet={ <RecipePage /> }/>
-            <Route path='/recipe/:recipeId/edit' elemet={ <RecipeEditPage /> }/>
+            <Route path='/recipe/:recipeId/edit' elemet={ <EditRecipe /> }/>
             <Route path='/continent' element={ <ContinentPage />}/>
             <Route path='/asia' element={ <Asia />}/>
             <Route path='/africa' element={ <Africa />}/>

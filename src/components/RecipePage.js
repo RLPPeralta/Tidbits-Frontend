@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import RecipeContext from '../contexts/RecipeContext';
 
 const RecipePage = () => {
 
@@ -44,7 +45,7 @@ const RecipePage = () => {
               <p>{ingredients}</p><br></br>
 
               <Button to={`/recipe/:recipeId/edit`} className="btn btn-primary mx-3">Edit this Recipe</Button>
-              <Button variant="danger" onClick={handleDeleteRecipe.bind(this, id)}>Delete</Button>
+              <Button variant="danger" onClick={handleDeleteRecipe.bind(this, recipeId)}>Delete</Button>
               <Button variant="link" onClick={() => navigate('/')}>Go Back</Button>
 
           </div>
