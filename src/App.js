@@ -34,7 +34,7 @@ function App() {
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             {/* <Route path='/recipe' element={ <RecipePage /> }/> */}
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
-            <Route path='/recipe/:recipeId/edit' element={ <EditRecipe /> }/>
+            <Route path='/recipe/:id/edit' element={ <EditRecipe /> }/>
             <Route path='/continent' element={ <ContinentPage />}/>
             <Route path='/asia' element={ <Asia />}/>
             <Route path='/africa' element={ <Africa />}/>
