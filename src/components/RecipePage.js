@@ -10,7 +10,7 @@ const RecipePage = () => {
   
     let { getRecipe, deleteRecipe } = useContext(RecipeContext)
     let [ recipe, setRecipe ] = useState()
-  
+
     useEffect(() => {
       async function fetch() {
         await getRecipe(params.recipeId)
@@ -29,14 +29,13 @@ const RecipePage = () => {
       }
 
     function recipeComponent() {
-        console.log(recipe);
-        let { recipeId, userId, recipe, instructions,ingredients, continent, image} = recipe
+        let { recipeId, userId, recipeName, instructions,ingredients, continent, image} = recipe
         return (
-        <div style="center">
+        <div>
             <img src={image}></img>
 
-              <h1>{recipe}</h1><br></br>
-              <h2>Continent : {continent}</h2>
+              <h1>{recipeName}</h1><br></br>
+              <h2>from {continent}</h2>
 
               <h3>Instructions</h3>
               <p>{instructions}</p><br></br>
@@ -46,7 +45,7 @@ const RecipePage = () => {
 
               <Button to={`/recipe/:recipeId/edit`} className="btn btn-primary mx-3">Edit this Recipe</Button>
               <Button variant="danger" onClick={handleDeleteRecipe.bind(this, recipeId)}>Delete</Button>
-              <Button variant="link" onClick={() => navigate('/')}>Go Back</Button>
+              <Button variant="success" onClick={() => navigate('/')}>Go Back</Button>
 
           </div>
         )
