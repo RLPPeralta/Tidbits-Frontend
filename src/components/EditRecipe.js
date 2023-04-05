@@ -8,7 +8,7 @@ const EditRecipe = () => {
     let params = useParams()
 
     let [ editARecipe, setEditARecipe ] = useState({
-        id: params.id,
+        recipeId: params.recipeId,
         recipe: "",
         instructions: "",
         ingredients: "",
@@ -19,16 +19,16 @@ const EditRecipe = () => {
 
     let { getRecipe, addRecipe, editRecipe} = useContext(RecipeContext)
     let navigate = useNavigate()
-    let { id,recipe,instructions,ingredients,continent,image} = editARecipe
+    let { recipeId,recipe,instructions,ingredients,continent,image} = editARecipe
   
     useEffect(() => {
-      if (id === undefined) return
+      if (recipeId === undefined) return
       async function fetch() {
-        await getRecipe(id)
+        await getRecipe(recipeId)
           .then((editARecipe) => setEditARecipe(editARecipe))
       }
       fetch()
-    }, [id]) 
+    }, [recipeId]) 
   
     function handleChange(event) {
       setEditARecipe((preValue) => {
@@ -36,7 +36,7 @@ const EditRecipe = () => {
     }
   
     function addOrUpdate() {
-      if (id === undefined) {
+      if (recipeId === undefined) {
         return addRecipe(editARecipe)
       } else {
         return editRecipe(editARecipe)
@@ -47,7 +47,7 @@ const EditRecipe = () => {
       event.preventDefault()
       addOrUpdate().then((editARecipe) =>{
           window.alert('Update successful!');
-          navigate(`/recipe/:recipeId`)
+          navigate(`/profile`)
       }).catch(error => {
           console.log(error)
           navigate(`/signin`)
