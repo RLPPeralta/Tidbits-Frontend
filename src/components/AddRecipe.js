@@ -62,31 +62,8 @@ const AddRecipe = () => {
                 <Form.Label>Upload Photo</Form.Label>
                 <Form.Control type="text" name="image" placeholder="Type an image URL" value={newRecipe.image} onChange={handleChange} />
             </Form.Group>
-            {/* <Form.Group controlId="formFileSm" className="mb-3">
-                <Form.Label>Upload Photo</Form.Label>
-                <Form.Control type="file" size="sm" name="image" value={newRecipe.image} onChange={handleChange} />
-            </Form.Group> */}
             <Button type="submit">Add New Recipe</Button>
         </Form>
-        // <form onSubmit={handleSubmit}>
-        //     <h1>NEW RECIPE</h1>
-        //     <span>Recipe Name  </span>
-        //     <input type="text" name="recipe" value={newRecipe.recipe} onChange={handleChange} />
-        //     <br></br><br></br>
-        //     <span>Instructions  </span>
-        //     <input type="text" name="instructions" value={newRecipe.instructions} onChange={handleChange} />
-        //     <br></br><br></br>
-        //     <span>Ingredients  </span>
-        //     <input type="text" name="ingredients" value={newRecipe.ingredients} onChange={handleChange} />
-        //     <br></br><br></br>
-        //     <span>Continent  </span>
-        //     <input type="text" name="continent" value={newRecipe.continent} onChange={handleChange} />
-        //     <br></br><br></br>
-        //     <span>Photo  </span>
-        //     <input type="text" name="image" value={newRecipe.image} onChange={handleChange} />
-        //     <br></br><br></br>
-        //     <button>Add New Recipe</button>
-        // </form>
     )
 };
 

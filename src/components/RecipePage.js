@@ -19,8 +19,8 @@ const RecipePage = () => {
       fetch()
     }, [params.recipeId]);
   
-    function handleDeleteRecipe(id) {
-      deleteRecipe(id)
+    function handleDeleteRecipe(recipeId) {
+      deleteRecipe(recipeId)
       navigate('/')
     }
 
@@ -29,10 +29,10 @@ const RecipePage = () => {
       }
 
     function recipeComponent() {
-        let { recipeId, userId, recipe, instructions,ingredients, continent, image} = oneRecipe
+        let { recipeId, recipe, instructions,ingredients, continent, image} = oneRecipe
         return (
         <div>
-            <img src={image}></img>
+            <img alt='' src={image}></img>
 
               <h1>{recipe}</h1><br></br>
               <h2>from {continent}</h2>
@@ -43,13 +43,12 @@ const RecipePage = () => {
               <h3>Ingredients</h3>
               <p>{ingredients}</p><br></br>
 
-              <Link to={`/recipe/:recipeId/edit`} className="btn btn-primary mx-3">Edit this Recipe</Link>
+              <Link to={`/edit/${recipeId}`} className="btn btn-primary mx-3">Edit this Recipe</Link>
               <Button className="btn btn-primary mx-3" variant="danger" onClick={handleDeleteRecipe.bind(this, recipeId)}>Delete</Button>
               <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
           </div>
         )
       }
-
     return  oneRecipe ? recipeComponent() : loading();
 };
 

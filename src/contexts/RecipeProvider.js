@@ -18,8 +18,8 @@ export const RecipeProvider = (props) => {
         return axios.get(baseUrl).then(response => setRecipe(response.data));
     }
 
-    function getRecipe(id) {
-        return axios.get(baseUrl + id).then(response => {
+    function getRecipe(recipeId) {
+        return axios.get(baseUrl + recipeId).then(response => {
             return new Promise (resolve => resolve(response.data));
         });
     }
@@ -44,7 +44,7 @@ export const RecipeProvider = (props) => {
             Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
         };
     
-        return axios.put(baseUrl + recipe.id, recipe, { headers: myHeaders })
+        return axios.put(baseUrl + recipe.recipeId, recipe, { headers: myHeaders })
             .then(response => {
                 getAllRecipes();
                 return new Promise(resolve => resolve(response.data));
@@ -52,12 +52,12 @@ export const RecipeProvider = (props) => {
         );
     }
 
-    function deleteRecipe(id) {
+    function deleteRecipe(recipeId) {
         let myHeaders = {
             Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
         };
 
-        return axios.delete(baseUrl + id,{ headers: myHeaders }).then(response => {
+        return axios.delete(baseUrl + recipeId,{ headers: myHeaders }).then(response => {
             getAllRecipes();
             return new Promise (resolve => resolve(response.data));
         });
