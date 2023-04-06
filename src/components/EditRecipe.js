@@ -9,6 +9,7 @@ const EditRecipe = () => {
 
     let [ editARecipe, setEditARecipe ] = useState({
         recipeId: params.recipeId,
+        userId: params.userId,
         recipe: "",
         instructions: "",
         ingredients: "",
@@ -19,7 +20,7 @@ const EditRecipe = () => {
 
     let { getRecipe, addRecipe, editRecipe} = useContext(RecipeContext)
     let navigate = useNavigate()
-    let { recipeId,recipe,instructions,ingredients,continent,image} = editARecipe
+    let { recipeId,userId,recipe,instructions,ingredients,continent,image} = editARecipe
   
     useEffect(() => {
       if (recipeId === undefined) return
@@ -47,7 +48,7 @@ const EditRecipe = () => {
       event.preventDefault()
       addOrUpdate().then((editARecipe) =>{
           window.alert('Update successful!');
-          navigate(`/profile`)
+          navigate(`/profile/${userId}`)
       }).catch(error => {
           console.log(error)
           navigate(`/signin`)

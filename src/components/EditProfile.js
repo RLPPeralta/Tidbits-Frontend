@@ -51,7 +51,7 @@ const EditProfile = () => {
         event.preventDefault()
         addOrUpdate().then((user) =>{
             window.alert('Update successful!');
-            navigate(`/profile`)
+            navigate(`/profile/${userId}`)
         }).catch(error => {
             console.log(error)
             navigate(`/signin`)

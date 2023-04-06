@@ -29,8 +29,8 @@ function App() {
             <Route index element={<Welcome />} />
             <Route path="/signin" element={ <SignIn /> } />
             <Route path="/signup" element={ <SignUp /> } />
-            <Route path="/profile" element={ <Profile /> } />
-            <Route path="/profile/:id" element={ <EditProfile /> } />
+            <Route path="/profile/:userId" element={ <Profile /> } />
+            <Route path="/editprofile/:userId" element={ <EditProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             {/* <Route path='/recipe' element={ <RecipePage /> }/> */}
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
