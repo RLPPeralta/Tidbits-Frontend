@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
+import { Button, Form } from 'react-bootstrap';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -25,31 +26,40 @@ const SignUp = () => {
         });
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <h1>Create your account</h1>
-            <br></br><br></br>
-            <span>Email  </span>
-            <input placeholder="Enter Email" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
-            <br></br><br></br>
-            <span>Password  </span>
-            <input placeholder="Enter Password" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-            <br /><br></br>
-            <span>First Name  </span>
-            <input placeholder="Enter First Name" type="text" name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} />
-            <br></br><br></br>
-            <span>Last Name  </span>
-            <input placeholder="Enter Last Name" type="text" name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} />
-            <br></br><br></br>
-            <span>Bio  </span>
-            <input placeholder="Enter Bio" type="text" name="bio" value={bio} onChange={e => setBio(e.target.value)} />
-            <br></br><br></br>
-            <span>Continent  </span>
-            <input placeholder="Enter Continent" type="text" name="continent" value={continent} onChange={e => setContinent(e.target.value)} />
-            <br></br><br></br>
-            <button>Sign Up</button>
-        </form>
-        </div>
+
+        <Form onSubmit={handleSubmit}>
+        <Form.Label> SIGN UP </Form.Label>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" name="email" onChange={e => setEmail(e.target.value)}/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" name="password" onChange={e => setPassword(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control placeholder="Enter First Name" type="text" name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control placeholder="Enter Last Name" type="text" name="lastName" value={lastName} onChange={e => setLastName(e.target.value)}/>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Bio</Form.Label>
+                <Form.Control placeholder="Enter Bio" type="text" name="bio" value={bio} onChange={e => setBio(e.target.value)}/>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Continent</Form.Label>
+                <Form.Control placeholder="Enter Continent" type="text" name="continent" value={continent} onChange={e => setContinent(e.target.value)}/>
+            </Form.Group>
+        <Button variant="primary" type="submit">Submit</Button>
+    </Form> 
 
     )
 };
