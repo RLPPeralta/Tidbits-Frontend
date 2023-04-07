@@ -54,10 +54,16 @@ const SignUp = () => {
                 <Form.Control placeholder="Enter Bio" type="text" name="bio" value={bio} onChange={e => setBio(e.target.value)}/>
             </Form.Group>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Continent</Form.Label>
-                <Form.Control placeholder="Enter Continent" type="text" name="continent" value={continent} onChange={e => setContinent(e.target.value)}/>
-            </Form.Group>
+            <Form.Control as="select" type="text" name="continent" value={continent} onChange={e => setContinent(e.target.value)}>
+                <option>Select Continent</option>
+                <option value="Africa">Africa</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Asia">Asia</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+            </Form.Control>
         <Button variant="primary" type="submit">Submit</Button>
     </Form> 
 
