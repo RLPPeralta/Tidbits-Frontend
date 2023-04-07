@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
+import UserContext from '../contexts/UserContext';
 
 const AddRecipe = () => {
 
@@ -15,7 +16,7 @@ const AddRecipe = () => {
         image: "",
         createdAt: Date
     });
-
+    
     let { addRecipe } = useContext(RecipeContext);
     let navigate = useNavigate();
     let { userId, recipe, instructions, ingredients, continent, image} = newRecipe;
@@ -28,13 +29,14 @@ const AddRecipe = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        addRecipe(newRecipe).then(() => {
+            addRecipe(newRecipe).then(() => {
+            console.log(userId);
             navigate(`/profile/${userId}`);
         }).catch(error => {
             console.log(error);
             navigate('/signin');
         });
-    }
+        };
 
     return (
         <Form onSubmit={handleSubmit}>

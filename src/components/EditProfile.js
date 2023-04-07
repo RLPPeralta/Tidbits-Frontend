@@ -18,13 +18,6 @@ const EditProfile = () => {
     let { getUser, createUser, editUser } = useContext(UserContext)
     let navigate = useNavigate()
     let { userId,email, password, firstName, lastName, bio, continent} = user
-    // let userId = user.userId;
-    // let email = user.email;
-    // let password = user.password;
-    // let firstName=user.firstName;
-    // let lastName=user.lastName;
-    // let bio = user.bio;
-    // let continent=user.continent;
 
     useEffect(() => {
         if (userId === undefined) return
@@ -81,10 +74,16 @@ const EditProfile = () => {
                 <Form.Label>Bio</Form.Label>
                 <Form.Control type="text" name="bio" value={bio} onChange={handleChange} />
             </Form.Group>
-            <Form.Group className="mb-3" >
-                <Form.Label>Continent</Form.Label>
-                <Form.Control type="text" name="continent" value={continent} onChange={handleChange} />
-            </Form.Group> 
+            <Form.Control as="select" type="text" name="continent" value={continent} onChange={handleChange}>
+                <option>Select Continent</option>
+                <option value="Africa">Africa</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Asia">Asia</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+            </Form.Control>
             
         <Button type="submit">Save</Button>
         </Form>
