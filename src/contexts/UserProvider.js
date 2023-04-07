@@ -59,13 +59,37 @@ export const UserProvider = (props) => {
         );
     }
 
+    // function getCurrentUser(email, userId, firstName, lastName, bio, continent){
+    //     let user = {email, userId, firstName, lastName, bio, continent};
+        
+    //     let myHeaders = {
+    //         Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
+    //     };
+
+    //     return axios.get(baseUrl + userId, user, { headers: myHeaders } ).then(response => {
+    //         return new Promise(resolve => resolve(response.data))
+    //     })
+    // }
+
+    function getCurrentUser(userId) {
+        let myHeaders = {
+                    Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
+                };
+
+        return axios.get(baseUrl + userId, { headers: myHeaders }).then(response => {
+            return new Promise(resolve => resolve(response.data)     
+            )
+        });
+    }  
+
     return (
         <UserContext.Provider value={{
             user,
             createUser,
             signInUser,
             getUser,
-            editUser
+            editUser, 
+            getCurrentUser
         }}>
             { props.children }
         </UserContext.Provider>

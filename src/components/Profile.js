@@ -8,12 +8,12 @@ const Profile = () => {
     let params = useParams()
     let navigate = useNavigate()
   
-    let { getUser, editUser } = useContext(UserContext)
+    let { getCurrentUser, editUser } = useContext(UserContext)
     let [ userProfile, setUserProfile ] = useState()
 
     useEffect(() => {
       async function fetch() {
-        await getUser(params.userId)
+        await getCurrentUser(params.userId)
           .then((user) => setUserProfile(user))
       }
       fetch()
@@ -28,7 +28,7 @@ const Profile = () => {
         return (
         <div>
 
-              <h1>Welcome back, {firstName}</h1><br></br>
+              <h1>Welcome back, {firstName} {lastName}</h1><br></br>
               <p>Bio: {bio}</p>
               <p>Continent: {continent}</p><br></br>
 
