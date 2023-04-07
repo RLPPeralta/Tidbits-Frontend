@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import { Button, Form } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const SignIn = () => {
     function handleSubmit(event) {
         event.preventDefault();
         signInUser(email, password).then(() => {
-            navigate('/profile');
+            navigate(`/profile/` );
         }).catch(error => {
             console.log(error);
             window.alert('Failed login');
