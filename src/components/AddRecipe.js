@@ -20,6 +20,7 @@ const AddRecipe = () => {
     let { addRecipe } = useContext(RecipeContext);
     let navigate = useNavigate();
     let { userId, recipe, instructions, ingredients, continent, image} = newRecipe;
+    const id = localStorage.getItem('userId'); 
 
     function handleChange(event) {
         setNewRecipe((prevValue) => {
@@ -31,7 +32,7 @@ const AddRecipe = () => {
         event.preventDefault();
             addRecipe(newRecipe).then(() => {
             console.log(userId);
-            navigate(`/profile/${userId}`);
+            navigate(`/profile/${id}`);
         }).catch(error => {
             console.log(error);
             navigate('/signin');

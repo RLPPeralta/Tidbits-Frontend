@@ -41,6 +41,9 @@ export const UserProvider = (props) => {
         return axios.post(`${baseUrl}login`, user)
             .then(response => {
                 localStorage.setItem('myRecipeToken', response.data.token)
+                localStorage.setItem('email', email)
+                localStorage.setItem('user', response.data.user.firstName)
+                localStorage.setItem('userId', response.data.user.userId)
                 return new Promise(resolve => resolve(response.data));
             }
         );

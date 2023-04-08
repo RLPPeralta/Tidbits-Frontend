@@ -74,7 +74,7 @@ export const RecipeProvider = (props) => {
             recipe,
             getAllRecipes,
             getRecipe,
-            getRecipeNorthAmerica,
+            // getRecipeNorthAmerica,
             addRecipe,
             editRecipe,
             deleteRecipe
