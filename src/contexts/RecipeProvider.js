@@ -24,6 +24,12 @@ export const RecipeProvider = (props) => {
         });
     }
 
+    // function getRecipeNorthAmerica(continent) {
+    //     return axios.get(baseUrl + continent).then(response => {
+    //         return new Promise (resolve => resolve(response.data));
+    //     });
+    // }
+
     function addRecipe(recipe) {
         console.log('addRecipe()')        
         let myHeaders = {
@@ -68,6 +74,7 @@ export const RecipeProvider = (props) => {
             recipe,
             getAllRecipes,
             getRecipe,
+            getRecipeNorthAmerica,
             addRecipe,
             editRecipe,
             deleteRecipe
