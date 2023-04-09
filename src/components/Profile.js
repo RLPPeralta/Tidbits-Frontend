@@ -32,7 +32,7 @@ const Profile = () => {
             return (
                     <div>
 
-                    <h1>Welcome back, {firstName} {lastName}</h1><br></br>
+                    <h1>{firstName} {lastName}</h1><br></br>
                     <p>Bio: {bio}</p>
                     <p>Continent: {continent}</p><br></br>
 
