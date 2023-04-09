@@ -10,11 +10,12 @@ const SignIn = () => {
 
     let { signInUser } = useContext(UserContext);
     let navigate = useNavigate();
+    const id = localStorage.getItem('userId');
 
     function handleSubmit(event) {
         event.preventDefault();
         signInUser(email, password).then(() => {
-            navigate(`/profile/` );
+            navigate(`/profile/${id}` );
         }).catch(error => {
             console.log(error);
             window.alert('Failed login');
