@@ -8,8 +8,10 @@ const Profile = () => {
     let params = useParams()
     let navigate = useNavigate()
   
-    let { getCurrentUser, editUser } = useContext(UserContext)
+    let { getCurrentUser } = useContext(UserContext)
     let [ userProfile, setUserProfile ] = useState()
+
+    let token = localStorage.getItem('myRecipeToken')
 
     useEffect(() => {
       async function fetch() {
@@ -24,20 +26,38 @@ const Profile = () => {
       }
 
     function profileComponent() {
-        let { firstName, lastName, email, bio, continent, userId} = userProfile
-        return (
-        <div>
+        let { firstName, lastName, bio, continent, userId } = userProfile
 
-              <h1>Welcome back, {firstName} {lastName}</h1><br></br>
-              <p>Bio: {bio}</p>
-              <p>Continent: {continent}</p><br></br>
+        if(token) { 
+            return (
+                    <div>
 
-              <Link to={`/editprofile/${userId}`} className="btn btn-primary mx-3">Edit My Profile</Link>
-              <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
+                    <h1>Welcome back, {firstName} {lastName}</h1><br></br>
+                    <p>Bio: {bio}</p>
+                    <p>Continent: {continent}</p><br></br>
 
-              <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
-          </div>
-        )
+                    <Link to={`/editprofile/${userId}`} className="btn btn-primary mx-3">Edit My Profile</Link>
+                    <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
+
+                    <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+                </div>
+              )
+            }
+        
+        else { 
+            return (
+                <div>
+
+                    <h1>{firstName} {lastName}</h1><br></br>
+                    <p>Bio: {bio}</p>
+                    <p>Continent: {continent}</p><br></br>
+
+                    <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+                </div>
+                )
+
+        }
+       
       }
     return  userProfile ? profileComponent() : loading();
 };
