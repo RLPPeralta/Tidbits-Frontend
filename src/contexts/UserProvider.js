@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import UserContext from "./UserContext";
 
 export const UserProvider = (props) => {
@@ -49,14 +50,15 @@ export const UserProvider = (props) => {
         );
     } 
 
-    function editUser(user) {
+    async function editUser(user) {
+
         let myHeaders = {
             Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
         };
 
         return axios.put(baseUrl + user.userId, user, { headers: myHeaders })
             .then(response => {
-                getAllUsers();
+                setUser()
                 return new Promise(resolve => resolve(response.data));
             }
         );

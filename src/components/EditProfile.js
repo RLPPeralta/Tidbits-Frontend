@@ -15,14 +15,14 @@ const EditProfile = () => {
         continent: ""
       })
 
-    let { getUser, createUser, editUser } = useContext(UserContext)
+    let { getUser, createUser, editUser, getCurrentUser } = useContext(UserContext)
     let navigate = useNavigate()
     let { userId,email, password, firstName, lastName, bio, continent} = user
 
     useEffect(() => {
         if (userId === undefined) return
         async function fetch() {
-          await getUser(userId)
+          await getCurrentUser(userId)
             .then((user) => setUser(user))
         }
         fetch()
@@ -46,6 +46,7 @@ const EditProfile = () => {
             window.alert('Update successful!');
             navigate(`/profile/${userId}`)
         }).catch(error => {
+          window.alert('Error occured while updating!');
             console.log(error)
             navigate(`/signin`)
         })}
