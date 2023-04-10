@@ -46,7 +46,7 @@ const EditProfile = () => {
             window.alert('Update successful!');
             navigate(`/profile/${userId}`)
         }).catch(error => {
-          window.alert('Error occured while updating!');
+          window.alert('Error occurred while updating!');
             console.log(error)
             navigate(`/signin`)
         })}
