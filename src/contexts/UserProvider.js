@@ -18,6 +18,17 @@ export const UserProvider = (props) => {
     function getAllUsers() {
         return axios.get(baseUrl).then(response => setUser(response.data));
     } 
+
+    function getCurrentUser(userId) {
+        let myHeaders = {
+                    Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
+                };
+
+        return axios.get(baseUrl + userId, { headers: myHeaders }).then(response => {
+            return new Promise(resolve => resolve(response.data)     
+            )
+        });
+    }  
     
     function getUser(userId) {
         return axios.get(baseUrl + userId).then(response => {
@@ -63,29 +74,6 @@ export const UserProvider = (props) => {
             }
         );
     }
-
-    // function getCurrentUser(email, userId, firstName, lastName, bio, continent){
-    //     let user = {email, userId, firstName, lastName, bio, continent};
-        
-    //     let myHeaders = {
-    //         Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
-    //     };
-
-    //     return axios.get(baseUrl + userId, user, { headers: myHeaders } ).then(response => {
-    //         return new Promise(resolve => resolve(response.data))
-    //     })
-    // }
-
-    function getCurrentUser(userId) {
-        let myHeaders = {
-                    Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
-                };
-
-        return axios.get(baseUrl + userId, { headers: myHeaders }).then(response => {
-            return new Promise(resolve => resolve(response.data)     
-            )
-        });
-    }  
 
     return (
         <UserContext.Provider value={{

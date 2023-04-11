@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import { Button, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
