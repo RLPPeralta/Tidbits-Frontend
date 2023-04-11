@@ -4,11 +4,13 @@ import { Outlet, useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdOutlineLogin } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
+import homelogo from "../homelogo.png";
+import { Container } from 'react-bootstrap';
 
 
 const Home = () => {
 
-    const params = useParams();
+    // const params = useParams();
     let navigate = useNavigate();
         const id = localStorage.getItem('userId');
         const user = localStorage.getItem('user');
@@ -39,6 +41,15 @@ const Home = () => {
     return (
         <div>
             <Navbar >
+            <Container>
+            <Navbar.Brand href="/">
+            <img
+              className="navbarBrand"
+              src={homelogo}
+              height={65}
+              alt="logo"
+            />
+          </Navbar.Brand>
                 <Nav >
                     {authLink()}<Link to="/" className='nav-link'>Home</Link>
                     <NavDropdown title="Select Continent" id="basic-nav-dropdown">
@@ -51,6 +62,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
+                </Container>
             </Navbar>
             <Stack>
                 <Outlet />
