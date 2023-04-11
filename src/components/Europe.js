@@ -29,7 +29,14 @@ function getRecipes(recipe){
 }
     return (
         <div> 
-            
+            <Image width="450" height="435" class="northAmericaImage" src="North60.png" alt="northAmericaImage" ></Image>
+            <Image width="450" height="435" class="AfricaImage" src="Africa60.png" alt="AfricaImage" ></Image>
+            <Image width="450" height="435" class="SouthAmericaImage" src="South60.png" alt="SouthAmericaImage" ></Image>
+            <Image width="450" height="435" class="AsiaImage" src="Asia60.png" alt="AsiaImage" ></Image>
+            <Image width="450" height="435" class="EuropeImage" src="Europe60.png" alt="EuropeImage" ></Image>
+            <Image width="450" height="435" class="AustraliaImage" src="Australia60.png" alt="AustraliaImage" ></Image>
+            <Image width="450" height="435" class="AntarcticaImage" src="Antarctica60.png" alt="AntarcticaImage" ></Image>
+
             <Stack>
                 <Row xs={1} md={5} className="g-4">
                     <RecipeContext.Consumer>
