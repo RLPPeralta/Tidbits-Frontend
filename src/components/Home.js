@@ -4,7 +4,7 @@ import { Outlet, useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdOutlineLogin } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
-import homelogo from "../homelogo.png";
+import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
 
 
@@ -45,7 +45,7 @@ const Home = () => {
             <Navbar.Brand href="/">
             <img
               className="navbarBrand"
-              src={homelogo}
+              src={logohome}
               height={65}
               alt="logo"
             />
