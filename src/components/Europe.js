@@ -1,54 +1,86 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Image, Row, Stack } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Alert, Button, Card, Col, Image, Modal, Row, Stack } from 'react-bootstrap';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
+import Europe60 from '../Europe60.png'
+import styles from '../css/Continents.css'
 
 
 const Europe = () => {
 
     let navigate = useNavigate()
-
+    const token = localStorage.getItem('myRecipeToken')
     let { getAllRecipes, deleteRecipe } = useContext(RecipeContext)
+    
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
 
 function getRecipes(recipe){
     if (recipe === null) return
-    return recipe.map((recipes) => {
+    if (token){
+        return recipe.map((recipes) => {
         if(recipes.continent === "Europe"){
             return(
-                <Card key={recipes.id}>
-                <Card.Body key={recipes.id}>
-                    <Card.Img variant="top" src={recipes.image}/>
+                <Card key={recipes.recipeId} className='card'>
+                <Card.Body key={recipes.recipeId}>
+                    <Card.Img className='cardImage'variant="top" src={recipes.image}/>
                     <Card.Title>{recipes.recipe} from {recipes.continent}</Card.Title>
-                    <Card.Subtitle><strong>Ingredients:</strong> {recipes.ingredients} </Card.Subtitle>
-                    <Card.Subtitle><strong>Instructions:</strong> {recipes.instructions} </Card.Subtitle>
+                    <Link to={`/recipe/${recipes.recipeId}`} className='nav-link'>View Recipe</Link>
                 </Card.Body>
             </Card>)
             }}
-        )
-    
-}
-    return (
-        <div> 
-            <Image width="450" height="435" class="northAmericaImage" src="North60.png" alt="northAmericaImage" ></Image>
-            <Image width="450" height="435" class="AfricaImage" src="Africa60.png" alt="AfricaImage" ></Image>
-            <Image width="450" height="435" class="SouthAmericaImage" src="South60.png" alt="SouthAmericaImage" ></Image>
-            <Image width="450" height="435" class="AsiaImage" src="Asia60.png" alt="AsiaImage" ></Image>
-            <Image width="450" height="435" class="EuropeImage" src="Europe60.png" alt="EuropeImage" ></Image>
-            <Image width="450" height="435" class="AustraliaImage" src="Australia60.png" alt="AustraliaImage" ></Image>
-            <Image width="450" height="435" class="AntarcticaImage" src="Antarctica60.png" alt="AntarcticaImage" ></Image>
+        )} else {
+            return recipe.map((recipes) => {
+                if(recipes.continent === "Europe"){
+                    return(
+                        <Card key={recipes.recipeId} className='card'>
+                        <Card.Body className='card-body' key={recipes.recipeId}>
+                            <Card.Img className='cardImage'variant="top" src={recipes.image}/>
+                            <Card.Title>{recipes.recipe} from {recipes.continent}</Card.Title>
+                            <Button variant="outline" onClick={handleShow}>View Recipe</Button>
+                                <Modal show={show} onHide={handleClose} animation={false}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title >Please Login</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>You must be logged in to view this recipe. If you don't have an account, please sign up. We would love to have you!</Modal.Body>
+                                <Modal.Footer>
+                                    <Link to="/signin" className='nav-link'>Login</Link>
+                                    <Link to="/signup" className='nav-link'>Sign Up</Link>
+                                    <Button variant="outline" onClick={handleClose}>
+                                    Close
+                                    </Button>
+                                </Modal.Footer>
+                                </Modal>
+                        </Card.Body>
+                    </Card>)
+                    }}
+        )}
+    }
 
-            <Stack>
-                <Row xs={1} md={5} className="g-4">
+    return (
+        <div className='page'> 
+            
+                <Row>
+            <div className='continent-area'>
+                <img width="400" height="350" class="img" src={Europe60} alt="EuropeImage" />
+                <h1 class='text-on-image'>Europe</h1>
+            </div></Row>
+            <div className='lower-page'>
+                <Row xs={2} md={5} className="g-4">
                     <RecipeContext.Consumer>
                         {({recipe}) => (
                             getRecipes(recipe)
                             )}
                     </RecipeContext.Consumer>
                 </Row>
-            </Stack>
+            </div>
         </div>
 
     )
 };
+
 
 export default Europe;
