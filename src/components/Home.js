@@ -37,6 +37,11 @@ const Home = () => {
         }
     }
 
+    function handleSearch(e) {
+        if ( e.target.value === "") return;
+        navigate("/search/" + e.target.value)
+    }
+
     return (
         <div>
             <Navbar className='navbar' >
@@ -61,6 +66,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
+                <input onChange={handleSearch}/>
                 </Container>
             </Navbar>
             <Stack>
