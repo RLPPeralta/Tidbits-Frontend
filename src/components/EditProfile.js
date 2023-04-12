@@ -21,11 +21,11 @@ const EditProfile = () => {
 
     useEffect(() => {
         if (userId === undefined) return
-        async function fetch() {
+        async function fetchData() {
           await getCurrentUser(userId)
             .then((user) => setUser(user))
         }
-        fetch()
+        fetchData()
       }, [userId]) 
     
       function handleChange(event) {
@@ -33,11 +33,11 @@ const EditProfile = () => {
           return { ...preValue, [event.target.name]: event.target.value }})
       }
     
-      function addOrUpdate() {
-        if (userId === undefined) {
-          return createUser(user)
+     async function addOrUpdate() {
+         if (userId === undefined) {
+          return await createUser(user)
         } else {
-          return editUser(user)
+          return await editUser(user)
         }} 
     
       function handleSubmit(event) {
