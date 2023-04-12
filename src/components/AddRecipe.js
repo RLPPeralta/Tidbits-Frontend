@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
-import UserContext from '../contexts/UserContext';
 
 const AddRecipe = () => {
 
@@ -68,7 +67,9 @@ const AddRecipe = () => {
                 <Form.Label>Upload Photo</Form.Label>
                 <Form.Control type="text" name="image" placeholder="Type an image URL" value={image} onChange={handleChange} />
             </Form.Group>
-            <Button type="submit">Add New Recipe</Button>
+            <Button className="btn btn-primary mx-3" type="submit">Add New Recipe</Button>
+            <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+
         </Form>
     )
 };

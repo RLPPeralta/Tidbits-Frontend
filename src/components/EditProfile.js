@@ -87,6 +87,7 @@ const EditProfile = () => {
             </Form.Control>
             
         <Button type="submit">Save</Button>
+        <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
         </Form>
         </div>
 

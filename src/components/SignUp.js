@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import { Button, Form } from 'react-bootstrap';
+import '../css/SignInUp.css'
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -11,8 +12,6 @@ const SignUp = () => {
     const [bio, setBio] = useState("");
     const [continent, setContinent] = useState("");
     
-    
-
     let { createUser } = useContext(UserContext);
     let navigate = useNavigate();
 
@@ -26,31 +25,37 @@ const SignUp = () => {
         });
     }
     return (
+        <div className='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
 
-        <Form onSubmit={handleSubmit}>
-        <Form.Label> SIGN UP </Form.Label>
+        <Form className=" SignForm p-4 p-sm-3" onSubmit={handleSubmit}>
+        <h3 className="formtitle"> Create your account</h3>
+
+            <Form.Group className="mb-3 d-flex justify-content-center">Already have an account?
+                <Link to='/signin'>Sign In</Link>
+            </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                {/* <Form.Label>Email address</Form.Label> */}
                 <Form.Control type="email" placeholder="Enter email" name="email" onChange={e => setEmail(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                {/* <Form.Label>Password</Form.Label> */}
                 <Form.Control type="password" placeholder="Password" name="password" onChange={e => setPassword(e.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>First Name</Form.Label>
+                {/* <Form.Label>First Name</Form.Label> */}
                 <Form.Control placeholder="Enter First Name" type="text" name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Last Name</Form.Label>
+                {/* <Form.Label>Last Name</Form.Label> */}
                 <Form.Control placeholder="Enter Last Name" type="text" name="lastName" value={lastName} onChange={e => setLastName(e.target.value)}/>
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Bio</Form.Label>
+                {/* <Form.Label>Bio</Form.Label> */}
                 <Form.Control placeholder="Enter Bio" type="text" name="bio" value={bio} onChange={e => setBio(e.target.value)}/>
             </Form.Group>
 
@@ -63,10 +68,12 @@ const SignUp = () => {
                 <option value="Europe">Europe</option>
                 <option value="North America">North America</option>
                 <option value="South America">South America</option>
-            </Form.Control>
-        <Button variant="primary" type="submit">Submit</Button>
-    </Form> 
+            </Form.Control> <br></br>
 
+            <div className='d-grid'><Button className="btn btn-info" variant="primary" type="submit">Sign up</Button></div>
+    
+    </Form> 
+</div>
     )
 };
 
