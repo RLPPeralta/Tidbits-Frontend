@@ -19,6 +19,11 @@ const Home = () => {
         navigate('/login')
     }
 
+    function handleSearch(e) {
+        if ( e.target.value === "") return;
+        navigate("/search/" + e.target.value)
+    }
+
     function authLink() {
         if (user === null)
             return (
@@ -37,10 +42,6 @@ const Home = () => {
         }
     }
 
-    function handleSearch(e) {
-        if ( e.target.value === "") return;
-        navigate("/search/" + e.target.value)
-    }
 
     return (
         <div>
