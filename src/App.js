@@ -17,6 +17,7 @@ import Antarctica from './components/Antarctica';
 import Europe from './components/Europe';
 import Australia from './components/Australia';
 import EditRecipe from './components/EditRecipe';
+import Filter from './components/Filter';
 
 
 
@@ -43,6 +44,7 @@ function App() {
             <Route path='/antarctica' element={ <Antarctica />}/>
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
+            <Route path="search/:filter" element={<Filter />} />
           </Route>
         </Routes>
       </BrowserRouter>
