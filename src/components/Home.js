@@ -4,7 +4,7 @@ import { Outlet, useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdOutlineLogin } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
-import homelogo from "../homelogo.png";
+import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
 
 
@@ -38,6 +38,11 @@ const Home = () => {
         }
     }
 
+    function handleSearch(e) {
+        if ( e.target.value === "") return;
+        navigate("/search/" + e.target.value)
+    }
+
     return (
         <div>
             <Navbar >
@@ -45,7 +50,7 @@ const Home = () => {
             <Navbar.Brand href="/">
             <img
               className="navbarBrand"
-              src={homelogo}
+              src={logohome}
               height={65}
               alt="logo"
             />
@@ -62,6 +67,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
+                <input onChange={handleSearch}/>
                 </Container>
             </Navbar>
             <Stack>
