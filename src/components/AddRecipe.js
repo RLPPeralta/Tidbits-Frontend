@@ -6,7 +6,7 @@ import RecipeContext from '../contexts/RecipeContext';
 const AddRecipe = () => {
 
     let params = useParams()
-    let [ newRecipe, setNewRecipe ] = useState({
+    let [newRecipe, setNewRecipe] = useState({
         userId: params.userId,
         recipe: "",
         instructions: "",
@@ -15,11 +15,11 @@ const AddRecipe = () => {
         image: "",
         createdAt: Date
     });
-    
+
     let { addRecipe } = useContext(RecipeContext);
     let navigate = useNavigate();
-    let { userId, recipe, instructions, ingredients, continent, image} = newRecipe;
-    const id = localStorage.getItem('userId'); 
+    let { userId, recipe, instructions, ingredients, continent, image } = newRecipe;
+    const id = localStorage.getItem('userId');
 
     function handleChange(event) {
         setNewRecipe((prevValue) => {
@@ -29,30 +29,30 @@ const AddRecipe = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-            addRecipe(newRecipe).then(() => {
+        addRecipe(newRecipe).then(() => {
             console.log(userId);
             navigate(`/profile/${id}`);
         }).catch(error => {
             console.log(error);
             navigate('/signin');
         });
-        };
+    };
 
     return (
         <Form onSubmit={handleSubmit}>
             <h1>NEW RECIPE</h1>
             <Form.Group >
                 <Form.Label>Recipe Name</Form.Label>
-                <Form.Control type="text" name="recipe" value={recipe} onChange={handleChange}/>
+                <Form.Control type="text" name="recipe" value={recipe} onChange={handleChange} />
             </Form.Group>
             <Form.Group >
                 <Form.Label>Ingredients</Form.Label>
-                <Form.Control type="text" name="ingredients" value={ingredients} onChange={handleChange}/>
+                <Form.Control type="text" as="textarea" name="ingredients" value={ingredients} onChange={handleChange} />
             </Form.Group>
-            <Form.Group >
+            <Form.Group class="form-group" >
                 <Form.Label>Instructions</Form.Label>
-                <Form.Control type="text" name="instructions" value={instructions} onChange={handleChange}/>
-            </Form.Group> 
+                <Form.Control type="text" as="textarea" name="instructions" class="form-control" row="8" value={instructions} onChange={handleChange} />
+            </Form.Group>
             <Form.Control as="select" type="text" name="continent" value={continent} onChange={handleChange}>
                 <option>Select Continent</option>
                 <option value="Africa">Africa</option>
@@ -68,7 +68,7 @@ const AddRecipe = () => {
                 <Form.Control type="text" name="image" placeholder="Type an image URL" value={image} onChange={handleChange} />
             </Form.Group>
             <Button className="btn btn-primary mx-3" type="submit">Add New Recipe</Button>
-            <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+            <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1), window.alert('Changes not saved')]}>Cancel</Button>
 
         </Form>
     )
