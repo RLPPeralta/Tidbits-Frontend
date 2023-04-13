@@ -30,7 +30,7 @@ const SignUp = () => {
         <Form className=" SignForm p-4 p-sm-3" onSubmit={handleSubmit}>
         <h3 className="formtitle"> Create your account</h3>
 
-            <Form.Group className="mb-3 d-flex justify-content-center">Already have an account?
+            <Form.Group className="mb-3 d-flex justify-content-center">Already in Tidbits?
                 <Link to='/signin'>Sign In</Link>
             </Form.Group>
 

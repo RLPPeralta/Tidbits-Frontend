@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 import { Button, Form } from 'react-bootstrap';
+import '../css/editOrAddRecipe.css'
 
 const EditRecipe = () => {
 
@@ -56,20 +57,21 @@ const EditRecipe = () => {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <h1>EDIT RECIPE</h1>
+    <div className='Editpage d-flex justify-content-center align-items-center p-4 p-sm-3'>
+      <Form className=" EditForm p-4 p-sm-3" onSubmit={handleSubmit}>
+            <h1 className="editformtitle">EDIT RECIPE</h1>
             <Form.Group >
                 <Form.Label>Recipe Name</Form.Label>
                 <Form.Control type="text" name="recipe" value={recipe} onChange={handleChange}/>
             </Form.Group>
             <Form.Group >
-                <Form.Label>Ingredients</Form.Label>
-                <Form.Control type="text" name="ingredients" value={ingredients} onChange={handleChange}/>
+                <br></br><Form.Label>Ingredients</Form.Label>
+                <Form.Control type="text" as="textarea" name="ingredients" rows={7} value={ingredients} onChange={handleChange}/>
             </Form.Group>
             <Form.Group >
-                <Form.Label>Instructions</Form.Label>
-                <Form.Control type="text" name="instructions" value={instructions} onChange={handleChange}/>
-            </Form.Group> 
+                <br></br><Form.Label>Instructions</Form.Label>
+                <Form.Control type="text" as="textarea" name="instructions" class="form-control" rows={7} value={instructions} onChange={handleChange}/>
+            </Form.Group><br></br> 
             <Form.Control as="select" type="text" name="continent" value={continent} onChange={handleChange}>
                 <option>Select Continent</option>
                 <option value="Africa">Africa</option>
@@ -81,13 +83,14 @@ const EditRecipe = () => {
                 <option value="South America">South America</option>
             </Form.Control>
             <Form.Group className="mb-3" >
-                <Form.Label>Upload Photo</Form.Label>
+                <br></br><Form.Label>Upload Photo</Form.Label>
                 <Form.Control type="text" name="image" placeholder="Type an image URL" value={image} onChange={handleChange} />
             </Form.Group>
-            <Button className="btn btn-primary mx-3" type="submit">Save changes</Button>
-            <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+            <div className='d-flex justify-content-center'><Button className="btn btn-save mx-3" type="submit">Save changes</Button>
+            <Button className="btn btn-cancel mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+            </div>
         </Form>
-
+      </div>
     )
 };
 
