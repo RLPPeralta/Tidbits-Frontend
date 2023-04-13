@@ -1,0 +1,21 @@
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+.card { 
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.image { 
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+
+}
