@@ -1,0 +1,78 @@
+.Editpage{
+    /* background-color: #fefae0; */
+    background: linear-gradient(
+        to bottom right,
+        #ffffff, #fefae0
+    );
+    font-weight: 500;
+    min-height: 90vh;
+    /* position: absolute; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Editpage2{
+    background: linear-gradient(
+        to bottom right,
+        #dda15e, #bc6c25
+    );
+    font-weight: 500;
+    min-height: 90vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.EditForm {
+    margin-top: 55px;
+    background-color: #dda15e;
+    box-shadow: 15px 15px 15px rgba(40, 54, 24, .6);
+    /* background: linear-gradient(
+      #dda15e, #bc6c25  
+    ); */
+    width: 800px;
+    height:max-content;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* border: 1px solid #f5f4f3; */
+}
+
+.AddForm {
+    margin-top: 55px;
+    background-color: #fefae0;
+    box-shadow: 15px 15px 15px rgba(40, 54, 24, .6);
+    /* background: linear-gradient(
+      #dda15e, #bc6c25  
+    ); */
+    width: 800px;
+    height:max-content;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* border: 1px solid #f5f4f3; */
+}
+
+.btn.btn-save {
+    background-color: #fefae0;
+    color:#283618
+  }
+
+.btn.btn-cancel {
+    background-color: #fefae0;
+    color:#283618
+}
+
+.editformtitle {
+    text-align: center;
+    text-shadow: 2px 4px 3px rgba(83, 108, 56, .5);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: rgb(40, 54, 24);
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+}
+
+/* COLOR PALETTE
+#111d13 | (17, 29, 19)
+#bc6c25 | (188, 108, 37)
+#dda15e | (221, 161, 94)
+#fefae0 | (254, 250, 224)
+#283618 | (40, 54, 24)
+#536c38 | (83, 108, 56) */

@@ -1,5 +1,8 @@
 .page{
-    background-color: #fefae0;
+  background: linear-gradient(
+    to bottom right,
+    #ffffff, #fefae0
+);
     /* padding-top: 100pt; */
     min-height: 90vh;
     /* position: absolute; */
