@@ -12,17 +12,17 @@
 .SignForm {
     margin-top: 55px;
     background-color: #dda15e;
-    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
-    background: linear-gradient(
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .7);
+    /* background: linear-gradient(
       #dda15e, #bc6c25  
-    );
+    ); */
     width: 400px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid #f5f4f3;
 }
 .btn.btn-info {
-    background-color: #dda15e;
+    background-color: #bc6c25;
   }
 
 .formtitle {
@@ -34,6 +34,14 @@
     font-weight: 700;
     font-family: 'DM Serif Display', serif;
 }
+
+/* COLOR PALETTE
+#111d13 | (17, 29, 19)
+#bc6c25 | (188, 108, 37)
+#dda15e | (221, 161, 94)
+#fefae0 | (254, 250, 224)
+#283618 | (40, 54, 24)
+#536c38 | (83, 108, 56) */
 
 /* .title{
     text-transform: uppercase;
