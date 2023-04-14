@@ -18,6 +18,8 @@ import Europe from './components/Europe';
 import Australia from './components/Australia';
 import EditRecipe from './components/EditRecipe';
 import Filter from './components/Filter';
+import PublicProfile from './components/PublicProfile';
+
 
 
 
@@ -32,6 +34,7 @@ function App() {
             <Route path="/signup" element={ <SignUp /> } />
             <Route path="/profile/:userId" element={ <Profile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
+            <Route path="/profilepage/:userId" element={ <PublicProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             {/* <Route path='/recipe' element={ <RecipePage /> }/> */}
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>

@@ -1,0 +1,12 @@
+.details{
+    display: flex;
+    align-self: center;
+    width: 25rem;
+    align-content: center;
+}
+.cardDetails{
+    text-align: center;
+}
+.cardText{
+    text-align: left;
+}
