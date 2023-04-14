@@ -58,7 +58,7 @@ const EditRecipe = () => {
 
     return (
     <div className='Editpage d-flex justify-content-center align-items-center p-4 p-sm-3'>
-      <Form className=" EditForm p-4 p-sm-3" onSubmit={handleSubmit}>
+      <Form className=" AddForm p-4 p-sm-3" onSubmit={handleSubmit}>
             <h1 className="editformtitle">EDIT RECIPE</h1>
             <Form.Group >
                 <Form.Label>Recipe Name</Form.Label>

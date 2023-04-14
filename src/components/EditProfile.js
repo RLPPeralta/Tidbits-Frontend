@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import { Button, Form } from 'react-bootstrap';
+import '../css/editOrAddRecipe.css'
 
 const EditProfile = () => {
     let params = useParams()
@@ -52,9 +53,9 @@ const EditProfile = () => {
         })}
 
     return (
-        <div>
-        <Form onSubmit={handleSubmit}>
-        <h2>Edit your profile </h2>
+    <div className='EditProfilePage d-flex justify-content-center align-items-center p-4 p-sm-3'>
+        <Form className="EditprofileForm p-4 p-sm-3" onSubmit={handleSubmit}>
+        <h2 className="editformtitle">Edit your profile </h2><br></br>
             <Form.Group className="mb-3" >
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" name="email" value={email} onChange={handleChange} />
@@ -84,12 +85,13 @@ const EditProfile = () => {
                 <option value="Europe">Europe</option>
                 <option value="North America">North America</option>
                 <option value="South America">South America</option>
-            </Form.Control>
-            
-        <Button type="submit">Save</Button>
-        <Button className="btn btn-primary mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+            </Form.Control><br></br>
+          <div className='d-flex justify-content-center'>         
+              <Button className="btn btn-save mx-3" type="submit">Save</Button>
+              <Button className="btn btn-cancel mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+          </div>
         </Form>
-        </div>
+      </div>
 
     )
 };
