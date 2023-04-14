@@ -6,7 +6,7 @@ import UserContext from '../contexts/UserContext';
 import styles from '../css/Profile.css'
 
 
-const Profile = (props) => {
+const Profile = () => {
 
     let params = useParams()
     let navigate = useNavigate()
@@ -16,6 +16,8 @@ const Profile = (props) => {
     let [ userProfile, setUserProfile ] = useState()
 
     let token = localStorage.getItem('myRecipeToken')
+    let localUserId = localStorage.getItem('userId')
+
 
     useEffect(() => {
       async function fetch() {
@@ -25,9 +27,6 @@ const Profile = (props) => {
       fetch()
     }, [params.userId, getAllRecipes, getCurrentUser]);
 
-    function loading() {
-        return <div className="w-25 text-center"><Spinner animation="border" /></div>
-      }
 
     function handleDeleteRecipe(recipeId) {
         deleteRecipe(recipeId)
@@ -36,11 +35,11 @@ const Profile = (props) => {
 
     // User Profile Information // 
     function profileComponent() {
-        let { firstName, lastName, bio, continent, userId } = userProfile
-
+      let { firstName, lastName, bio, continent, userId } = userProfile
         if(token) { 
             return (
-                <div>
+                <div className='page'>
+                    <h1>My Recipes</h1>
                     <h2>{firstName} {lastName}</h2><br></br>
                     <p>Bio: {bio}</p>
                     <p>Continent: {continent}</p><br></br>
@@ -54,10 +53,8 @@ const Profile = (props) => {
         else { 
             return (
                 <div>
-                    <h2>{firstName} {lastName}</h2><br></br>
-                    <p>Bio: {bio}</p>
-                    <p>Continent: {continent}</p><br></br>
-                    <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+                    <h2></h2><br></br>
+                    <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/signin')}>SignIn</Button>
                 </div>
                 )
         }
@@ -65,41 +62,47 @@ const Profile = (props) => {
 
     // Map of User Recipes //
     function userRecipes(recipe) { 
-      if (recipe === null) return 
+      if (recipe === null && localUserId === recipe.userId) {
       return recipe.map((r) => 
               <div>
-              <Card style={{ width: '15rem' }} key={r.recipeId} className="card" xs={12} md={8}  >
-                <Card.Img variant="top" src={r.image} className="image"/>
-                <Card.Body>
-                    <Card.Title className="mbsc-card-title"> {r.recipe}</Card.Title>
-                    <Card.Text>{r.instructions}</Card.Text>
-                    <Link className='btn btn-primary'to={`/recipe/${r.recipeId}`}>View</Link>{' '}
-                    <Link className='btn btn-info' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>{' '}
-                    <Button className='btn btn-danger' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Button>{' '}
-                </Card.Body>
-            </Card> 
-        </div>
-        )
+                  <Card style={{ width: '15rem' }} key={r.recipeId} className="card" xs={12} md={8}  >
+                    <Card.Img variant="top" src={r.image} className="image"/>
+                    <Card.Body>
+                        <Card.Title className="mbsc-card-title"> {r.recipe}</Card.Title>
+                        <Card.Text>{r.instructions}</Card.Text>
+                        <Link className='btn btn-primary'to={`/recipe/${r.recipeId}`}>View</Link>{' '}
+                        <Link className='btn btn-info' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>{' '}
+                        <Button className='btn btn-danger' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Button>{' '}
+                    </Card.Body>
+                  </Card> 
+               </div>
+          )
+        }
+        else { 
+          return ( 
+            <div>
+              <h2>Get cookin, you've created no recipes</h2>
+              <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
+            </div>
+          )
+        }
     }
     
     return (
       <>
-          <h1>My Recipes</h1>
-          <div>{profileComponent()}</div>
-          <Stack direction="horizontal" gap={3} >
-              <div className="card-container">
-                  <RecipeContext.Consumer>
-                      {({ recipe }) => (
-                        userRecipes(recipe)
-                      )}
-                  </RecipeContext.Consumer>
-              </div>
-              <Outlet />
-          </Stack>    
+         {profileComponent()}
+            <Stack direction="horizontal" gap={3} >
+                  <div className="card-container">
+                      <RecipeContext.Consumer>
+                          {({ recipe }) => (
+                            userRecipes(recipe)
+                          )}
+                      </RecipeContext.Consumer>
+                  </div>
+                <Outlet />
+            </Stack>    
       </>
   )
-
-    return  userProfile ? profileComponent() : loading() 
 };
 
 export default Profile;

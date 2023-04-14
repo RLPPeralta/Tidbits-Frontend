@@ -1,4 +1,10 @@
-
+.page{
+    background-color: #fefae0;
+    /* padding-top: 100pt; */
+    min-height: 90vh;
+    /* position: absolute; */
+    font-family: 'Montserrat', sans-serif;
+}
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -11,11 +17,13 @@
     align-items: center;
     margin: 10px;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.image { 
+/* .image { 
     height: 300px;
     width: 400px;
     overflow: hidden;
 
-}
+} */
+
