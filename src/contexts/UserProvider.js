@@ -88,3 +88,5 @@ export const UserProvider = (props) => {
         </UserContext.Provider>
     )
 }
+
+export default UserProvider

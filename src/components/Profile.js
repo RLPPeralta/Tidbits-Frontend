@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Spinner, Card, Stack, } from 'react-bootstrap';
 import { Link, useNavigate, useParams, Outlet} from 'react-router-dom';
-import RecipeContext from '../contexts/RecipeContext';
-import UserContext from '../contexts/UserContext';
+import  RecipeContext  from '../contexts/RecipeContext';
+import  UserContext  from '../contexts/UserContext';
 import styles from '../css/Profile.css'
 
 
@@ -13,7 +13,7 @@ const Profile = () => {
   
     let { getCurrentUser } = useContext(UserContext)
     let { getAllRecipes, deleteRecipe } = useContext(RecipeContext)
-    let [ userProfile, setUserProfile ] = useState()
+    let [ userProfile, setUserProfile ] = useState();
 
     let token = localStorage.getItem('myRecipeToken')
     let localUserId = localStorage.getItem('userId')
@@ -33,12 +33,13 @@ const Profile = () => {
         navigate('/')
     }
 
+
     // User Profile Information // 
-    function profileComponent() {
-      let { firstName, lastName, bio, continent, userId } = userProfile
+    function profileComponent(userProfile) {
+      let { firstName, lastName, bio, continent, userId} = userProfile || {};
         if(token) { 
             return (
-                <div className='page'>
+              <div className='page'>
                     <h1>My Recipes</h1>
                     <h2>{firstName} {lastName}</h2><br></br>
                     <p>Bio: {bio}</p>
@@ -60,10 +61,12 @@ const Profile = () => {
         }
       }
 
+
+
     // Map of User Recipes //
-    function userRecipes(recipe) { 
-      if (recipe === null && localUserId === recipe.userId) {
-      return recipe.map((r) => 
+    function userRecipes(recipe) {
+      if (recipe != null) {
+      return recipe?.map((r) => 
               <div>
                   <Card style={{ width: '15rem' }} key={r.recipeId} className="card" xs={12} md={8}  >
                     <Card.Img variant="top" src={r.image} className="image"/>
@@ -87,10 +90,12 @@ const Profile = () => {
           )
         }
     }
+
+
     
     return (
       <>
-         {profileComponent()}
+                  {profileComponent(userProfile)}
             <Stack direction="horizontal" gap={3} >
                   <div className="card-container">
                       <RecipeContext.Consumer>
