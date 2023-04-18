@@ -3,7 +3,7 @@ import { Button, Spinner, Card, Stack, } from 'react-bootstrap';
 import { Link, useNavigate, useParams, Outlet} from 'react-router-dom';
 import  RecipeContext  from '../contexts/RecipeContext';
 import  UserContext  from '../contexts/UserContext';
-import styles from '../css/Profile.css'
+import '../css/Profile.css'
 
 
 const Profile = () => {
@@ -40,7 +40,7 @@ const Profile = () => {
             return (
               <div className='profile-section' >
                     <h1>Welcome back,</h1>
-                    <h2>{firstName} {lastName}</h2><br></br>
+                    <h2 className='profile-name'>{firstName} {lastName}</h2><br></br>
                     <p>Bio: {bio}</p>
                     <p>Continent: {continent}</p><br></br>
                     <div className='buttons'>
@@ -89,7 +89,7 @@ const Profile = () => {
                     <h3 class="card-title"> {r.recipe}</h3>
                     <div className='recipe-buttons'>
                       <Link className='btn btn-recipe' to={`/recipe/${r.recipeId}`}>View</Link> <br></br>
-                      <Link className='btn btn-recipe' to={`/edit/${r.recipeId}`}>Edit Recipe</Link> <br></br>
+                      <Link className='btn btn-recipe' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>  <br></br>
                       <Link className='btn btn-recipe' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Link>{' '}
                     </div>
                 </div>
@@ -115,7 +115,8 @@ const Profile = () => {
       <div classname='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
       {profileComponent(userProfile)}
       </div>
-      <h1>My Recipes</h1>
+      <br></br>
+      <h4 className='my-recipes'>My Recipes</h4>
             <Stack direction="horizontal" spacing={3}>
                   <div className="recipe-card-container">
                       <RecipeContext.Consumer>

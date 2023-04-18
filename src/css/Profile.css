@@ -16,7 +16,7 @@ h1 {
     padding: 1rem;
     margin-top: 30px;
     margin-bottom: 15px;
-    font-size: 30px !important;
+    font-size: 30px;
     color: #283618;
     font-weight: 700;
     font-family: 'DM Serif Display', serif;
@@ -26,20 +26,30 @@ h2 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
-    font-size: 40px !important;
+    font-size: 40px ;
     color: #fefae0;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
 }
 
-h3 { 
+.card-title { 
     text-align: center;
     margin-top: 25px;
     padding: 1rem;
     font-size: 20px !important;
     text-transform: uppercase;
-    color: white; 
-    font-weight: 800;
+    color: #283618; 
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    opacity: 80%;
+}
+
+h4 { 
+    text-align: center;
+    font-size: 40px;
+    color: #283618;
+    font-weight: 700px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -100,16 +110,15 @@ p {
 }
 
 .btn.btn-recipe {
-    background-color: #fefae0;
+    background-color:white;
     border: white;
     color: #111d13;
     margin: 5px;
+    margin-top: 1rem;
+    opacity: 80%;
+    font-size: 14px;
 }
 
-/* .btn.btn-recipe:hover { 
-    background-color: #283618;
-
-} */
 
 .buttons {
     text-align: center;
@@ -125,15 +134,16 @@ p {
     );
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    /* border: 2px solid #f5f4f3; */
     align-items: flex-start;
 }
 
 img { 
     max-height: 300px;
     filter: blur(.5px);
+    transition: 0.5s all ease-in-out;
 
 }
+
 
 .card-img-overlay {
     background-color: rgba(#000, 0.4);
