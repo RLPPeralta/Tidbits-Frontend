@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Welcome from './components/Welcome';
 import Profile from './components/Profile';
+import GeneralProfile from './components/GeneralProfile';
 import EditProfile from './components/EditProfile';
 import AddRecipe from './components/AddRecipe';
 import RecipePage from './components/RecipePage';
@@ -30,6 +31,7 @@ function App() {
             <Route index element={<Welcome />} />
             <Route path="/signin" element={ <SignIn /> } />
             <Route path="/signup" element={ <SignUp /> } />
+            <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
             <Route path="/profile/:userId" element={ <Profile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>

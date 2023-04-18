@@ -25,7 +25,7 @@ const Profile = () => {
           .then((user) => setUserProfile(user))
           .catch((error) => {
             console.log(error);
-            window.alert("user not logged in");
+            window.alert("User not logged in");
 
         }); 
       }
@@ -88,7 +88,7 @@ const Profile = () => {
 
               <div className='display-container'> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
-                <img variant="top" src={r.image} class="card-img"/> 
+                <img variant="top" src={r.image} className="card-img"/> 
                 <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
                     <h3 class="card-title"> {r.recipe}</h3>
                     <div className='recipe-buttons'>
