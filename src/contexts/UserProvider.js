@@ -24,7 +24,7 @@ export const UserProvider = (props) => {
                     Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
                 };
 
-        return axios.get(baseUrl + userId, { headers: myHeaders }).then(response => {
+        return axios.get(`http://localhost:3000/api/users/current/` + userId, { headers: myHeaders }).then(response => {
             return new Promise(resolve => resolve(response.data)     
             )
         });
@@ -88,3 +88,5 @@ export const UserProvider = (props) => {
         </UserContext.Provider>
     )
 }
+
+export default UserProvider
