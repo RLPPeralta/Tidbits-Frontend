@@ -1,0 +1,19 @@
+.navbar{
+   background-color: #111d13;
+}
+
+.navbar a:hover {     
+    color: #fefae0 ;
+}  
+
+.nav-link{
+    display: flex;
+    color: #fefae0 ;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}

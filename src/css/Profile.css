@@ -11,18 +11,18 @@
     font-family: 'Montserrat', sans-serif;  
 } */
 
-h1 {
+.h1-tag {
     text-align: center;
-    padding: 1rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 30px;
     color: #283618;
     font-weight: 700;
     font-family: 'DM Serif Display', serif;
 }
 
-h2 { 
+.h2-tag { 
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
@@ -45,7 +45,7 @@ h2 {
     opacity: 80%;
 }
 
-h4 { 
+.h4-tag { 
     text-align: center;
     font-size: 40px !important;
     color: #283618;
@@ -53,7 +53,7 @@ h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
-p { 
+.p-tag { 
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
@@ -85,14 +85,6 @@ p {
     text-align: center;
      border-radius: 10px;
     backdrop-filter: blur(10px);
-}
-
-.defaultCard { 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 50px;
-    align-items: center;
-    text-align: center;
 }
 
 
