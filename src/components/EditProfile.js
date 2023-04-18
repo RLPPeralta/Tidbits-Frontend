@@ -30,6 +30,7 @@ const EditProfile = () => {
       }, [userId]) 
     
       function handleChange(event) {
+        //event.persist();
         setUser((preValue) => {
           return { ...preValue, [event.target.name]: event.target.value }})
       }
