@@ -10,6 +10,18 @@
     position: absolute;
     font-family: 'Montserrat', sans-serif;  
 } */
+/* 
+h1 {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #283618;
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+} */
+
 
 h1 {
     text-align: center;
@@ -53,22 +65,23 @@ h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
-p { 
+.general-p { 
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
     font-size: 15px;
-    color: #fefae0;
+    color: #dda15e;
     font-weight: 400;
     font-family: 'Montserrat', sans-serif;
 }
 
-.profile-section { 
+.general-profile-section { 
     margin: 2rem;
-    background-color: #536c38;
+    background-color: white;
+    color:#dda15e;
     box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
     background: linear-gradient(
-      #536c38, #283618  
+      #fefae0, white  
     );
     border-radius: 10px;
     backdrop-filter: blur(10px);
