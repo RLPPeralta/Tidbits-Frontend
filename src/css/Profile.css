@@ -1,11 +1,83 @@
-.page{
+/* div { 
     background-color: #fefae0;
+
+} */
+
+.page{
+    background-color: #dda15e;
     /* padding-top: 100pt; */
     min-height: 90vh;
     /* position: absolute; */
+    font-family: 'Montserrat', sans-serif;  
+}
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 30px !important;
+    color: #283618;
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+}
+
+h2 { 
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 40px !important;
+    color: #fefae0;
+    font-weight: 500;
     font-family: 'Montserrat', sans-serif;
 }
-.card-container {
+
+h3 { 
+    text-align: center;
+    margin-top: 25px;
+    padding: 1rem;
+    font-size: 20px !important;
+    text-transform: uppercase;
+    color: white; 
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p { 
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #fefae0;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profile-section { 
+    margin: 2rem;
+    background-color: #536c38;
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
+    background: linear-gradient(
+      #536c38, #283618  
+    );
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid #f5f4f3;
+}
+
+.recipe-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px;
+    align-items: center;
+    text-align: center;
+     border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.defaultCard { 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 50px;
@@ -13,17 +85,58 @@
     text-align: center;
 }
 
-.card { 
-    align-items: center;
-    margin: 10px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+
+.btn.btn-primary {
+    background-color: #536c38;
+    border: white;
+    color: fefae0;
+    margin: 5px;
+    margin-bottom: 1rem;
+}
+  
+.btn.btn-primary:hover { 
+    background-color: #283618;
+
 }
 
-/* .image { 
-    height: 300px;
-    width: 400px;
-    overflow: hidden;
+.btn.btn-recipe {
+    background-color: #fefae0;
+    border: white;
+    color: #111d13;
+    margin: 5px;
+}
+
+/* .btn.btn-recipe:hover { 
+    background-color: #283618;
 
 } */
+
+.buttons {
+    text-align: center;
+}
+
+.display-container { 
+    padding: 2rem;
+    margin: 1rem;
+    background-color: #dda15e;
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
+    background: linear-gradient(
+      #111d13, #283618  
+    );
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    /* border: 2px solid #f5f4f3; */
+    align-items: flex-start;
+}
+
+img { 
+    max-height: 300px;
+    filter: blur(.5px);
+
+}
+
+.card-img-overlay {
+    background-color: rgba(#000, 0.4);
+    filter: blur(0);
+}
 

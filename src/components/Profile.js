@@ -12,7 +12,7 @@ const Profile = () => {
     let navigate = useNavigate()
   
     let { getCurrentUser } = useContext(UserContext)
-    let { getAllRecipes, deleteRecipe } = useContext(RecipeContext)
+    let { getAllRecipes, getRecipe, deleteRecipe } = useContext(RecipeContext)
     let [ userProfile, setUserProfile ] = useState();
 
     let token = localStorage.getItem('myRecipeToken')
@@ -25,7 +25,7 @@ const Profile = () => {
           .then((user) => setUserProfile(user))
       }
       fetch()
-    }, [params.userId, getAllRecipes, getCurrentUser]);
+    }, [params.userId, getRecipe, getCurrentUser]);
 
 
     function handleDeleteRecipe(recipeId) {
@@ -33,20 +33,21 @@ const Profile = () => {
         navigate('/')
     }
 
-
     // User Profile Information // 
     function profileComponent(userProfile) {
       let { firstName, lastName, bio, continent, userId} = userProfile || {};
         if(token) { 
             return (
-              <div className='page'>
-                    <h1>My Recipes</h1>
+              <div className='profile-section' >
+                    <h1>Welcome back,</h1>
                     <h2>{firstName} {lastName}</h2><br></br>
                     <p>Bio: {bio}</p>
                     <p>Continent: {continent}</p><br></br>
-                    <Link to={`/editprofile/${userId}`} className="btn btn-primary mx-3">Edit My Profile</Link>
-                    <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
-                    <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+                    <div className='buttons'>
+                      <Link  to={`/editprofile/${userId}`} className="btn btn-primary mx-3">Edit My Profile</Link>
+                      <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
+                      <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+                    </div>
                 </div>
               )
             }
@@ -54,7 +55,7 @@ const Profile = () => {
         else { 
             return (
                 <div>
-                    <h2></h2><br></br>
+                    <h2>Sign In</h2><br></br>
                     <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/signin')}>SignIn</Button>
                 </div>
                 )
@@ -67,25 +68,41 @@ const Profile = () => {
     function userRecipes(recipe) {
       if (recipe != null) {
       return recipe?.map((r) => 
-              <div>
-                  <Card style={{ width: '15rem' }} key={r.recipeId} className="card" xs={12} md={8}  >
-                    <Card.Img variant="top" src={r.image} className="image"/>
-                    <Card.Body>
-                        <Card.Title className="mbsc-card-title"> {r.recipe}</Card.Title>
-                        <Card.Text>{r.instructions}</Card.Text>
-                        <Link className='btn btn-primary'to={`/recipe/${r.recipeId}`}>View</Link>{' '}
-                        <Link className='btn btn-info' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>{' '}
-                        <Button className='btn btn-danger' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Button>{' '}
-                    </Card.Body>
-                  </Card> 
-               </div>
+              // <div className='display-container'> //card//
+              //     <Card style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8}  >
+              //       <Card.Img variant="top" src={r.image} className="card-img"/> //card image//
+              //       <Card.Body>
+              //           <Card.Title className="mbsc-card-title"> {r.recipe}</Card.Title>
+              //           <div className='buttons'>
+              //             <Link className='btn btn-primary'to={`/recipe/${r.recipeId}`}>View</Link>{' '}
+              //             <Link className='btn btn-primary' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>{' '}
+              //             <Button className='btn btn-danger' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Button>{' '}
+              //           </div>
+              //       </Card.Body>
+              //     </Card> 
+              //  </div>
+
+              <div className='display-container'> 
+              <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
+                <img variant="top" src={r.image} class="card-img"/> 
+                <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                    <h3 class="card-title"> {r.recipe}</h3>
+                    <div className='recipe-buttons'>
+                      <Link className='btn btn-recipe' to={`/recipe/${r.recipeId}`}>View</Link> <br></br>
+                      <Link className='btn btn-recipe' to={`/edit/${r.recipeId}`}>Edit Recipe</Link> <br></br>
+                      <Link className='btn btn-recipe' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Link>{' '}
+                    </div>
+                </div>
+              </div> 
+           </div>
           )
         }
         else { 
           return ( 
-            <div>
-              <h2>Get cookin, you've created no recipes</h2>
-              <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
+            <div className='display-container' >
+              <h2>Get Cookin'</h2>
+              <p>You've created no recipes</p>
+              <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>  
             </div>
           )
         }
@@ -95,9 +112,12 @@ const Profile = () => {
     
     return (
       <>
-                  {profileComponent(userProfile)}
-            <Stack direction="horizontal" gap={3} >
-                  <div className="card-container">
+      <div classname='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
+      {profileComponent(userProfile)}
+      </div>
+      <h1>My Recipes</h1>
+            <Stack direction="horizontal" spacing={3}>
+                  <div className="recipe-card-container">
                       <RecipeContext.Consumer>
                           {({ recipe }) => (
                             userRecipes(recipe)
