@@ -23,10 +23,14 @@ const Profile = () => {
       async function fetch() {
         await getCurrentUser(params.userId)
           .then((user) => setUserProfile(user))
-      }
-      fetch()
-    }, [params.userId, getRecipe, getCurrentUser]);
+          .catch((error) => {
+            console.log(error);
+            window.alert("user not logged in");
 
+        }); 
+      }
+        fetch()
+    }, [params.userId, getRecipe, getCurrentUser]);
 
     function handleDeleteRecipe(recipeId) {
         deleteRecipe(recipeId)
@@ -99,7 +103,7 @@ const Profile = () => {
         }
         else { 
           return ( 
-            <div className='display-container' >
+            <div className='no-recipe-display-container' >
               <h2>Get Cookin'</h2>
               <p>You've created no recipes</p>
               <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>  
@@ -117,7 +121,7 @@ const Profile = () => {
       </div>
       <br></br>
       <h4 className='my-recipes'>My Recipes</h4>
-            <Stack direction="horizontal" spacing={3}>
+            <Stack className=' d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
                   <div className="recipe-card-container">
                       <RecipeContext.Consumer>
                           {({ recipe }) => (

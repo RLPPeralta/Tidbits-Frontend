@@ -3,13 +3,13 @@
 
 } */
 
-.page{
+/* .page{
     background-color: #dda15e;
-    /* padding-top: 100pt; */
+    padding-top: 100pt;
     min-height: 90vh;
-    /* position: absolute; */
+    position: absolute;
     font-family: 'Montserrat', sans-serif;  
-}
+} */
 
 h1 {
     text-align: center;
@@ -47,7 +47,7 @@ h2 {
 
 h4 { 
     text-align: center;
-    font-size: 40px;
+    font-size: 40px !important;
     color: #283618;
     font-weight: 700px;
     font-family: 'Montserrat', sans-serif;
@@ -135,6 +135,18 @@ p {
     border-radius: 10px;
     backdrop-filter: blur(10px);
     align-items: flex-start;
+}
+
+.no-recipe-display-container { 
+    width: 450px;
+    padding: 2rem;
+    background-color: #dda15e;
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
+    background: linear-gradient(
+      #111d13, #283618  
+    );
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
 
 img { 
