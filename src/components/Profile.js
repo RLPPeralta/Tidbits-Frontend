@@ -43,10 +43,10 @@ const Profile = () => {
         if(token) { 
             return (
               <div className='profile-section' >
-                    <h1>Welcome back,</h1>
-                    <h2 className='profile-name'>{firstName} {lastName}</h2><br></br>
-                    <p>Bio: {bio}</p>
-                    <p>Continent: {continent}</p><br></br>
+                    <h1 className='h1-tag'>Welcome back,</h1>
+                    <h2 className='h2-tag'>{firstName} {lastName}</h2><br></br>
+                    <p className='p-tag'>{bio}</p>
+                    <p className='p-tag'>{continent}</p><br></br>
                     <div className='buttons'>
                       <Link  to={`/editprofile/${userId}`} className="btn btn-primary mx-3">Edit My Profile</Link>
                       <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>
@@ -104,8 +104,8 @@ const Profile = () => {
         else { 
           return ( 
             <div className='no-recipe-display-container' >
-              <h2>Get Cookin'</h2>
-              <p>You've created no recipes</p>
+              <h2 className='h2-tag'>Get Cookin'</h2>
+              <p className='p-tag'>You've created no recipes</p>
               <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>  
             </div>
           )
@@ -120,7 +120,7 @@ const Profile = () => {
       {profileComponent(userProfile)}
       </div>
       <br></br>
-      <h4 className='my-recipes'>My Recipes</h4>
+      <h1 className='h1-tag'>My Recipes</h1>
             <Stack className=' d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
                   <div className="recipe-card-container">
                       <RecipeContext.Consumer>

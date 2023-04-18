@@ -31,13 +31,13 @@ const GeneralProfile = () => {
         let { firstName, lastName, bio, continent, userId} = userProfile || {};
               return (
                 <div className='general-profile-section' >
-                      <h1 className='user-profile'>User Profile</h1>
-                      <h2>{firstName} {lastName}</h2><br></br>
-                      <p className='general-p'>A little about me: {bio}</p>
-                      <p className='general-p'>Continent: {continent}</p><br></br>
-                      <div className='buttons'>
+                      <h1 className='h1-tag'>Tidbits</h1>
+                      <h2 className='h2-tag' >{firstName} {lastName}</h2><br></br>
+                      <p className='general-p'>A bit about me: {bio}</p>
+                      <p className='general-p'>{continent}</p><br></br>
+                      {/* <div className='buttons'>
                         <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
-                      </div>
+                      </div> */}
                   </div>
                 )
               }
@@ -79,6 +79,7 @@ const GeneralProfile = () => {
         <div classname='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
         {generalProfileComponent(userProfile)}
         </div>
+        <h1 className='h1-tag'>Featured Recipes by this Creator</h1>
         <br></br>
                 <Stack className=' d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
                     <div className="recipe-card-container">
