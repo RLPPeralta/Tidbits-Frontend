@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar, NavDropdown, Stack } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { MdOutlineLogin } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
 import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
+import RecipeContext from '../contexts/RecipeContext';
 
 
 const Home = () => {
@@ -13,16 +14,19 @@ const Home = () => {
     let navigate = useNavigate();
         const id = localStorage.getItem('userId');
         const user = localStorage.getItem('user');
+    
+    let { searchRecipe } = useContext(RecipeContext);
 
     function onSignOut() {
         localStorage.clear();
         navigate('/login')
     }
 
-    function handleSearch(e) {
-        if ( e.target.value === "") return;
-        navigate("/search/" + e.target.value)
-    }
+    // function handleSearch(e) {
+    //     if ( e.target.value === "") return;
+    //     navigate("/search/" + e.target.value)
+    // }
+    //need to create a search filter so that it filters through the recipes
 
     function authLink() {
         if (user === null)
@@ -44,7 +48,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className='headerbar'>
             <Navbar className='navbar' >
             <Container>
             <Navbar.Brand href="/">
@@ -67,7 +71,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
-                <input onChange={handleSearch}/>
+                {/* <input onChange={handleSearch}/> */}
                 </Container>
             </Navbar>
             <Stack>
