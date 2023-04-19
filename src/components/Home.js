@@ -24,10 +24,10 @@ const Home = () => {
         navigate('/login')
     }
 
-    // function handleSearch(e) {
-    //     if ( e.target.value === "") return;
-    //     navigate("/search/" + e.target.value)
-    // }
+    function handleSearch(e) {
+        if ( e.target.value === "") return;
+        navigate("/search/" + e.target.value)
+    }
     //need to create a search filter so that it filters through the recipes
 
     function authLink() {
@@ -50,68 +50,67 @@ const Home = () => {
 
 
     return (
-        <div className='headerbar'>
-            <Navbar className='navbar' >
-            <Container>
+        // <div className='headerbar'>
+        //     <Navbar className='navbar' >
+        //     <Container>
+        //     <Navbar.Brand href="/">
+        //     <img
+        //       className="navbarBrand"
+        //       src={logohome}
+        //       height={65}
+        //       alt="logo"
+        //     />
+        //   </Navbar.Brand>
+        //         <Nav >
+        //             {authLink()}<Link to="/" className='nav-link'>Home</Link>
+        //             <NavDropdown title="Select Continent" id="basic-nav-dropdown">
+        //                 <Link to="/africa" className='nav-link'>Africa</Link>
+        //                 <Link to="/antarctica" className='nav-link'>Antarctica</Link>
+        //                 <Link to="/asia" className='nav-link'>Asia</Link>
+        //                 <Link to="/australia" className='nav-link'>Australia</Link>
+        //                 <Link to="/europe" className='nav-link'>Europe</Link>
+        //                 <Link to="/northamerica" className='nav-link'>North America</Link>
+        //                 <Link to="/southamerica" className='nav-link'>South America</Link>
+        //             </NavDropdown>
+        //         </Nav>
+        //         {/* <input onChange={handleSearch}/> */}
+    <div >
+        <Navbar className='navbar' collapseOnSelect expand="lg" variant="custom">
+            <Container >
             <Navbar.Brand href="/">
-            <img
-              className="navbarBrand"
-              src={logohome}
-              height={65}
-              alt="logo"
-            />
-          </Navbar.Brand>
-                <Nav >
-                    {authLink()}<Link to="/" className='nav-link'>Home</Link>
-                    <NavDropdown title="Select Continent" id="basic-nav-dropdown">
-                        <Link to="/africa" className='nav-link'>Africa</Link>
-                        <Link to="/antarctica" className='nav-link'>Antarctica</Link>
-                        <Link to="/asia" className='nav-link'>Asia</Link>
-                        <Link to="/australia" className='nav-link'>Australia</Link>
-                        <Link to="/europe" className='nav-link'>Europe</Link>
-                        <Link to="/northamerica" className='nav-link'>North America</Link>
-                        <Link to="/southamerica" className='nav-link'>South America</Link>
-                    </NavDropdown>
-                </Nav>
-                {/* <input onChange={handleSearch}/> */}
-        <div >
-            <Navbar className='navbar'>
-                <Container >
-                <Navbar.Brand href="/">
                 <img
                 className="navbarBrand"
                 src={logohome}
                 height={65}
-                alt="logo"
-                />
+                alt="logo" />
                 <img
                 className='image2'
                 src={Picture1}
                 height={45}
-                alt="logoname"
-                />
-                </Navbar.Brand>
-                    <Nav  >
+                alt="logoname"/>
+            </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav" className="hamburg justify-content-end">
+                    <Nav>
                         {authLink()}<Link to="/" className='nav-link'>Home</Link>
-                        <NavDropdown title="Select Continent" id="basic-nav-dropdown">
-                            <Link to="/africa" className='nav-link'>Africa</Link>
-                            <Link to="/antarctica" className='nav-link'>Antarctica</Link>
-                            <Link to="/asia" className='nav-link'>Asia</Link>
-                            <Link to="/australia" className='nav-link'>Australia</Link>
-                            <Link to="/europe" className='nav-link'>Europe</Link>
-                            <Link to="/northamerica" className='nav-link'>North America</Link>
-                            <Link to="/southamerica" className='nav-link'>South America</Link>
-                        </NavDropdown>
-                    </Nav>
-                    <input onChange={handleSearch}/>
-
-                </Container>
-            </Navbar>
+                            <NavDropdown title="Select Continent" id="basic-nav-dropdown">
+                                    <Link to="/africa" className='nav-link'>Africa</Link>
+                                    <Link to="/antarctica" className='nav-link'>Antarctica</Link>
+                                    <Link to="/asia" className='nav-link'>Asia</Link>
+                                    <Link to="/australia" className='nav-link'>Australia</Link>
+                                    <Link to="/europe" className='nav-link'>Europe</Link>
+                                    <Link to="/northamerica" className='nav-link'>North America</Link>
+                                    <Link to="/southamerica" className='nav-link'>South America</Link>
+                            </NavDropdown>
+                                    <input onChange={handleSearch}/>
+                    </Nav>                 
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
             <Stack>
                 <Outlet />
             </Stack>
         </div>
-
     )
 };
 
