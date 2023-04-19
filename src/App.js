@@ -18,6 +18,7 @@ import Europe from './components/Europe';
 import Australia from './components/Australia';
 import EditRecipe from './components/EditRecipe';
 import Filter from './components/Filter';
+import Footer from './components/Footer';
 
 
 
@@ -49,6 +50,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Footer></Footer>
     </div>
   );
 }
