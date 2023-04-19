@@ -1,4 +1,4 @@
-.details{
+/* .details{
     display: flex;
     align-self: center;
     width: 25rem;
@@ -9,4 +9,7 @@
 }
 .cardText{
     text-align: left;
+} */
+.image-container {
+    box-shadow: 15px 15px 15px rgba(40, 54, 24, .6);
 }
