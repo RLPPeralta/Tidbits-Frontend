@@ -63,6 +63,17 @@ export const RecipeProvider = (props) => {
         });
     }
 
+    function searchRecipe(searchQuery) {
+        return  axios.get(`${baseUrl}/search/${searchQuery}`).then((response) => {
+          if (response.data.length === 0 ) {
+            alert("NO RECIPES FOUND! Try again!")
+          } else {
+            return  setRecipe(response.data);
+          }
+          console.log(response.data);
+        });    
+      }
+
     return (
         <RecipeContext.Provider value={{
             recipe,
@@ -70,7 +81,8 @@ export const RecipeProvider = (props) => {
             getRecipe,
             addRecipe,
             editRecipe,
-            deleteRecipe
+            deleteRecipe,
+            searchRecipe
         }}>
             { props.children }
         </RecipeContext.Provider>
