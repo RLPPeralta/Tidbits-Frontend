@@ -1,5 +1,6 @@
 .navbar{
    background-color: #111d13;
+   color: #fefae0 
 }
 
 .navbar a:hover {     
@@ -17,3 +18,32 @@
     display: flex;
     justify-content: space-between;
 }
+
+.hamburg{
+    color: #fefae0 ;
+}
+
+/* .CarouselImg{
+height: 700px;
+} */
+
+.carousel img {
+ object-fit: cover;
+ object-position: center;
+ height: 50vh;
+ overflow: hidden;
+  }
+
+.carousel.item:before {
+    content: "" ;
+    background-image:
+        linear-gradient(
+            to bottom, transparent, rgba(0,0,0,0.8)
+        );
+        display:block;
+        position: absolute;
+        top:0;
+        width: 100vw;
+        height: 100vh;
+    
+  }
