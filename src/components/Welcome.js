@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 // import image from "./img/globelogo1.png"; 
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
+import '../css/Welcome.css'
 
 function IndividualIntervalsExample() {
   return (
-    <Carousel indicators={false} controls={false} variant="dark" >
+    <Carousel indicators={false} controls={false} variant="dark">
       <Carousel.Item className='items' interval={2000}>
         <img
           className="CarouselImg d-block w-100 " 
@@ -16,7 +17,7 @@ function IndividualIntervalsExample() {
           src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1784&q=80"
           alt="First slide"
         />
-            <Carousel.Caption>
+            <Carousel.Caption className="text">
               <h3>Tidbits</h3>
               <p>Food for lovers</p>
             </Carousel.Caption>
@@ -57,52 +58,28 @@ const Welcome = () => {
 
 <div class="row">
 <div class="column">
-<img
-              className="navbarBrand"
+<p style={{ fontWeight: 500 }}>
+Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive. Pupperino much ruin diet super chub dat tungg tho, aqua doggo lotsa pats. Most angery pupper I have ever seen the neighborhood pupper many pats snoot corgo, doge vvv. You are doing me a frighten you are doing me the shock mlem stop it fren super chub woofer, doggorino extremely cuuuuuute stop it fren woofer.
+</p>
+</div>
+<div class="column">
+<img className="navbarBrand"
               src={globelogo2}
               height={300}
               alt="logo" />
-
 </div>
 <div class="column">
-{/* <img src="img_snow.jpg" alt="Snow" style="width:100%"/> */}
+<p style={{ fontWeight: 500 }}>
+Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive. Pupperino much ruin diet super chub dat tungg tho, aqua doggo lotsa pats. Most angery pupper I have ever seen the neighborhood pupper many pats snoot corgo, doge vvv. You are doing me a frighten you are doing me the shock mlem stop it fren super chub woofer, doggorino extremely cuuuuuute stop it fren woofer.
+</p>
 </div>
-<div class="column">
-{/* <img src="img_snow.jpg" alt="Snow" style="width:100%"/> */}
-</div>
-
 </div>
         
 
 
       <div class="row">
-
         <div class="col-lg-8">
 
-        <div>
-            <img
-              className="navbarBrand"
-              src={globelogo2}
-              height={300}
-              alt="logo" />
-            </div>
-        <p></p>
-          <h1 className="title"></h1>
-          <p></p>          
-          <em>
-            <p style={{ fontWeight: 500 }}>
-              {" "}
-        
-            </p>
-          </em>
-          <p style={{ fontWeight: 500 }}>
-        
-          </p>
-          <p style={{ fontSize: 15 }}>
-            <em>
-              {" "}
-            </em>
-          </p>
           <a href="http://localhost:3001/signup">
             <button className="WelcomeBtn" type="button">
               Create User
