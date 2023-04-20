@@ -6,53 +6,53 @@ import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
 
-function IndividualIntervalsExample() {
-  return (
-    <Carousel indicators={false} controls={false} variant="dark" >
-      <Carousel.Item className='items' interval={2000}>
-        <img
-          className="CarouselImg d-block w-100 " 
-          src="https://content.maltatoday.com.mt/ui_frontend/thumbnail/684/0/26_op_phyllisieena_gauci.jpg"
-          alt="First slide"
-        />
-            <Carousel.Caption>
-              <h3>H I  T E A M</h3>
-              <p>You guys are amazing</p>
-            </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={2000}>
-        <img
-          className="CarouselImg d-block w-100"
-          src="https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
-          alt="Second slide"
-        />
-            <Carousel.Caption>
-              <h3>Nope, this is not final</h3>
-              <p>Just trying this</p>
-            </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={1500}>
-        <img
-          className="CarouselImg d-block w-100"
-          src="https://www.shutterstock.com/image-vector/business-concept-people-hold-hands-260nw-1264023865.jpg"
-          alt="Third slide"
-        />
-            <Carousel.Caption>
-              <h3>Disregard these images</h3>
-              <p>
-              asdljasdhakjsdakjsdh cghghfgh eyetyety dfhdfgdfg
-              </p>
-            </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  );
-}
+// function IndividualIntervalsExample() {
+//   return (
+//     <Carousel indicators={false} controls={false} variant="dark" >
+//       <Carousel.Item className='items' interval={2000}>
+//         <img
+//           className="CarouselImg" 
+//           src="https://content.maltatoday.com.mt/ui_frontend/thumbnail/684/0/26_op_phyllisieena_gauci.jpg"
+//           alt="First slide"
+//         />
+//             <Carousel.Caption>
+//               <h3>H I  T E A M</h3>
+//               <p>You guys are amazing</p>
+//             </Carousel.Caption>
+//       </Carousel.Item>
+//       <Carousel.Item interval={2000}>
+//         <img
+//           className="CarouselImg"
+//           src="https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+//           alt="Second slide"
+//         />
+//             <Carousel.Caption>
+//               <h3>Nope, this is not final</h3>
+//               <p>Just trying this</p>
+//             </Carousel.Caption>
+//       </Carousel.Item>
+//       <Carousel.Item interval={1500}>
+//         <img
+//           className="CarouselImg"
+//           src="https://www.shutterstock.com/image-vector/business-concept-people-hold-hands-260nw-1264023865.jpg"
+//           alt="Third slide"
+//         />
+//             <Carousel.Caption>
+//               <h3>Disregard these images</h3>
+//               <p>
+//               asdljasdhakjsdakjsdh cghghfgh eyetyety dfhdfgdfg
+//               </p>
+//             </Carousel.Caption>
+//       </Carousel.Item>
+//     </Carousel>
+//   );
+// }
 
 const Welcome = () => {
 
     return (
         <Container fluid>
-        <IndividualIntervalsExample/>
+        {/* <IndividualIntervalsExample/> */}
       <div class="row">
 
         <div class="col-lg-8">

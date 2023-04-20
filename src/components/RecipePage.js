@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Card, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
-import UserContext from '../contexts/UserContext';
 import styles from '../css/RecipePage.css'
 
 const RecipePage = () => {
@@ -11,9 +10,6 @@ const RecipePage = () => {
     let navigate = useNavigate()
   
     let { getRecipe, deleteRecipe } = useContext(RecipeContext)
-    let { getUser } = useContext(UserContext)
-    let firstName = localStorage.getItem("authorFirstName")
-    let lastName = localStorage.getItem("authorLastName")
     let [ oneRecipe, setOneRecipe ] = useState({
       recipeId: params.recipeId,
       userId: params.userId,
@@ -22,9 +18,9 @@ const RecipePage = () => {
       ingredients: "",
       continent: "",
       image: "",
-      updatedAt: Date
+      createdAt: Date
   })
-  let { recipeId, userId, recipe, instructions, ingredients, continent, image} = oneRecipe
+  let { recipeId, userId, User, recipe, instructions, ingredients, continent, image, createdAt} = oneRecipe
 
     useEffect(() => {
       async function fetch() {
@@ -33,25 +29,7 @@ const RecipePage = () => {
       }
       fetch()
     }, [recipeId]);
-    
-
-    // let [ author, setAuthor ] = useState({
-    //   id: userId,
-    //   firstName: "",
-    //   lastName: "",
-    //   bio: "",
-    // })
-    
-    // let { id, email, password, firstName, lastName, bio } = author
-
-    
-    
-    function getUserInfo(){
-      console.log(getUser(userId));
-      getUser(userId)
-    }
-  
-
+        
   
     function handleDeleteRecipe(recipeId) {
       deleteRecipe(recipeId)
@@ -63,17 +41,31 @@ const RecipePage = () => {
       }
 
     function recipeComponent() {
-      getUser(userId);
         return (
-              <div class="container px-4 text-center">
-                <div class="row">
-                  <div class="col p-3">
-                  <img src={image} className="img-fluid rounded" alt="recipe"/>
+              <div class="recipePage px-4">
+                <div class="row align-items-center">
+                  <div class="col-sm-12 col-md-6 p-3">
+                    <div class="recipeImg card w-50 mx-auto">
+                      <img src={image} className="img-fluid rounded" alt="recipe"/>
+                    </div>
                   </div>
-                  <div class="col">
-                    <h4>{recipe}</h4><br></br>
-                    <h2>From {continent}</h2><br></br>
-                    <h6>Recipe added by <Link to={`/userprofile/${userId}`} >{firstName} {lastName}</Link> </h6>
+                  <div class="col-sm-12 col-md-6">
+                    <h4 className='title'>{recipe}</h4>
+                    <p className='continent'>From {continent}</p><br></br>
+                    <div class='recipeDetails card w-50 mx-auto mb-4'>
+                    <ul class="list-group list-group-flush">
+                      <li class="detailsText list-group-item">Prep Time:</li>
+                      <li class="detailsText list-group-item">Cook Time:</li>
+                      <li class="detailsText list-group-item">Servings:</li>
+                    </ul>
+                    </div>
+                    <h5 className='headings mb-2'>Ingredients</h5>
+                    <ul>{ingredients.split("\n").map((ingredient) => {
+                      return (<li className='text'>{ingredient}</li>)
+                    })}</ul>
+                    <h5 className='headings'>Directions</h5>
+                    <p className='text'>{instructions}</p>
+                    <p className='userLink'>Recipe added by <Link to={`/userprofile/${userId}`} >{User?.firstName} {User?.lastName}</Link> </p>
                   </div>
                 </div>
               </div>
