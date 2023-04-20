@@ -70,7 +70,7 @@ const SignUp = () => {
                 <option value="South America">South America</option>
             </Form.Control> <br></br>
 
-            <div className='d-grid'><Button className="btn btn-info" variant="primary" type="submit">Sign up</Button></div>
+            <div className='d-grid'><Button className="btn btn-info" variant="custom" type="submit">Sign up</Button></div>
     
     </Form> 
 </div>

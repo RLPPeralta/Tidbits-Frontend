@@ -7,6 +7,8 @@ import { CgProfile } from 'react-icons/cg';
 import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
 import RecipeContext from '../contexts/RecipeContext';
+import Picture1 from "../Picture1.png";
+import '../css/Nav.css'
 
 
 const Home = () => {
@@ -22,11 +24,11 @@ const Home = () => {
         navigate('/login')
     }
 
-    function handleSearch(e) {
-        if ( e.target.value === "") return;
-        navigate("/search/" + e.target.value)
-    }
-   
+    // function handleSearch(e) {
+    //     if ( e.target.value === "") return;
+    //     navigate("/search/" + e.target.value)
+    // }
+    //need to create a search filter so that it filters through the recipes
 
     function authLink() {
         if (user === null)
@@ -71,7 +73,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
-                <input onChange={handleSearch}/>
+                {/* <input onChange={handleSearch}/> */}
                 </Container>
             </Navbar>
             <Stack>

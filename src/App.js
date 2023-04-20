@@ -9,7 +9,6 @@ import GeneralProfile from './components/GeneralProfile';
 import EditProfile from './components/EditProfile';
 import AddRecipe from './components/AddRecipe';
 import RecipePage from './components/RecipePage';
-import ContinentPage from './components/ContinentPage';
 import Asia from './components/Asia';
 import Africa from './components/Africa';
 import NorthAmerica from './components/NorthAmerica';
@@ -19,7 +18,8 @@ import Europe from './components/Europe';
 import Australia from './components/Australia';
 import EditRecipe from './components/EditRecipe';
 import Filter from './components/Filter';
-import PublicProfile from './components/PublicProfile';
+import Footer from './components/Footer';
+
 
 
 
@@ -36,12 +36,9 @@ function App() {
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
             <Route path="/profile/:userId" element={ <Profile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
-            <Route path="/profilepage/:userId" element={ <PublicProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
-            {/* <Route path='/recipe' element={ <RecipePage /> }/> */}
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
             <Route path='/edit/:recipeId' element={ <EditRecipe /> }/>
-            <Route path='/continent' element={ <ContinentPage />}/>
             <Route path='/asia' element={ <Asia />}/>
             <Route path='/africa' element={ <Africa />}/>
             <Route path='/northamerica' element={ <NorthAmerica />}/>
@@ -53,6 +50,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Footer></Footer>
     </div>
   );
 }

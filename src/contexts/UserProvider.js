@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import UserContext from "./UserContext";
 
 export const UserProvider = (props) => {
@@ -32,6 +31,8 @@ export const UserProvider = (props) => {
     
     function getUser(userId) {
         return axios.get(baseUrl + userId).then(response => {
+            localStorage.setItem('authorFirstName', response.data.firstName)
+            localStorage.setItem('authorLastName', response.data.lastName)
             return new Promise(resolve => resolve(response.data)     
             )
         });

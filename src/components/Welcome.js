@@ -3,17 +3,92 @@ import { Container } from 'react-bootstrap';
 import globelogo2 from "../globelogo2.png";
 import { Link } from "react-router-dom";
 // import image from "./img/globelogo1.png"; 
+import Carousel from 'react-bootstrap/Carousel';
+import '../css/Nav.css'
+
+function IndividualIntervalsExample() {
+  return (
+    <Carousel indicators={false} controls={false} variant="dark" >
+      <Carousel.Item className='items' interval={2000}>
+        <img
+          className="CarouselImg d-block w-100 " 
+          // src="https://content.maltatoday.com.mt/ui_frontend/thumbnail/684/0/26_op_phyllisieena_gauci.jpg"
+          src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1784&q=80"
+          alt="First slide"
+        />
+            <Carousel.Caption>
+              <h3>Tidbits</h3>
+              <p>Food for lovers</p>
+            </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item className='items' interval={2000}>
+        <img
+          className="CarouselImg d-block w-100"
+          // src="https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+          src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1453&q=80"
+          alt="Second slide"
+        />
+            <Carousel.Caption>
+              <h3>Recipes from around the globe</h3>
+              <p>To enjoy at home</p>
+            </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item className='items' interval={1500}>
+        <img
+          className="CarouselImg d-block w-100"
+          // src="https://www.shutterstock.com/image-vector/business-concept-people-hold-hands-260nw-1264023865.jpg"
+          src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+          alt="Third slide"
+        />
+            <Carousel.Caption>
+              <h3>Do we like the images?</h3>
+              <p>what should we write here</p>
+            </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+  );
+}
 
 const Welcome = () => {
 
     return (
         <Container fluid>
+        <IndividualIntervalsExample/>
+
+<div class="row">
+<div class="column">
+<img
+              className="navbarBrand"
+              src={globelogo2}
+              height={300}
+              alt="logo" />
+
+</div>
+<div class="column">
+{/* <img src="img_snow.jpg" alt="Snow" style="width:100%"/> */}
+</div>
+<div class="column">
+{/* <img src="img_snow.jpg" alt="Snow" style="width:100%"/> */}
+</div>
+
+</div>
+        
+
+
       <div class="row">
 
         <div class="col-lg-8">
-        <p>tidbits</p>
-          <h1 className="title">TIDBIT HOME LANDING PAGE</h1>
-          <p>SUBHEADING</p>          
+
+        <div>
+            <img
+              className="navbarBrand"
+              src={globelogo2}
+              height={300}
+              alt="logo" />
+            </div>
+        <p></p>
+          <h1 className="title"></h1>
+          <p></p>          
           <em>
             <p style={{ fontWeight: 500 }}>
               {" "}
@@ -47,34 +122,33 @@ const Welcome = () => {
             </Link>
             </em>
             </div>
-            <div>
+            {/* <div>
             <img
               className="navbarBrand"
               src={globelogo2}
               height={300}
-              alt="logo"
-            />
-            </div>
+              alt="logo" />
+            </div> */}
             
          
       
 
         
 
-        <div className="itemBox">
+        {/* <div className="itemBox">
           <em>
             <h2 style={{ marginBottom: 40 }}>
               need to add globe logo and text on both left and right
             </h2>
-          </em>
+          </em> */}
 
-          <div class="row">
+          {/* <div class="row"> */}
 
           
-            <div class="col-lg-4">
+            {/* <div class="col-lg-4">
               <span className="emoji">😁</span>
-              <h3>Featured Recipes</h3>
-            </div>
+              <h3>ipes</h3>
+            </div> */}
             {/* <div class="col-lg-4">
               <span className="emoji">😁</span>
               <h3>My Favorites/Saved Recipes</h3>
@@ -85,9 +159,9 @@ const Welcome = () => {
             </div> */}
 
           </div>
-        </div>
+        {/* </div> */}
 
-      </div>
+      {/* </div> */}
 
 
 
@@ -119,10 +193,6 @@ const Welcome = () => {
   </a>
 </div> */}
 
-<div>
-
-
-</div>
 
       </Container>
 
