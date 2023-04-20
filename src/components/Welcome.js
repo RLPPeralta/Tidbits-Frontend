@@ -20,7 +20,7 @@ function IndividualIntervalsExample() {
               <p>You guys are amazing</p>
             </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={2000}>
+      <Carousel.Item className='items' interval={2000}>
         <img
           className="CarouselImg d-block w-100"
           src="https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
@@ -31,7 +31,7 @@ function IndividualIntervalsExample() {
               <p>Just trying this</p>
             </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={1500}>
+      <Carousel.Item className='items' interval={1500}>
         <img
           className="CarouselImg d-block w-100"
           src="https://www.shutterstock.com/image-vector/business-concept-people-hold-hands-260nw-1264023865.jpg"
@@ -118,7 +118,7 @@ const Welcome = () => {
           
             <div class="col-lg-4">
               <span className="emoji">😁</span>
-              <h3>Featured Recipes</h3>
+              <h3>ipes</h3>
             </div>
             {/* <div class="col-lg-4">
               <span className="emoji">😁</span>

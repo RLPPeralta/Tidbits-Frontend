@@ -87,7 +87,7 @@ const EditRecipe = () => {
                 <Form.Control type="text" name="image" placeholder="Type an image URL" value={image} onChange={handleChange} />
             </Form.Group>
             <div className='d-flex justify-content-center'><Button className="btn btn-save mx-3" type="submit">Save changes</Button>
-            <Button className="btn btn-cancel mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+            <Button className="btn btn-cancel mx-3" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
             </div>
         </Form>
       </div>
