@@ -56,7 +56,7 @@ const SignUp = () => {
 
             <Form.Group className="mb-3">
                 {/* <Form.Label>Bio</Form.Label> */}
-                <Form.Control placeholder="Enter Bio" type="text" name="bio" value={bio} onChange={e => setBio(e.target.value)}/>
+                <Form.Control placeholder="Enter Bio" type="text" as="textarea" name="bio" value={bio} onChange={e => setBio(e.target.value)}/>
             </Form.Group>
 
             <Form.Control as="select" type="text" name="continent" value={continent} onChange={e => setContinent(e.target.value)}>

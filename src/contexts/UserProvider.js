@@ -31,8 +31,6 @@ export const UserProvider = (props) => {
     
     function getUser(userId) {
         return axios.get(baseUrl + userId).then(response => {
-            localStorage.setItem('authorFirstName', response.data.firstName)
-            localStorage.setItem('authorLastName', response.data.lastName)
             return new Promise(resolve => resolve(response.data)     
             )
         });

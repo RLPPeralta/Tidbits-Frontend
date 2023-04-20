@@ -16,12 +16,16 @@ const EditRecipe = () => {
         ingredients: "",
         continent: "",
         image: "",
+        country: "",
+        servings: "",
+        prepTime: "",
+        cookTime: "",
         updatedAt: Date
     });
 
     let { getRecipe, addRecipe, editRecipe} = useContext(RecipeContext)
     let navigate = useNavigate()
-    let { recipeId,userId,recipe,instructions,ingredients,continent,image} = editARecipe
+    let { recipeId,userId,recipe,instructions,ingredients,continent,image,country,servings,prepTime,cookTime} = editARecipe
   
     useEffect(() => {
       if (recipeId === undefined) return
@@ -65,7 +69,23 @@ const EditRecipe = () => {
                 <Form.Control type="text" name="recipe" value={recipe} onChange={handleChange}/>
             </Form.Group>
             <Form.Group >
-                <br></br><Form.Label>Ingredients</Form.Label>
+                <br></br><Form.Label>From which country does this recipe originate?</Form.Label>
+                <Form.Control type="text" name="country" rows={7} value={country} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group >
+                <br></br><Form.Label>How many servings?</Form.Label>
+                <Form.Control type="text" name="servings" rows={7} value={servings} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group >
+                <br></br><Form.Label>Prep Time</Form.Label>
+                <Form.Control type="text" name="prepTime" rows={7} value={prepTime} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group >
+                <br></br><Form.Label>Cook Time</Form.Label>
+                <Form.Control type="text" name="cookTime" rows={7} value={cookTime} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group >
+                <br></br><Form.Label>Ingredients *Please use a comma between each ingredient.*</Form.Label>
                 <Form.Control type="text" as="textarea" name="ingredients" rows={7} value={ingredients} onChange={handleChange}/>
             </Form.Group>
             <Form.Group >

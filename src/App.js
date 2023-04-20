@@ -19,6 +19,7 @@ import Australia from './components/Australia';
 import EditRecipe from './components/EditRecipe';
 import Filter from './components/Filter';
 import Footer from './components/Footer';
+import PrintRecipe from './components/PrintRecipe';
 
 
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
+            <Route path='/print/:recipeId' element={ <PrintRecipe /> }/>
             <Route path='/edit/:recipeId' element={ <EditRecipe /> }/>
             <Route path='/asia' element={ <Asia />}/>
             <Route path='/africa' element={ <Africa />}/>
