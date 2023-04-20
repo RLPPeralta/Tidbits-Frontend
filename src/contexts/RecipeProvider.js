@@ -24,6 +24,13 @@ export const RecipeProvider = (props) => {
         });
     }
 
+
+    function getUserRecipes(userId) {
+        return axios.get(`http://localhost:3000/api/recipe/userrecipes/` + userId ).then(response => {
+            return new Promise (resolve => resolve(response.data));
+        });
+    }
+
     function addRecipe(recipe) {
         console.log('addRecipe()')        
         let myHeaders = {
@@ -68,6 +75,7 @@ export const RecipeProvider = (props) => {
             recipe,
             getAllRecipes,
             getRecipe,
+            getUserRecipes,
             addRecipe,
             editRecipe,
             deleteRecipe

@@ -70,22 +70,11 @@ const Profile = () => {
 
     // Map of User Recipes //
     function userRecipes(recipe) {
+      console.log(recipe);
+      console.log(localUserId);
       if (recipe != null) {
+        // if (recipe != null && recipe.userId == localUserId) {
       return recipe?.map((r) => 
-              // <div className='display-container'> //card//
-              //     <Card style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8}  >
-              //       <Card.Img variant="top" src={r.image} className="card-img"/> //card image//
-              //       <Card.Body>
-              //           <Card.Title className="mbsc-card-title"> {r.recipe}</Card.Title>
-              //           <div className='buttons'>
-              //             <Link className='btn btn-primary'to={`/recipe/${r.recipeId}`}>View</Link>{' '}
-              //             <Link className='btn btn-primary' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>{' '}
-              //             <Button className='btn btn-danger' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Button>{' '}
-              //           </div>
-              //       </Card.Body>
-              //     </Card> 
-              //  </div>
-
               <div className='display-container'> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
                 <img variant="top" src={r.image} className="card-img"/> 
