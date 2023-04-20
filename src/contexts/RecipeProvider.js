@@ -68,7 +68,7 @@ export const RecipeProvider = (props) => {
           if (response.data.length === 0 ) {
             alert("NO RECIPES FOUND! Try again!")
           } else {
-            return  setRecipe(response.data);
+            return setRecipe(response.data);
           }
           console.log(response.data);
         });    
