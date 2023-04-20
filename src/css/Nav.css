@@ -1,40 +1,44 @@
 .navbar{
    background-color: #111d13;
-   color: #fefae0 
+   color: #fefae0;
 }
-
-.navbar a:hover {     
-    color: #fefae0 ;
-}  
 
 .nav-link{
     display: flex;
-    color: #fefae0 ;
+    color: #fefae0 !important;
     font-weight: 600;
-    justify-content: space-between;
+    background-color: #111d13;
 }
+
+.navbar-toggler.collapsed{
+   background: #fefae0 !important;
+   color: #536c38
+}
+
+.navbar-toggler{
+    background: #fefae0 !important;
+ }
 
 .nav{
     display: flex;
     justify-content: space-between;
 }
 
-.hamburg{
-    color: #fefae0 ;
-}
+.items{
+    object-fit: cover;
+    object-position: center;
+    height: 50vh;
+    overflow: hidden;
+     }
 
-/* .CarouselImg{
-height: 700px;
-} */
-
-.carousel img {
+/* .carousel img {
  object-fit: cover;
  object-position: center;
  height: 50vh;
  overflow: hidden;
-  }
+  } */
 
-.carousel.item:before {
+/* .carousel.item:before {
     content: "" ;
     background-image:
         linear-gradient(
@@ -44,6 +48,9 @@ height: 700px;
         position: absolute;
         top:0;
         width: 100vw;
-        height: 100vh;
-    
-  }
+        height: 100vh;   
+  } */
+
+/* .CarouselImg{
+height: 700px;
+} */
