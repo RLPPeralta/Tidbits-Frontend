@@ -35,7 +35,7 @@ function App() {
             <Route path="/signin" element={ <SignIn /> } />
             <Route path="/signup" element={ <SignUp /> } />
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
-            <Route path="/profile/:userId" element={ <Profile /> } />
+            <Route path="/profile" element={ <Profile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>

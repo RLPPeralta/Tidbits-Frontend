@@ -37,7 +37,7 @@ const AddRecipe = () => {
         event.preventDefault();
         addRecipe(newRecipe).then(() => {
             console.log(userId);
-            navigate(`/profile/${id}`);
+            navigate(`/profile`);
         }).catch(error => {
             console.log(error);
             navigate('/signin');
