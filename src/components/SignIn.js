@@ -16,7 +16,7 @@ const SignIn = () => {
     function handleSubmit(event) {
         event.preventDefault();
         signInUser(email, password).then(() => {
-            navigate(`/profile/${id}` );
+            navigate(`/profile` );
         }).catch(error => {
             console.log(error);
             window.alert('Failed login');

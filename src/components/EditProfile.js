@@ -46,7 +46,7 @@ const EditProfile = () => {
         event.preventDefault()
         addOrUpdate().then((user) =>{
             window.alert('Update successful!');
-            navigate(`/profile/${userId}`)
+            navigate(`/profile`)
         }).catch(error => {
           window.alert('Error occurred while updating!');
             console.log(error)
@@ -89,7 +89,7 @@ const EditProfile = () => {
             </Form.Control><br></br>
           <div className='d-flex justify-content-center'>         
               <Button className="btn btn-save mx-3" type="submit">Save</Button>
-              <Button className="btn btn-cancel mx-3" variant="danger" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
+              <Button className="btn btn-cancel mx-3" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>
           </div>
         </Form>
       </div>

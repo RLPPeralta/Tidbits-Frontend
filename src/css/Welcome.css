@@ -1,0 +1,25 @@
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+  }
+
+
+.WelcomeBtn {
+    color: #536c38
+}
+
+.text{
+    color: #bc6c25;
+}
+
+/* COLOR PALETTE
+#111d13 | (17, 29, 19)
+#bc6c25 | (188, 108, 37)
+#dda15e | (221, 161, 94)
+#fefae0 | (254, 250, 224)
+#283618 | (40, 54, 24)
+#536c38 | (83, 108, 56) */

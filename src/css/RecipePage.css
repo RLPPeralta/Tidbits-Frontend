@@ -1,12 +1,47 @@
-.details{
-    display: flex;
-    align-self: center;
-    width: 25rem;
-    align-content: center;
+
+.recipePage{
+    background: linear-gradient(
+    to bottom right,
+     white, #fefae0
+);
 }
-.cardDetails{
+.recipeImg {
+    /* box-shadow: 15px 15px 15px rgba(40, 54, 24, .6); */
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
+}
+.title{
+    font-family: 'Noto Serif Display', serif;
+    padding-top: 2rem;
+}
+.continent {
+    font-family: 'Noto Serif Display', serif;
+    font-style: italic;
     text-align: center;
 }
-.cardText{
-    text-align: left;
+.headings{
+    font-family: 'Noto Serif Display', serif;
+    text-decoration:underline;
+}
+.text{
+    font-family: 'Montserrat', sans-serif;
+}
+.userLink{
+    font-size: x-small;
+    font-family: 'Montserrat', sans-serif;
+}
+.detailsText{
+    font-size: small;
+    font-family: 'Montserrat', sans-serif;
+}
+.print{
+    justify-content: center;
+}
+.print-link{
+    font-size: small;
+}
+.errorTitle{
+    font-family: 'Montserrat', sans-serif;
+}
+.errorBody{
+    font-family: 'Montserrat', sans-serif;
 }

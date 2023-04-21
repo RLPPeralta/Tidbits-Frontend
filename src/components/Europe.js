@@ -52,19 +52,11 @@ function getRecipes(recipe){
                       <h3 class="card-title"> {recipes.recipe}</h3>
                       <div className='recipe-buttons'>
                         <Link className='btn btn-recipe' to={`/recipe/${recipes.recipeId}`}>View</Link> <br></br>
-                        <Link className='btn btn-recipe' to={`/userprofile/${recipes.userId}`}>Creator's Profile</Link>  <br></br>
+                        <Link className='btn btn-recipe' to={`/userprofile/${recipes.userId}`}>Added by {recipes.User.firstName} {recipes.User.lastName}</Link> <br></br>
                       </div>
                   </div>
                 </div> 
              </div>)
-            //     <Card key={recipes.recipeId} className='card' >
-            //     <Card.Body key={recipes.recipeId} className='cardDetails'>
-            //         <Card.Img className='cardImage'variant="top" src={recipes.image}/>
-            //         <Card.Title>{recipes.recipe}</Card.Title>
-            //         <Link to={`/recipe/${recipes.recipeId}`} className='nav-link'>View Recipe</Link>
-            //         <Link to={`/profile/${recipes.userId}`} className='nav-link'>Creator's Profile</Link>
-            //     </Card.Body>
-            // </Card>)
             }}
         )} else {
             return recipe.map((recipes) => {
@@ -83,11 +75,8 @@ function getRecipes(recipe){
                                     </Modal.Header>
                                     <Modal.Body>You must be logged in to view this recipe. If you don't have an account, please sign up. We would love to have you!</Modal.Body>
                                     <Modal.Footer>
-                                        <Link to="/signin" className='nav-link'>Login</Link>
-                                        <Link to="/signup" className='nav-link'>Sign Up</Link>
-                                        <Button variant="outline" onClick={handleClose}>
-                                        Close
-                                        </Button>
+                                        <Link to="/signin" class="text-secondary">Login</Link>
+                                        <Link to="/signup" class="text-secondary">Sign Up</Link>
                                     </Modal.Footer>
                                     </Modal>
                         
@@ -95,26 +84,6 @@ function getRecipes(recipe){
                   </div>
                 </div> 
              </div>)
-                    //     <Card key={recipes.recipeId} className='card'>
-                    //         <Card.Body className='card-body' key={recipes.recipeId}>
-                    //         <Card.Img className='cardImage'variant="top" src={recipes.image}/>
-                    //         <Card.Title>{recipes.recipe}</Card.Title>
-                    //         <Button variant="outline" onClick={handleShow}>View Recipe</Button>
-                    //             <Modal show={show} onHide={handleClose} animation={false}>
-                    //             <Modal.Header closeButton>
-                    //                 <Modal.Title >Please Login</Modal.Title>
-                    //             </Modal.Header>
-                    //             <Modal.Body>You must be logged in to view this recipe. If you don't have an account, please sign up. We would love to have you!</Modal.Body>
-                    //             <Modal.Footer>
-                    //                 <Link to="/signin" className='nav-link'>Login</Link>
-                    //                 <Link to="/signup" className='nav-link'>Sign Up</Link>
-                    //                 <Button variant="outline" onClick={handleClose}>
-                    //                 Close
-                    //                 </Button>
-                    //             </Modal.Footer>
-                    //             </Modal>
-                    //     </Card.Body>
-                    // </Card>)
                     }}
         )}
     }

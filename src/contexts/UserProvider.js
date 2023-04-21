@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import UserContext from "./UserContext";
 
 export const UserProvider = (props) => {
@@ -24,7 +23,7 @@ export const UserProvider = (props) => {
                     Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
                 };
 
-        return axios.get(`http://localhost:3000/api/users/current/` + userId, { headers: myHeaders }).then(response => {
+        return axios.get(`http://localhost:3000/api/users/current`, { headers: myHeaders }).then(response => {
             return new Promise(resolve => resolve(response.data)     
             )
         });

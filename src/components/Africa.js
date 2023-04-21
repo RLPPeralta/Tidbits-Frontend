@@ -52,7 +52,7 @@ const Africa = () => {
                           <h3 class="card-title"> {recipes.recipe}</h3>
                           <div className='recipe-buttons'>
                             <Link className='btn btn-recipe' to={`/recipe/${recipes.recipeId}`}>View</Link> <br></br>
-                            <Link className='btn btn-recipe' to={`/userprofile/${recipes.userId}`}>Creator's Profile</Link>  <br></br>
+                            <Link className='btn btn-recipe' to={`/userprofile/${recipes.userId}`}>Added by {recipes.User.firstName} {recipes.User.lastName}</Link> <br></br>
                           </div>
                       </div>
                     </div> 
