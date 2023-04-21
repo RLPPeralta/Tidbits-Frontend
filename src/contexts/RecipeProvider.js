@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RecipeContext from "./RecipeContext";
+import UserContext from "./UserContext";
 
 export const RecipeProvider = (props) => {
 
@@ -71,7 +72,7 @@ export const RecipeProvider = (props) => {
     }
 
     return (
-        <RecipeContext.Provider value={{
+            <RecipeContext.Provider value={{
             recipe,
             getAllRecipes,
             getRecipe,
@@ -82,6 +83,7 @@ export const RecipeProvider = (props) => {
         }}>
             { props.children }
         </RecipeContext.Provider>
+        
     )
 };
 
