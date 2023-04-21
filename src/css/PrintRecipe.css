@@ -1,4 +1,19 @@
-.print-page{
+.PR-print-page{
     margin: 5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.PR-recipePage{
+    background: linear-gradient(
+    to bottom right,
+     white, #fefae0
+);
+}
+.PR-recipeImg{
+    box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
+}
+.PR-errorTitle{
+    font-family: 'Montserrat', sans-serif;
+}
+.PR-errorBody{
     font-family: 'Montserrat', sans-serif;
 }

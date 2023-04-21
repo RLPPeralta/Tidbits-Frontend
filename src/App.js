@@ -21,6 +21,7 @@ import Filter from './components/Filter';
 import Footer from './components/Footer';
 import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
+import WorldMap from './components/WorldMap';
 
 
 
@@ -51,6 +52,7 @@ function App() {
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
             <Route path="search/:filter" element={<Filter />} />
+            <Route path='/map' element={ <WorldMap />}/>
           </Route>
         </Routes>
       </BrowserRouter>
