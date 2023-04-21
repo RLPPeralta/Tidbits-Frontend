@@ -53,7 +53,7 @@ const EditRecipe = () => {
       event.preventDefault()
       addOrUpdate().then((editARecipe) =>{
           window.alert('Update successful!');
-          navigate(`/profile/${userId}`)
+          navigate(`/profile`)
       }).catch(error => {
           console.log(error)
           navigate(`/signin`)

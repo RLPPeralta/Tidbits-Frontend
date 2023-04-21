@@ -46,7 +46,7 @@ const EditProfile = () => {
         event.preventDefault()
         addOrUpdate().then((user) =>{
             window.alert('Update successful!');
-            navigate(`/profile/${userId}`)
+            navigate(`/profile`)
         }).catch(error => {
           window.alert('Error occurred while updating!');
             console.log(error)

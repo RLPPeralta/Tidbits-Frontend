@@ -43,7 +43,7 @@ const Home = () => {
             return  <Nav className='user'>
                 <Link className='nav-link'>{`Welcome back `+ user} <CgProfile></CgProfile></Link>
                 <Link className='nav-link' variant="link" to="/signin" onClick={onSignOut}>Sign Out</Link>
-                <Link to={`/profile/${id}`} className='nav-link'>My Profile</Link>
+                <Link to={`/profile`} className='nav-link'>My Profile</Link>
             </Nav>
         }
     }
