@@ -16,6 +16,18 @@
     color: #bc6c25;
 }
 
+.WelcomePage{
+    /* background-color: #fefae0; */
+    background: linear-gradient(
+        to bottom right,
+         #fefae0, #283618
+    );
+    font-weight: 500;
+    min-height: 90vh;
+    /* position: absolute; */
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* COLOR PALETTE
 #111d13 | (17, 29, 19)
 #bc6c25 | (188, 108, 37)

@@ -53,7 +53,7 @@ function IndividualIntervalsExample() {
 const Welcome = () => {
 
     return (
-        <Container fluid>
+        <Container fluid className="WelcomePage">
         <IndividualIntervalsExample/>
 
 <div class="row">
