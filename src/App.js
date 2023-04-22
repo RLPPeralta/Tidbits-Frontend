@@ -22,6 +22,7 @@ import Footer from './components/Footer';
 import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
 import WorldMap from './components/WorldMap';
+import ErrorPage from './components/ErrorPage';
 
 
 
@@ -53,7 +54,9 @@ function App() {
             <Route path='/australia' element={ <Australia />}/>
             <Route path="search/:filter" element={<Filter />} />
             <Route path='/map' element={ <WorldMap />}/>
+            <Route path="*" element={<ErrorPage />} />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
