@@ -31,8 +31,8 @@ const GeneralProfile = () => {
         let { firstName, lastName, bio, continent, userId} = userProfile || {};
               return (
                 <div className='general-profile-section' >
-                      <h1 className='h1-tag'>Tidbits</h1>
-                      <h2 className='h2-tag' >{firstName} {lastName}</h2><br></br>
+                      <h1 className='h1-tag-general'>Tidbits</h1>
+                      <h2 className='h2-tag-general' >{firstName} {lastName}</h2><br></br>
                       <p className='general-p'>A bit about me: {bio}</p>
                       <p className='general-p'>{continent}</p><br></br>
                       {/* <div className='buttons'>

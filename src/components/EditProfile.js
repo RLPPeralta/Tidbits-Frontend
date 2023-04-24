@@ -21,9 +21,9 @@ const EditProfile = () => {
     let { userId,email, password, firstName, lastName, bio, continent} = user
 
     useEffect(() => {
-        if (userId === undefined) return
+        // if (userId === undefined) return
         async function fetchData() {
-          await getCurrentUser(userId)
+          await getCurrentUser()
             .then((user) => setUser(user))
         }
         fetchData()
