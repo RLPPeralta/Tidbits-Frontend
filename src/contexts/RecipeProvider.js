@@ -6,6 +6,7 @@ import UserContext from "./UserContext";
 export const RecipeProvider = (props) => {
 
     const [ recipe, setRecipe ] = useState([]);
+    const [ user, setUser ] = useState([]);
     const baseUrl = "http://localhost:3000/api/recipe/";
 
     useEffect(() => {
@@ -25,9 +26,8 @@ export const RecipeProvider = (props) => {
         });
     }
 
-
-    function getUserRecipes(userId) {
-        return axios.get(`http://localhost:3000/api/recipe/userrecipes/` + userId ).then(response => {
+    function getCurrentUserRecipes(userId) {
+        return axios.get(`${baseUrl}userrecipes/${userId}`).then(response => {
             return new Promise (resolve => resolve(response.data));
         });
     }
@@ -83,11 +83,11 @@ export const RecipeProvider = (props) => {
       }
 
     return (
-            <RecipeContext.Provider value={{
+        <RecipeContext.Provider value={{
             recipe,
             getAllRecipes,
             getRecipe,
-            getUserRecipes,
+            getCurrentUserRecipes,
             addRecipe,
             editRecipe,
             deleteRecipe,
