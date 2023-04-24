@@ -53,6 +53,15 @@ em {
   padding: 15px;
 }
 
+.p-footer { 
+  text-decoration: none;
+  color: #fefae0;
+}
+
+.p-footer:hover { 
+  text-decoration: none;
+  color: #dda15e;
+}
 
 
 .sub {
