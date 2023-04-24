@@ -20,16 +20,13 @@ const Profile = () => {
       userId: params.userId,
       recipe: "",
     });
-    // let { recipeId, userId, recipe } = userRecipe
-    // let { firstName, lastName, userId} = userProfile 
-
 
     let token = localStorage.getItem('myRecipeToken')
 
     useEffect(() => {
       console.log("useEffect for user info");
       async function fetch() {
-        await getCurrentUser(params.userId)
+        await getCurrentUser()
           .then((user) => setUserProfile(user))
           .catch((error) => {
             console.log(error);
@@ -42,11 +39,10 @@ const Profile = () => {
     useEffect(() => {
       console.log("useEffect for user recipes");
       async function fetch() {
-        await getCurrentUserRecipes(params.userId)
-          .then((user) => setUserRecipes(user)) 
+        await getCurrentUserRecipes()
+          .then((recipes) => setUserRecipes(recipes)) 
           .catch((error) => {
             console.log(error);
-            window.alert("User has no recipes");
         });
       }   
         fetch()
@@ -86,10 +82,9 @@ const Profile = () => {
         }
       }
 
-    function userRecipes(userId) {
-      console.log(getCurrentUserRecipes(params.userId))
-      if (userRecipe != null) {
-      return ( userId?.map((r) => 
+    function userRecipes(userRecipe) {
+    if (userRecipe.length > 0 ) {
+    return ( userRecipe?.map((r) => 
               <div className='display-container'> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} className="row"  >
                 <img variant="top" src={r.image} className="card-img"/> 

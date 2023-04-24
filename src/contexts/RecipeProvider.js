@@ -26,8 +26,14 @@ export const RecipeProvider = (props) => {
         });
     }
 
-    function getCurrentUserRecipes(userId) {
-        return axios.get(`${baseUrl}userrecipes/${userId}`).then(response => {
+    function getCurrentUserRecipes() {
+
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
+        };
+
+
+        return axios.get(`${baseUrl}userrecipes`, { headers: myHeaders }).then(response => {
             return new Promise (resolve => resolve(response.data));
         });
     }
