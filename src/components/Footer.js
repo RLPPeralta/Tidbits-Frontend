@@ -36,12 +36,13 @@ export const Footer = () => {
           <div className="sub">
             <div>
               <b>Company</b>
-              <p>About</p>
+              <p href='http://localhost:3001/team' className='p-footer'>About</p>
               <p>Blog</p>
             </div>
             <div>
               <b>For Foodies</b>
               <p>Community</p>
+              <p>Careers</p>
             </div>
             <div>
               <b>For You</b>
