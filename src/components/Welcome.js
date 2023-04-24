@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 // import image from "./img/globelogo1.png"; 
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
-import '../css/Welcome.css'
+import '../css/Welcome.css';
+// import ReactGlobe from 'react-globe';
 
 function IndividualIntervalsExample() {
   return (
@@ -63,6 +64,7 @@ Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo
 </p>
 </div>
 <div class="column">
+{/* <ReactGlobe /> */}
 <img className="navbarBrand"
               src={globelogo2}
               height={300}
