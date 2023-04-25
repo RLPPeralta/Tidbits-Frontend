@@ -24,10 +24,16 @@ const Home = () => {
         navigate('/login')
     }
 
-    // function handleSearch(e) {
-    //     if ( e.target.value === "") return;
-    //     navigate("/search/" + e.target.value)
-    // }
+    function handleSearch(e) {
+        // TODO set value to the setSearchQuery()
+        if ( e.target.value === "") return;
+        
+    }
+
+    function submitSearch(e) {
+       // TODO create state searchQuery
+       // navigate("/search/" + searchQuery)
+    }
     //need to create a search filter so that it filters through the recipes
 
     function authLink() {
@@ -73,7 +79,8 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
-                {/* <input onChange={handleSearch}/> */}
+                <input onChange={handleSearch}/>
+                <button onClick={submitSearch}>search</button>
                 </Container>
             </Navbar>
             <Stack>

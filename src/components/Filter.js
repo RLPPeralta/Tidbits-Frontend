@@ -9,26 +9,29 @@ import RecipeContext from '../contexts/RecipeContext'
 function Filter() {
     let params = useParams();
     const [ recipes, setRecipes ] = useState([]);
-    let { filter } = useContext(RecipeContext);
+    let { searchRecipe } = useContext(RecipeContext);
 
     useEffect(() => {
         async function fetch() {
-            await filter(params.filter).then(response => {
-                setRecipes(response)
+            await searchRecipe(params.searchQuery).then(response => {
+                setRecipes(response.data)
+                console.log(response.data)
             })
         }
     fetch();
-    }, [params.filter])
+    }, [params.searchQuery])
 
     
     function RecipeList() {
-        if (recipes === null) return
+        if (recipes === null) { return }
+        console.log(recipes);
         return recipes.map((recipe) =>
          <Card key={recipe.id}>
             <Card.Body className='cardBody'>
+            <Card.Title>{recipe.recipe}</Card.Title>
                 <Card.Img variant="top" className="card-picture" src={recipe.image} />
-                <Card.Title>{recipe.recipeName}</Card.Title>
-                <Link to={`/recipes/${recipe.id}`} className="btn btn-outline-secondary mx-3" key={recipe.id}>View</Link>
+                
+                <Link to={`/recipe/${recipe.recipeId}`} className="btn btn-outline-secondary mx-3" key={recipe.id}>View</Link>
             </Card.Body>
             </Card>
         )

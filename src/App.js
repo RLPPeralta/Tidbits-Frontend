@@ -52,7 +52,7 @@ function App() {
             <Route path='/antarctica' element={ <Antarctica />}/>
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
-            <Route path="search/:filter" element={<Filter />} />
+            <Route path="search/:searchQuery" element={<Filter />} />
             <Route path='/map' element={ <WorldMap />}/>
             <Route path="*" element={<ErrorPage />} />
           </Route>
