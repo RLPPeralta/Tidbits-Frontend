@@ -35,6 +35,10 @@
     font-family: 'DM Serif Display', serif;
 }
 
+.SU-required{
+  font-size: small;
+}
+
 /* COLOR PALETTE
 #111d13 | (17, 29, 19)
 #bc6c25 | (188, 108, 37)
