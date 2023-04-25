@@ -15,11 +15,7 @@ const Profile = () => {
     let { getCurrentUser } = useContext(UserContext)
     let { deleteRecipe, getCurrentUserRecipes  } = useContext(RecipeContext)
     let [ userProfile, setUserProfile ] = useState();
-    let [ userRecipe, setUserRecipes ] = useState({
-      recipeId: params.recipeId,
-      userId: params.userId,
-      recipe: "",
-    });
+    let [ userRecipe, setUserRecipes ] = useState();
 
     let token = localStorage.getItem('myRecipeToken')
 
@@ -82,9 +78,9 @@ const Profile = () => {
         }
       }
 
-    function userRecipes(userRecipe) {
-    if (userRecipe.length > 0 ) {
-    return ( userRecipe?.map((r) => 
+    function userRecipes() {
+    if (userRecipe != null) {
+    return (userRecipe?.map((r) => 
               <div className='display-container'> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} className="row"  >
                 <img variant="top" src={r.image} className="card-img"/> 

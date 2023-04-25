@@ -32,8 +32,14 @@ export const RecipeProvider = (props) => {
             Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
         };
 
-
         return axios.get(`${baseUrl}userrecipes`, { headers: myHeaders }).then(response => {
+            return new Promise (resolve => resolve(response.data));
+        });
+    }
+
+
+    function getUserRecipesById(userId) {
+        return axios.get(`${baseUrl}userprofilerecipes/${userId}`).then(response => {
             return new Promise (resolve => resolve(response.data));
         });
     }
@@ -94,6 +100,7 @@ export const RecipeProvider = (props) => {
             getAllRecipes,
             getRecipe,
             getCurrentUserRecipes,
+            getUserRecipesById,
             addRecipe,
             editRecipe,
             deleteRecipe,
