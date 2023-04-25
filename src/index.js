@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RecipeProvider } from './contexts/RecipeProvider';
 import { UserProvider } from './contexts/UserProvider';
+import { CommentProvider } from './contexts/CommentProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
     <RecipeProvider>
+    <CommentProvider>
       <App />
+      </CommentProvider>
     </RecipeProvider>
     </UserProvider>
   </React.StrictMode>
