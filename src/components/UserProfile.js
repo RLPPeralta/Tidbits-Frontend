@@ -3,11 +3,11 @@ import { Button, Spinner, Card, Stack, } from 'react-bootstrap';
 import { Link, useNavigate, useParams, Outlet, useRevalidator} from 'react-router-dom';
 import  RecipeContext  from '../contexts/RecipeContext';
 import  UserContext  from '../contexts/UserContext';
-import '../css/Profile.css'
+import '../css/UserProfile.css'
 import axios from 'axios';
 
 
-const Profile = () => {
+const UserProfile = () => {
 
     let params = useParams()
     let navigate = useNavigate()
@@ -15,11 +15,7 @@ const Profile = () => {
     let { getCurrentUser } = useContext(UserContext)
     let { deleteRecipe, getCurrentUserRecipes  } = useContext(RecipeContext)
     let [ userProfile, setUserProfile ] = useState();
-    let [ userRecipe, setUserRecipes ] = useState({
-      recipeId: params.recipeId,
-      userId: params.userId,
-      recipe: "",
-    });
+    let [ userRecipe, setUserRecipes ] = useState();
 
     let token = localStorage.getItem('myRecipeToken')
 
@@ -82,9 +78,9 @@ const Profile = () => {
         }
       }
 
-    function userRecipes(userRecipe) {
-    if (userRecipe.length > 0 ) {
-    return ( userRecipe?.map((r) => 
+    function userRecipes() {
+    if (userRecipe != null) {
+    return (userRecipe?.map((r) => 
               <div className='display-container'> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} className="row"  >
                 <img variant="top" src={r.image} className="card-img"/> 
@@ -135,40 +131,4 @@ const Profile = () => {
   )
 };
 
-export default Profile;
-
-
-
-
-    // Map of User Recipes //
-    // function userRecipes(recipe) {
-    //   console.log(recipe);
-    //   console.log(localUserId);
-    //   if (recipe != null) {
-    //     // if (recipe != null && recipe.userId == localUserId) {
-    //   return recipe?.map((r) => 
-    //           <div className='display-container'> 
-    //           <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
-    //             <img variant="top" src={r.image} className="card-img"/> 
-    //             <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-    //                 <h3 class="card-title"> {r.recipe}</h3>
-    //                 <div className='recipe-buttons'>
-    //                   <Link className='btn btn-recipe' to={`/recipe/${r.recipeId}`}>View</Link> <br></br>
-    //                   <Link className='btn btn-recipe' to={`/edit/${r.recipeId}`}>Edit Recipe</Link>  <br></br>
-    //                   <Link className='btn btn-recipe' onClick={handleDeleteRecipe.bind(this, r.recipeId)}>Delete</Link>{' '}
-    //                 </div>
-    //             </div>
-    //           </div> 
-    //        </div>
-    //       )
-    //     }
-    //     else { 
-    //       return ( 
-    //         <div className='no-recipe-display-container' >
-    //           <h2 className='h2-tag'>Get Cookin'</h2>
-    //           <p className='p-tag'>You've created no recipes</p>
-    //           <Link to={`/recipe/add`} className="btn btn-primary mx-3">Add a Recipe</Link>  
-    //         </div>
-    //       )
-    //     }
-    // }
+export default UserProfile;
