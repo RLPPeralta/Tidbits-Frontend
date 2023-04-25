@@ -21,7 +21,7 @@ const Home = () => {
 
     function onSignOut() {
         localStorage.clear();
-        navigate('/login')
+        navigate('/signin')
     }
 
     // function handleSearch(e) {
