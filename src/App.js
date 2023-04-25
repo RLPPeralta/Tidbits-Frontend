@@ -4,7 +4,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Welcome from './components/Welcome';
-import Profile from './components/Profile';
+import UserProfile from './components/UserProfile';
 import GeneralProfile from './components/GeneralProfile';
 import EditProfile from './components/EditProfile';
 import AddRecipe from './components/AddRecipe';
@@ -37,7 +37,7 @@ function App() {
             <Route path="/signup" element={ <SignUp /> } />
             <Route path="/team" element={ <AboutUs /> } />
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
-            <Route path="/profile" element={ <Profile /> } />
+            <Route path="/profile" element={ <UserProfile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
