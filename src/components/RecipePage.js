@@ -9,6 +9,7 @@ import {FaRegArrowAltCircleLeft} from 'react-icons/fa';
 import {BsTrash3} from 'react-icons/bs';
 import {CiEdit} from 'react-icons/ci';
 import styles from '../css/RecipePage.css'
+// import AddComment from './AddComment';
 
 const RecipePage = () => {
 
@@ -151,3 +152,26 @@ const RecipePage = () => {
 };
 
 export default RecipePage;
+
+
+
+//COMMENT CODE
+{/* <div className="row">
+  <div className="col-lg-6 text-center">
+      <div className="container-fluid py-3" id="commentContainer">
+        <div className="row py-1">
+          <div className="col-12 mb-2">
+            <h5>Comments about the {recipe.recipe}</h5>
+                {recipe.Comments.map((comment, index) => {
+                    return (
+                      <div>
+                          <div id="commentBubble">{index + 1}. {comment.commentTitle}</div>
+                      </div>
+                            )
+                              })}
+            </div>
+                                <div><AddComment /></div>
+      </div>
+    </div>
+  </div>
+</div> */}
