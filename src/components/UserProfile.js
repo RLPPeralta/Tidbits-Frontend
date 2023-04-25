@@ -26,11 +26,10 @@ const UserProfile = () => {
           .then((user) => setUserProfile(user))
           .catch((error) => {
             console.log(error);
-            // window.alert("User not logged in");
         });
       }
         fetch()
-    }, [params.userId, getCurrentUser]);
+    }, [params, getCurrentUser]);
 
     useEffect(() => {
       console.log("useEffect for user recipes");
@@ -81,7 +80,7 @@ const UserProfile = () => {
     function userRecipes() {
     if (userRecipe != null) {
     return (userRecipe?.map((r) => 
-              <div className='display-container'> 
+              <div className='display-container' key={r.recipeId}> 
               <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} className="row"  >
                 <img variant="top" src={r.image} className="card-img"/> 
                 <div className="card-img-overlay text-white d-flex flex-column justify-content-center">
