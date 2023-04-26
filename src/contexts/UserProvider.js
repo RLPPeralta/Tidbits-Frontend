@@ -18,7 +18,7 @@ export const UserProvider = (props) => {
         return axios.get(baseUrl).then(response => setUser(response.data));
     } 
 
-    function getCurrentUser(userId) {
+    function getCurrentUser() {
         let myHeaders = {
                     Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
                 };

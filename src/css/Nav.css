@@ -10,6 +10,10 @@
     background-color: #111d13;
 }
 
+.nav-link:hover{
+    color:#536c38 !important;
+}
+
 .navbar-toggler.collapsed{
    background: #fefae0 !important;
    color: #536c38

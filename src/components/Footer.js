@@ -31,7 +31,7 @@ export const Footer = () => {
           >
             <em className='footer-company-name'>Tidbits</em><br></br>
             <b className='slogan'>For Food Lovers</b><br></br>
-            <b className='trademark'>Tidbits is a registered company under [insert fake name]</b>
+            <b className='trademark'>Tidbits is a registered trademark under R3G</b>
           </h3>
           <div className="sub">
             <div>

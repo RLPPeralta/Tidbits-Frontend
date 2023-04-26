@@ -13,10 +13,21 @@ const SignIn = () => {
     let navigate = useNavigate();
     const id = localStorage.getItem('userId');
 
+    function sessionTimedOut() {
+        localStorage.clear();
+        window.location.reload();
+        alert("Session timed out");
+        console.log('local has been cleared as JWT token timed out');
+    }
+
     function handleSubmit(event) {
         event.preventDefault();
         signInUser(email, password).then(() => {
-            navigate(`/profile` );
+            navigate(`/profile`);
+            setTimeout(sessionTimedOut, 1 * 60 * 60 *1000);
+             // -------- for testing -------- //
+            // setTimeout(sessionTimedOut, 3000);
+                console.log('User session has begun');
         }).catch(error => {
             console.log(error);
             window.alert('Failed login');
@@ -24,17 +35,17 @@ const SignIn = () => {
     }
 
     return (
-    <div className='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
-        <Form className=" SignForm p-4 p-sm-3" onSubmit={handleSubmit}>
+        <div className='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
+            <Form className=" SignForm p-4 p-sm-3" onSubmit={handleSubmit}>
 
-            <h3 className="formtitle"> Please Sign In </h3>
+                <h3 className="formtitle"> Please Sign In </h3>
                 <Form.Group className="mb-3 d-flex justify-content-center">Don't have an account?
                     <Link to='/signup'>Sign Up</Link>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     {/* <Form.Label>Email address</Form.Label> */}
-                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={e => setEmail(e.target.value)}/>
+                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={e => setEmail(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -45,10 +56,10 @@ const SignIn = () => {
 
                 <Form.Group className='mb-3 d-flex justify-content-center' controlId='formBasicCheckbox'> <Form.Check type="checkbox" label="Remember Me" /> </Form.Group>
 
-            <div className='d-grid'><Button className="btn btn-info" variant="custom" type="submit">Submit</Button></div>
-        </Form>
+                <div className='d-grid'><Button className="btn btn-info" variant="custom" type="submit">Submit</Button></div>
+            </Form>
 
-    </div>
+        </div>
     )
 };
 

@@ -4,7 +4,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Welcome from './components/Welcome';
-import Profile from './components/Profile';
+import UserProfile from './components/UserProfile';
 import GeneralProfile from './components/GeneralProfile';
 import EditProfile from './components/EditProfile';
 import AddRecipe from './components/AddRecipe';
@@ -21,9 +21,7 @@ import Filter from './components/Filter';
 import Footer from './components/Footer';
 import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
-import WorldMap from './components/WorldMap';
 import ErrorPage from './components/ErrorPage';
-import Featuredrecipes from './components/Featuredrecipes';
 
 
 
@@ -40,7 +38,7 @@ function App() {
             <Route path="/signup" element={ <SignUp /> } />
             <Route path="/team" element={ <AboutUs /> } />
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
-            <Route path="/profile" element={ <Profile /> } />
+            <Route path="/profile" element={ <UserProfile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
 
             {/* <Route path="recipes" element={<Featuredrecipes />} /> */}
@@ -56,7 +54,7 @@ function App() {
             <Route path='/antarctica' element={ <Antarctica />}/>
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
-            <Route path="search/:searchQuery" element={<Filter />} />
+            <Route path="search/:filter" element={<Filter />} />
             <Route path='/map' element={ <WorldMap />}/>
             <Route path="*" element={<ErrorPage />} />
           </Route>

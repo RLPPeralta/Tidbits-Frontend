@@ -23,7 +23,7 @@ const Home = () => {
 
     function onSignOut() {
         localStorage.clear();
-        navigate('/login')
+        navigate('/signin')
     }
 
     function handleSearch(e) {
@@ -64,9 +64,9 @@ const Home = () => {
                 )
         else {
             return  <Nav className='user'>
-                <Link className='nav-link'>{`Welcome back `+ user} <CgProfile></CgProfile></Link>
-                <Link className='nav-link' variant="link" to="/signin" onClick={onSignOut}>Sign Out</Link>
+                <Link className='nav-link' to="/profile">{`Welcome back `+ user} <CgProfile></CgProfile></Link>
                 <Link to={`/profile`} className='nav-link'>My Profile</Link>
+                <Link className='nav-link' variant="link" to="/signin" onClick={onSignOut}>Sign Out</Link>
             </Nav>
         }
     }
@@ -96,8 +96,7 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
-                <input onChange={handleSearch}/>
-                <button onClick={submitSearch}>search</button>
+                {/* <input onChange={handleSearch}/> */}
                 </Container>
             </Navbar>
             <Stack>

@@ -24,23 +24,23 @@ h1 {
 } */
 
 
-.h1-tag {
+.h1-tag-general {
     text-align: center;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 30px;
-    color: #283618;
+    color: #111d13;
     font-weight: 700;
     font-family: 'DM Serif Display', serif;
 }
 
-.h2-tag { 
+.h2-tag-general { 
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
     font-size: 40px ;
-    color: #fefae0;
+    color: #dda15e;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
 }
@@ -71,7 +71,7 @@ h4 {
     margin-top: 25px;
     margin-bottom: 15px;
     font-size: 15px;
-    color: #dda15e;
+    color: #f5f4f3;
     font-weight: 400;
     font-family: 'Montserrat', sans-serif;
 }
@@ -81,7 +81,7 @@ h4 {
     background-color: #536c38;
     box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
     background: linear-gradient(
-      #536c38, #283618  
+      #f5f4f3, #dda15e  
     );
     border-radius: 10px;
     backdrop-filter: blur(10px);

@@ -21,9 +21,9 @@ const EditProfile = () => {
     let { userId,email, password, firstName, lastName, bio, continent} = user
 
     useEffect(() => {
-        if (userId === undefined) return
+        // if (userId === undefined) return
         async function fetchData() {
-          await getCurrentUser(userId)
+          await getCurrentUser()
             .then((user) => setUser(user))
         }
         fetchData()
@@ -56,37 +56,41 @@ const EditProfile = () => {
     return (
     <div className='EditProfilePage d-flex justify-content-center align-items-center p-4 p-sm-3'>
         <Form className="EditprofileForm p-4 p-sm-3" onSubmit={handleSubmit}>
+          <p className='AR-required' >*Required</p>
         <h2 className="editformtitle">Edit your profile </h2><br></br>
             <Form.Group className="mb-3" >
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" name="email" value={email} onChange={handleChange} />
+                <Form.Label>Email*</Form.Label>
+                <Form.Control required type="email" name="email" value={email} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name="password" value={password} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" name="firstName" value={firstName} onChange={handleChange} />
+                <Form.Label>First Name*</Form.Label>
+                <Form.Control required type="text" name="firstName" value={firstName} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" name="lastName" value={lastName} onChange={handleChange} />
+                <Form.Label>Last Name*</Form.Label>
+                <Form.Control required type="text" name="lastName" value={lastName} onChange={handleChange} />
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Label>Bio</Form.Label>
                 <Form.Control type="text" name="bio" value={bio} onChange={handleChange} />
             </Form.Group>
-            <Form.Control as="select" type="text" name="continent" value={continent} onChange={handleChange}>
-                <option>Select Continent</option>
-                <option value="Africa">Africa</option>
-                <option value="Antarctica">Antarctica</option>
-                <option value="Asia">Asia</option>
-                <option value="Australia">Australia</option>
-                <option value="Europe">Europe</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-            </Form.Control><br></br>
+            <Form.Group>
+                <Form.Label>Which continent are you from?*</Form.Label><br></br>
+                <select required name="continent" value={continent} onChange={handleChange}>
+                  <option value="" selected disabled >Select Continent*</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Antarctica">Antarctica</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Europe">Europe</option>
+                  <option value="North America">North America</option>
+                  <option value="South America">South America</option>
+                </select>
+            </Form.Group><br></br>
           <div className='d-flex justify-content-center'>         
               <Button className="btn btn-save mx-3" type="submit">Save</Button>
               <Button className="btn btn-cancel mx-3" onClick={() => [navigate(-1),window.alert('Changes not saved')]}>Cancel</Button>

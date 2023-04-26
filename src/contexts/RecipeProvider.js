@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RecipeContext from "./RecipeContext";
+import UserContext from "./UserContext";
 
 export const RecipeProvider = (props) => {
 
     const [ recipe, setRecipe ] = useState([]);
+    const [ user, setUser ] = useState([]);
     const baseUrl = "http://localhost:3000/api/recipe/";
 
     useEffect(() => {
@@ -20,6 +22,24 @@ export const RecipeProvider = (props) => {
 
     function getRecipe(recipeId) {
         return axios.get(baseUrl + recipeId).then(response => {
+            return new Promise (resolve => resolve(response.data));
+        });
+    }
+
+    function getCurrentUserRecipes() {
+
+        let myHeaders = {
+            Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
+        };
+
+        return axios.get(`${baseUrl}userrecipes`, { headers: myHeaders }).then(response => {
+            return new Promise (resolve => resolve(response.data));
+        });
+    }
+
+
+    function getUserRecipesById(userId) {
+        return axios.get(`${baseUrl}userprofilerecipes/${userId}`).then(response => {
             return new Promise (resolve => resolve(response.data));
         });
     }
@@ -72,6 +92,8 @@ export const RecipeProvider = (props) => {
             recipe,
             getAllRecipes,
             getRecipe,
+            getCurrentUserRecipes,
+            getUserRecipesById,
             addRecipe,
             editRecipe,
             deleteRecipe,
@@ -79,6 +101,7 @@ export const RecipeProvider = (props) => {
         }}>
             { props.children }
         </RecipeContext.Provider>
+        
     )
 };
 
