@@ -23,6 +23,7 @@ import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
 import WorldMap from './components/WorldMap';
 import ErrorPage from './components/ErrorPage';
+import Featuredrecipes from './components/Featuredrecipes';
 
 
 
@@ -41,6 +42,9 @@ function App() {
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
             <Route path="/profile" element={ <Profile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
+
+            {/* <Route path="recipes" element={<Featuredrecipes />} /> */}
+
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
             <Route path='/print/:recipeId' element={ <PrintRecipe /> }/>

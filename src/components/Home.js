@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Nav, Navbar, NavDropdown, Stack } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { CgProfile } from 'react-icons/cg';
 import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
 import RecipeContext from '../contexts/RecipeContext';
-import Picture1 from "../Picture1.png";
+// import Picture1 from "../Picture1.png";
 import '../css/Nav.css'
 
 
@@ -18,6 +18,8 @@ const Home = () => {
         const user = localStorage.getItem('user');
     
     let { searchRecipe } = useContext(RecipeContext);
+    const [ searchQuery, setSearchQuery ] = useState('');
+
 
     function onSignOut() {
         localStorage.clear();
@@ -26,15 +28,30 @@ const Home = () => {
 
     function handleSearch(e) {
         // TODO set value to the setSearchQuery()
-        if ( e.target.value === "") return;
+        // const searchRecipe = ;
+        setSearchQuery(e.target.value);
+        // const newFilter = filter((value) => {
+        //     return value.title.toLowerCase().includes(searchRecipe.toLowerCase());
+        // });
+        // // if ( e.target.value === "") return;
+        // if (searchRecipe === "") {
+        //     setRecipes([]);
+        // } else {
+        //     setRecipes(newFilter);
+        // }
         
-    }
+    };
 
     function submitSearch(e) {
        // TODO create state searchQuery
-       // navigate("/search/" + searchQuery)
+       navigate("/search/" + searchQuery)
     }
-    //need to create a search filter so that it filters through the recipes
+    
+//     let context = useContext(RecipeContext);
+// useEffect(() => {
+//     console.log(context.recipes)
+// },[]);
+
 
     function authLink() {
         if (user === null)
