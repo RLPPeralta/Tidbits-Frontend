@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Carousel, CarouselItem, Modal, Stack } from 'react-bootstrap';
+import { Carousel, CarouselItem, Modal, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 import styles from '../css/Continents.css'
@@ -114,17 +114,6 @@ function getRecipes(recipe){
                       </RecipeContext.Consumer>
                   </div>
             </Stack>    
-            {/* <section className='grid'>
-                <Container fluid>
-                <Row xs={2} sm={3} md={5} lg={6}>                      
-                    <RecipeContext.Consumer>
-                        {({recipe}) => (
-                            getRecipes(recipe)
-                            )}
-                    </RecipeContext.Consumer>
-                </Row>
-                </Container>
-            </section> */}
         </div>
 
     )

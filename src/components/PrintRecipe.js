@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Button, Spinner } from "react-bootstrap"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import RecipeContext from "../contexts/RecipeContext"
 import {FaRegArrowAltCircleLeft} from 'react-icons/fa';
 import logohome from "../logohome.png";
@@ -14,7 +14,7 @@ const PrintRecipe = () => {
     let navigate = useNavigate()
     let token = localStorage.getItem('myRecipeToken')
 
-    let { getRecipe, deleteRecipe } = useContext(RecipeContext)
+    let { getRecipe } = useContext(RecipeContext)
     let [ oneRecipe, setOneRecipe ] = useState({
       recipeId: params.recipeId,
       userId: params.userId,
@@ -29,7 +29,7 @@ const PrintRecipe = () => {
       cookTime: "",
       createdAt: Date
   })
-  let { recipeId, userId, User, recipe, instructions, ingredients, continent, image, country, servings, prepTime, cookTime, createdAt} = oneRecipe
+  let { recipeId, User, recipe, instructions, ingredients, continent, country, servings, prepTime, cookTime } = oneRecipe
 
     useEffect(() => {
       async function fetch() {
@@ -45,7 +45,23 @@ const PrintRecipe = () => {
       }
 
       function printableRecipe() {
-        if(token) {
+       if(!recipe) {
+        return (
+          <div class="RPRecipePage px-4">
+            <div class="row align-items-center ">
+              <div class="col-sm-12 col-md-6 p-3">
+                <div class="RPRecipeImg card w-50 mx-auto">
+                <img src={logohome}alt="logo" /><br></br>                   
+                <img src={Picture1}alt="logoname"/>                    
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <h1 className='RPErrorTitle'>Please romaine calm!</h1>
+                <h3 className='RPErrorBody'>Unfortunately, this recipe doesn't exist anymore. Don't worry, there are polenta more. Have an egg-cellent day!</h3><br></br>
+              </div>
+            </div>            
+          </div>
+        )} else if(token) {
           return (     
           <div>
               <Button size="lg" variant="outline" onClick={() => [navigate(-1)]}><FaRegArrowAltCircleLeft></FaRegArrowAltCircleLeft>Go Back</Button>
@@ -62,8 +78,8 @@ const PrintRecipe = () => {
               <p>Recipe by {User?.firstName} {User?.lastName}</p>
           </div>
           </div>      
-      )
-        } else {
+      )}
+        else {
           return (
             <div class="PR-recipePage px-4">
               <div class="row align-items-center ">

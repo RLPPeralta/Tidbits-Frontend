@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Carousel, CarouselItem, Modal, Stack } from 'react-bootstrap';
+import { Carousel, CarouselItem, Modal, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 import styles from '../css/Continents.css'
@@ -75,11 +75,8 @@ const Asia = () => {
                                             </Modal.Header>
                                             <Modal.Body>You must be logged in to view this recipe. If you don't have an account, please sign up. We would love to have you!</Modal.Body>
                                             <Modal.Footer>
-                                                <Link to="/signin" className='nav-link'>Login</Link>
-                                                <Link to="/signup" className='nav-link'>Sign Up</Link>
-                                                <Button variant="outline" onClick={handleClose}>
-                                                Close
-                                                </Button>
+                                            <Link to="/signin" class="text-secondary">Login</Link>
+                                            <Link to="/signup" class="text-secondary">Sign Up</Link>
                                             </Modal.Footer>
                                         </Modal>    
                                     </div>
