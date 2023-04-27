@@ -22,8 +22,6 @@ import Footer from './components/Footer';
 import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
 import ErrorPage from './components/ErrorPage';
-import AddComment from './components/AddComment';
-import Comments from './components/Comments';
 
 
 
@@ -42,6 +40,9 @@ function App() {
             <Route path="/userprofile/:userId" element={ <GeneralProfile /> } />
             <Route path="/profile" element={ <UserProfile /> } />
             <Route path="/editprofile/:userId" element={ <EditProfile /> } />
+
+            {/* <Route path="recipes" element={<Featuredrecipes />} /> */}
+
             <Route path='/recipe/add' element={ <AddRecipe />}/>
             <Route path='/recipe/:recipeId' element={ <RecipePage /> }/>
             <Route path='/print/:recipeId' element={ <PrintRecipe /> }/>
@@ -54,8 +55,7 @@ function App() {
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
             <Route path="search/:filter" element={<Filter />} />
-            <Route path="/comments/new" element={<AddComment />} />
-            <Route path="/comments" element={<Comments />} />
+            <Route path='/map' element={ <WorldMap />}/>
             <Route path="*" element={<ErrorPage />} />
           </Route>
           <Route path="*" element={<ErrorPage />} />

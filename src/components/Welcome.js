@@ -1,11 +1,12 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext, useEffect } from 'react';
+import { Container, Stack } from 'react-bootstrap';
 import globelogo2 from "../globelogo2.png";
 import { Link } from "react-router-dom";
 // import image from "./img/globelogo1.png"; 
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
 import '../css/Welcome.css';
+import RecipeContext from '../contexts/RecipeContext';
 // import ReactGlobe from 'react-globe';
 
 function IndividualIntervalsExample() {
@@ -43,8 +44,8 @@ function IndividualIntervalsExample() {
           alt="Third slide"
         />
             <Carousel.Caption>
-              <h3>Do we like the images?</h3>
-              <p>what should we write here</p>
+              <h3>A place to gather together</h3>
+              <p>And cook delicious meals for the table</p>
             </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -53,6 +54,11 @@ function IndividualIntervalsExample() {
 
 const Welcome = () => {
 
+  let context = useContext(RecipeContext);
+  useEffect(() => {
+      console.log(context.recipes)
+  },[]);
+
     return (
         <Container fluid className="WelcomePage">
         <IndividualIntervalsExample/>
@@ -60,7 +66,7 @@ const Welcome = () => {
 <div class="row">
 <div class="column">
 <p style={{ fontWeight: 500 }}>
-Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive. Pupperino much ruin diet super chub dat tungg tho, aqua doggo lotsa pats. Most angery pupper I have ever seen the neighborhood pupper many pats snoot corgo, doge vvv. You are doing me a frighten you are doing me the shock mlem stop it fren super chub woofer, doggorino extremely cuuuuuute stop it fren woofer.
+Doggo ipsum you are doin me a conce
 </p>
 </div>
 <div class="column">
@@ -101,82 +107,26 @@ Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo
             </Link>
             </em>
             </div>
-            {/* <div>
-            <img
-              className="navbarBrand"
-              src={globelogo2}
-              height={300}
-              alt="logo" />
-            </div> */}
-            
          
-      
-
-        
-
-        {/* <div className="itemBox">
-          <em>
-            <h2 style={{ marginBottom: 40 }}>
-              need to add globe logo and text on both left and right
-            </h2>
-          </em> */}
-
-          {/* <div class="row"> */}
-
-          
-            {/* <div class="col-lg-4">
-              <span className="emoji">😁</span>
-              <h3>ipes</h3>
-            </div> */}
-            {/* <div class="col-lg-4">
-              <span className="emoji">😁</span>
-              <h3>My Favorites/Saved Recipes</h3>
-            </div> */}
-            {/* <div class="col-lg-4">
-              <span className="emoji">✍️</span>
-              <h3>Reviews</h3>
-            </div> */}
-
           </div>
-        {/* </div> */}
-
-      {/* </div> */}
-
-
-
-      {/* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide"/>
-    </div>
-</div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> */}
+    
+          <div>
+            <h1>Featured Recipes</h1>
+            <Stack direction="horizontal" gap={3}>
+                <div className="card-container">
+                    <RecipeContext.Consumer>
+                        {({ recipes }) => (
+                            Welcome(recipes)
+                        )}
+                    </RecipeContext.Consumer>
+                </div>
+            </Stack>
+        </div>
 
 
+
+            
       </Container>
-
-      
-
 
     )
 };
