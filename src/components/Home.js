@@ -24,10 +24,10 @@ const Home = () => {
         navigate('/signin')
     }
 
-    // function handleSearch(e) {
-    //     if ( e.target.value === "") return;
-    //     navigate("/search/" + e.target.value)
-    // }
+    function handleSearch(e) {
+        if ( e.target.value === "") return;
+        navigate("/search/" + e.target.value)
+    }
     //need to create a search filter so that it filters through the recipes
 
     function authLink() {
@@ -79,7 +79,7 @@ const Home = () => {
                                     <Link to="/southamerica" className='nav-link'>South America</Link>
                             </NavDropdown>
                             
-                                    {/* <input onChange={handleSearch}/> */}
+                                    <input onChange={handleSearch}/>
                 </Nav>                 
                 </Navbar.Collapse>
             </Container>
