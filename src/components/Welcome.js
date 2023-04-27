@@ -7,7 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
 import '../css/Welcome.css';
 import RecipeContext from '../contexts/RecipeContext';
-// import ReactGlobe from 'react-globe';
+
 
 function IndividualIntervalsExample() {
   return (
@@ -54,10 +54,6 @@ function IndividualIntervalsExample() {
 
 const Welcome = () => {
 
-  let context = useContext(RecipeContext);
-  useEffect(() => {
-      console.log(context.recipes)
-  },[]);
 
     return (
         <Container fluid className="WelcomePage">
@@ -110,18 +106,6 @@ Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo
          
           </div>
     
-          <div>
-            <h1>Featured Recipes</h1>
-            <Stack direction="horizontal" gap={3}>
-                <div className="card-container">
-                    <RecipeContext.Consumer>
-                        {({ recipes }) => (
-                            Welcome(recipes)
-                        )}
-                    </RecipeContext.Consumer>
-                </div>
-            </Stack>
-        </div>
 
 
 

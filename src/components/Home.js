@@ -28,6 +28,7 @@ const Home = () => {
 
     function handleSearch(e) {
         // TODO set value to the setSearchQuery()
+        if ( e.target.value === "") return;
         // const searchRecipe = ;
         setSearchQuery(e.target.value);
         // const newFilter = filter((value) => {
@@ -96,6 +97,8 @@ const Home = () => {
                         <Link to="/southamerica" className='nav-link'>South America</Link>
                     </NavDropdown>
                 </Nav>
+                <input onChange={handleSearch}/>
+                <button onClick={submitSearch}>search</button>
                 {/* <input onChange={handleSearch}/> */}
                 </Container>
             </Navbar>

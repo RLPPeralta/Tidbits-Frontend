@@ -38,14 +38,16 @@ function Filter() {
     }
 
     return (
-        <>
+        <div className="searchInputs">
+        
             <h1>Recipes</h1>
             <Stack direction="horizontal" gap={3}>
             <CardGroup className='card-group'>
                 {RecipeList()}
             </CardGroup>
             </Stack>
-        </>
+        
+        </div>
     )
 }
 
