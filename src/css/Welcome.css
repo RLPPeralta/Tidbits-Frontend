@@ -1,3 +1,15 @@
+.WelcomePage{
+  /* background-color: #fefae0; */
+  background: linear-gradient(
+      to bottom right,
+       #fefae0, #283618
+  );
+  font-weight: 500;
+  min-height: 90vh;
+  /* position: absolute; */
+  font-family: 'Montserrat', sans-serif;
+}
+
 .row {
     display: flex;
   }
@@ -16,16 +28,44 @@
     color: #bc6c25;
 }
 
-.WelcomePage{
-    /* background-color: #fefae0; */
-    background: linear-gradient(
-        to bottom right,
-         #fefae0, #283618
-    );
-    font-weight: 500;
-    min-height: 90vh;
-    /* position: absolute; */
-    font-family: 'Montserrat', sans-serif;
+
+.welcome-h1-tag { 
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #111d13;
+  /* background-color: #fefae0; */
+  padding: 1em;
+  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* text-transform: uppercase; */
+}
+
+.welcome-h3-tag {
+  font-size: 60px;
+  color:#fefae0;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px #111d13;
+}
+
+.welcome-p-tag{ 
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #fefae0;
+  text-shadow: 1px 1px #111d13;
+  /* background-color: #fefae0; */
+  padding: 1em;
+  font-family: 'DM Serif Display', serif;
+}
+
+.welcome-p-text{
+  padding: 20px;
 }
 
 /* COLOR PALETTE
