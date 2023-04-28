@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Spinner, Card, Stack, Container } from 'react-bootstrap';
 import globelogo2 from "../globelogo2.png";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 // import image from "./img/globelogo1.png"; 
 import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../contexts/RecipeContext';
@@ -10,7 +10,7 @@ import '../css/Welcome.css';
 // import ReactGlobe from 'react-globe';
 
 const Welcome = () => {
-
+  let navigate = useNavigate()
   let { getAllRecipes } = useContext(RecipeContext)
   let [userRecipe, setUserRecipes] = useState();
 
@@ -36,24 +36,23 @@ const Welcome = () => {
             <img
               className="CarouselImg d-block w-100 "
               // src="https://content.maltatoday.com.mt/ui_frontend/thumbnail/684/0/26_op_phyllisieena_gauci.jpg"
-              src="https://images.unsplash.com/photo-1548940740-204726a19be3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+              src="https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
               alt="First slide"
             />
             <Carousel.Caption className="text">
-              <h3 className='welcome-h3-tag'>Tidbits</h3>
-              <p className='welcome-p-tag'>for food lovers</p>
+              <h3 className='welcome-h3-tag-1'>Tidbits</h3>
+              <p className='welcome-p-tag-1'>for food lovers</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className='items' interval={2000}>
             <img
               className="CarouselImg d-block w-100"
-              // src="https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
-              src="https://images.unsplash.com/photo-1623855244183-52fd8d3ce2f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+              src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
               alt="Second slide"
             />
             <Carousel.Caption>
-            <h3 className='welcome-h3-tag'>Tidbits</h3>
-              <p className='welcome-p-tag'>for food lovers</p>
+              <h3 className='welcome-h3-tag-2'>Tidbits</h3>
+              <p className='welcome-p-tag-2'>for food lovers</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item className='items' interval={1500}>
@@ -64,17 +63,21 @@ const Welcome = () => {
               alt="Third slide"
             />
             <Carousel.Caption>
-            <h3 className='welcome-h3-tag'>Tidbits</h3>
-              <p className='welcome-p-tag'> for food lovers </p>
+              <h3 className='welcome-h3-tag-3'>Tidbits</h3>
+              <p className='welcome-p-tag-3'> for food lovers </p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+
+        <div className='welcome-buttons'>
+          <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/signup')}>Create An Account</Button>
+        </div>
 
         <div>
           <div class="row">
             <div class="column">
               <p className='welcome-p-text' style={{ fontWeight: 500 }}>
-                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive. Pupperino much ruin diet super chub dat tungg tho, aqua doggo lotsa pats. Most angery pupper I have ever seen the neighborhood pupper many pats snoot corgo, doge vvv. You are doing me a frighten you are doing me the shock mlem stop it fren super chub woofer, doggorino extremely cuuuuuute stop it fren woofer.
+                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive.
               </p>
             </div>
             <div class="column">
@@ -86,7 +89,7 @@ const Welcome = () => {
             </div>
             <div class="column">
               <p className='welcome-p-text' style={{ fontWeight: 500 }}>
-                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive. Pupperino much ruin diet super chub dat tungg tho, aqua doggo lotsa pats. Most angery pupper I have ever seen the neighborhood pupper many pats snoot corgo, doge vvv. You are doing me a frighten you are doing me the shock mlem stop it fren super chub woofer, doggorino extremely cuuuuuute stop it fren woofer.
+                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive.
               </p>
             </div>
           </div>
@@ -95,9 +98,27 @@ const Welcome = () => {
     );
   }
 
-  function featuredRecipes(userRecipe) {
-    return (userRecipe.map((r) =>
-      <div className='display-container'>
+
+  // function shuffle(array) {
+  //   let shuffledArray = [];
+  //   let usedIndexes = [];
+
+  //   let i = 0; 
+  //   while(i > array.length) {
+  //    let randomNumber =  Math.floor(Math.random() * array.length);
+  //    if (!usedIndexes.includes(randomNumber)) { 
+  //     shuffledArray.push(array[randomNumber]);
+  //     usedIndexes.push(randomNumber);
+  //     i++;
+  //    }
+  //   }
+  //   return 
+  // }
+
+
+  function featuredRecipes(userRecipes) {
+    return (userRecipes.slice(0, 3).map((r) =>
+      <div className='display-container' >
         <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
           <img variant="top" src={r.image} class="card-img" />
           <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
@@ -120,19 +141,23 @@ const Welcome = () => {
           {IndividualIntervalsExample()}
         </div>
       </div>
-      <div></div>
+      <div className='featured-recipes'>
         <h1 className='welcome-h1-tag'>Featured Recipes</h1>
         <br></br>
-        <Stack className='d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
-          <div className="recipe-card-container">
-            <RecipeContext.Consumer>
-              {({ recipe }) => (
-                featuredRecipes(recipe)
-              )}
-            </RecipeContext.Consumer>
-          </div>
-          <Outlet />
-        </Stack>
+        <div>
+          <Stack className='d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
+            <div className="welcome-recipe-card-container">
+              <RecipeContext.Consumer>
+                {({ recipe }) => (
+                  featuredRecipes(recipe)
+                )}
+              </RecipeContext.Consumer>
+            </div>
+            <Outlet />
+          </Stack>
+        </div>
+      </div>
+
     </>
   )
 };
