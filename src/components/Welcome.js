@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Nav.css'
 import '../css/Welcome.css';
+import RecipeContext from '../contexts/RecipeContext';
+
 // import ReactGlobe from 'react-globe';
 
 function IndividualIntervalsExample() {
@@ -138,7 +140,10 @@ Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo
             </div> */}
 
           </div>
+
+
         {/* </div> */}
+
 
       {/* </div> */}
 
