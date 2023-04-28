@@ -9,12 +9,12 @@ import RecipeContext from '../contexts/RecipeContext'
 function Filter() {
     let params = useParams();
     const [ recipes, setRecipes ] = useState([]);
-    let { filter } = useContext(RecipeContext);
+    let { searchRecipe } = useContext(RecipeContext);
 
     useEffect(() => {
         async function fetch() {
-            await filter(params.filter).then(response => {
-                setRecipes(response)
+            await searchRecipe(params.filter).then(response => {
+                setRecipes(response.data)
             })
         }
     fetch();
