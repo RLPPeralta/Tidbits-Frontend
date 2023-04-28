@@ -7,6 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../contexts/RecipeContext';
 import '../css/Nav.css'
 import '../css/Welcome.css';
+
 // import ReactGlobe from 'react-globe';
 
 const Welcome = () => {

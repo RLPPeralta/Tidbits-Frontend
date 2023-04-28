@@ -54,6 +54,7 @@ function App() {
             <Route path='/europe' element={ <Europe />}/>
             <Route path='/australia' element={ <Australia />}/>
             <Route path="search/:filter" element={<Filter />} />
+            {/* <Route path='/map' element={ <WorldMap />}/> */}
             <Route path="/comments/new" element={<AddComment />} />
             <Route path="/comments" element={<Comments />} />
             <Route path="*" element={<ErrorPage />} />

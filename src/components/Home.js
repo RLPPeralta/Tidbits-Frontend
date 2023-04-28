@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Nav, Navbar, NavDropdown, Stack } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -18,17 +18,25 @@ const Home = () => {
         const user = localStorage.getItem('user');
     
     let { searchRecipe } = useContext(RecipeContext);
+    const [ searchQuery, setSearchQuery ] = useState('');
 
     function onSignOut() {
         localStorage.clear();
         navigate('/signin')
     }
 
+
     function handleSearch(e) {
         if ( e.target.value === "") return;
-        navigate("/search/" + e.target.value)
+        setSearchQuery(e.target.value);
+        
+    };
+
+    function submitSearch(e) {
+       // TODO create state searchQuery
+       navigate("/search/" + searchQuery)
     }
-    //need to create a search filter so that it filters through the recipes
+
 
     function authLink() {
         if (user === null)
@@ -50,6 +58,7 @@ const Home = () => {
 
 
     return (
+
 <div className='Homepage'>
         <Navbar className='navbar' collapseOnSelect expand="lg">
             <Container >
@@ -79,7 +88,8 @@ const Home = () => {
                                     <Link to="/southamerica" className='nav-link'>South America</Link>
                             </NavDropdown>
                             
-                                    <input onChange={handleSearch}/>
+                            <input onChange={handleSearch}/>
+                            <button onClick={submitSearch}>search</button>
                 </Nav>                 
                 </Navbar.Collapse>
             </Container>
@@ -88,6 +98,7 @@ const Home = () => {
                     <Outlet />
                 </Stack>
     </div>
+
     )
 };
 
