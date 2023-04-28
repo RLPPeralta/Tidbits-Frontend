@@ -19,13 +19,21 @@ export const CommentProvider = (props) => {
     });
   }
 
+  function getRecipeComments(recipeId){
+    return axios.get(`${baseUrl}recipeComments/${recipeId}`).then((response) => {
+      return new Promise((resolve) => resolve(response.data)).catch(
+        (error) => new Promise((_, reject) => reject(error.response.statusText))
+      );
+    });
+  }
+
   function createComment(comment) {
     let myHeaders = {
         Authorization: `Bearer ${localStorage.getItem('myRecipeToken')}`
     };
     return axios.post(baseUrl, comment, { headers: myHeaders })
       .then((response) => {
-        getAllComments();
+        //getAllComments();
         return new Promise((resolve) => resolve(response.data));
       });
   }
@@ -59,6 +67,7 @@ export const CommentProvider = (props) => {
       value={{
         comment,
         getComment,
+        getRecipeComments,
         createComment,
         updateComment,
         deleteComment,

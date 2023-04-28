@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Spinner } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 import { AiOutlinePrinter } from 'react-icons/ai';
@@ -9,7 +9,7 @@ import {FaRegArrowAltCircleLeft} from 'react-icons/fa';
 import {BsTrash3} from 'react-icons/bs';
 import {CiEdit} from 'react-icons/ci';
 import styles from '../css/RecipePage.css'
-// import AddComment from './AddComment';
+import CommentContext from '../contexts/CommentContext';
 
 const RecipePage = () => {
 
@@ -31,9 +31,10 @@ const RecipePage = () => {
       servings: "",
       prepTime: "",
       cookTime: "",
-      createdAt: Date
+      createdAt: Date,
+      Comments: []
   })
-  let { recipeId, userId, User, recipe, instructions, ingredients, continent, image, country, servings, prepTime, cookTime, createdAt} = oneRecipe
+  let { recipeId, userId, User, recipe, instructions, ingredients, continent, image, country, servings, prepTime, cookTime, createdAt, Comments} = oneRecipe
 
     useEffect(() => {
       async function fetch() {
@@ -54,6 +55,37 @@ const RecipePage = () => {
         return <div className="w-25 text-center"><Spinner animation="border" /></div>
       }
 
+      const [addComment, setAddComment] = useState({
+        RecipeRecipeId: params.recipeId,
+        commentTitle: "",
+        recipeId: "",
+      });
+
+      let { createComment , getRecipeComments} = useContext(CommentContext);
+  
+      function handleChange(event) {
+        setAddComment((prevValue) => {
+          return { ...prevValue, [event.target.name]: event.target.value };
+        });
+      }
+    
+      function handleSubmit(event) {
+        event.preventDefault();
+        createComment(addComment)
+          .then(() => {
+            getRecipeComments(recipeId).then((Comments) => {
+                console.log(Comments)
+                setOneRecipe({...oneRecipe, Comments})
+                setAddComment({...addComment, commentTitle: ''})
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            navigate("/signin");
+          });
+      }
+    
+
     function recipeComponent() {
           if (token && currentUser == userId) {
             return (
@@ -64,6 +96,53 @@ const RecipePage = () => {
                     <div class="RPRecipeImg card w-75 mx-auto">
                       <img src={image} className="img-fluid rounded" alt="recipe"/>
                     </div>
+
+                  {/* COMMENTS LIST */}
+                  <div className="row"> 
+                  <div className="col text-left">
+                      <div className="container-fluid py-3">
+                        <div className="row py-1">
+                          <div className="col-12 mb-2"> 
+                            <h5>Comments about {recipe} </h5>
+                                {Comments.map((comment, index) => {
+                                    return (
+                                      <div>
+                                          <div>{index + 1}. {comment.commentTitle}</div>
+                                      </div>
+                                            )
+                                              })}
+
+                              {/* COMMENT SECTION FOR CURRENT USER */}
+
+                              <div>
+                                    <Form onSubmit={handleSubmit}>
+                                      <Form.Group>
+                                        <div className="">
+                                          <Form.Control
+                                            className="custom-search-input"
+                                            placeholder=""
+                                            type="text"
+                                            name="commentTitle"
+                                            value={addComment.commentTitle}
+                                            onChange={handleChange}
+                                          />
+
+                                          <Button type="submit">Submit</Button>
+                                        </div>
+                                      </Form.Group>
+                                    </Form>
+                                </div>
+
+                              {/* -COMMENT SECTION END- */}
+
+                          </div>
+                                                
+                        </div>
+                      </div> 
+                  </div>
+                  </div> 
+
+
                   </div>
                   <div class="col-sm-12 col-md-6">
                     <div className='RPRLinks d-flex justify-content-center'>
@@ -103,6 +182,51 @@ const RecipePage = () => {
                     <div class="RPRecipeImg card w-75 mx-auto">
                       <img src={image} className="img-fluid rounded" alt="recipe"/>
                     </div>
+
+                     <div className="row"> 
+                    <div className="col text-left">
+                       <div className="container-fluid py-3">
+                        <div className="row py-1">
+                          <div className="col-12 mb-2"> 
+                            <h5>Comments about {recipe} </h5>
+                                {Comments.map((comment, index) => {
+                                    return (
+                                      <div>
+                                          <div>{index + 1}. {comment.commentTitle}</div>
+                                      </div>
+                                            )
+                                              })}
+
+                        {/* ADD COMMENT SECTION for guest user */}
+
+                        <div>
+                              <Form onSubmit={handleSubmit}>
+                                <Form.Group>
+                                  <div className="">
+                                    <Form.Control
+                                      className="custom-search-input"
+                                      placeholder=""
+                                      type="text"
+                                      name="commentTitle"
+                                      value={addComment.commentTitle}
+                                      onChange={handleChange}
+                                    />
+
+                                    <Button type="submit">Submit</Button>
+                                  </div>
+                                </Form.Group>
+                              </Form>
+                          </div>
+
+                        {/* -ADD COMMENT SECTION END- */}
+                                              
+                             </div>
+                                                
+                        </div>
+                      </div> 
+                  </div>
+                </div> 
+
                   </div>
                   <div class="col-sm-12 col-md-6">
                     <h4 className='RPTitleTwo'>{recipe}</h4>
@@ -152,26 +276,3 @@ const RecipePage = () => {
 };
 
 export default RecipePage;
-
-
-
-//COMMENT CODE
-{/* <div className="row">
-  <div className="col-lg-6 text-center">
-      <div className="container-fluid py-3" id="commentContainer">
-        <div className="row py-1">
-          <div className="col-12 mb-2">
-            <h5>Comments about the {recipe.recipe}</h5>
-                {recipe.Comments.map((comment, index) => {
-                    return (
-                      <div>
-                          <div id="commentBubble">{index + 1}. {comment.commentTitle}</div>
-                      </div>
-                            )
-                              })}
-            </div>
-                                <div><AddComment /></div>
-      </div>
-    </div>
-  </div>
-</div> */}
