@@ -84,7 +84,14 @@ export const RecipeProvider = (props) => {
     }
 
     function searchRecipe(searchQuery) {
-        return  axios.get(`${baseUrl}/search/${searchQuery}`);   
+        return  axios.get(`${baseUrl}/search/${searchQuery}`).then((response) => {
+          if (response.data.length === 0 ) {
+            alert("NO RECIPES FOUND! Try again!")
+          } else {
+            return setRecipe(response.data);
+          }
+          console.log(response.data);
+        });    
       }
 
     return (
