@@ -22,11 +22,6 @@ import Footer from './components/Footer';
 import PrintRecipe from './components/PrintRecipe';
 import AboutUs from './components/About';
 import ErrorPage from './components/ErrorPage';
-import AddComment from './components/AddComment';
-import Comments from './components/Comments';
-
-
-
 
 
 function App() {
@@ -55,8 +50,6 @@ function App() {
             <Route path='/australia' element={ <Australia />}/>
             <Route path="search/:filter" element={<Filter />} />
             {/* <Route path='/map' element={ <WorldMap />}/> */}
-            <Route path="/comments/new" element={<AddComment />} />
-            <Route path="/comments" element={<Comments />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
           <Route path="*" element={<ErrorPage />} />
