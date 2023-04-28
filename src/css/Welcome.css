@@ -1,3 +1,15 @@
+.WelcomePage{
+  /* background-color: #fefae0; */
+  background: linear-gradient(
+      to bottom right,
+       #fefae0, #283618
+  );
+  font-weight: 500;
+  min-height: 90vh;
+  /* position: absolute; */
+  font-family: 'Montserrat', sans-serif;
+}
+
 .row {
     display: flex;
   }
@@ -16,16 +28,133 @@
     color: #bc6c25;
 }
 
-.WelcomePage{
-    /* background-color: #fefae0; */
-    background: linear-gradient(
-        to bottom right,
-         #fefae0, #283618
-    );
-    font-weight: 500;
-    min-height: 90vh;
-    /* position: absolute; */
-    font-family: 'Montserrat', sans-serif;
+
+.welcome-h1-tag { 
+  text-align: center;
+  padding: 10px;
+  margin-top: 2em;
+  font-size: 35px;
+  padding: 1em;
+  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
+  color: #111d13;
+}
+
+.welcome-h3-tag {
+  font-size: 60px;
+  color: #111d13;
+  text-shadow: 1px 1px #fefae0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.welcome-h3-tag-light { 
+  font-size: 60px;
+  color:#fefae0; 
+  text-shadow: 1px 1px #111d13;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-h3-tag-1{
+  font-size: 60px;
+  color: #bc6c25;
+  text-shadow: 1px 1px #111d13;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-p-tag-1 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color:#fefae0;
+  text-shadow: 1px 1px #111d13;
+  padding: 1em;
+  font-family: 'DM Serif Display', serif;
+}
+
+.welcome-p-tag-2{ 
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #111d13;
+  text-shadow: 1px 1px #fefae0;
+  padding: 1em;
+  font-family: 'DM Serif Display', serif;
+}
+
+.welcome-h3-tag-2{
+  font-size: 60px;
+  color: #111d13;
+  text-shadow: 1px 1px #fefae0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-p-tag-2 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color:#111d13;
+  text-shadow: 1px 1px #fefae0;
+  padding: 1em;
+  font-family: 'DM Serif Display', serif;
+}
+
+.welcome-h3-tag-3{
+  font-size: 60px;
+  color: #111d13;
+  text-shadow: 1px 1px #536c38;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-p-tag-3 {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color:#fefae0;
+  text-shadow: 2px 2px #111d13;
+  padding: 1em;
+  font-family: 'DM Serif Display', serif;
+}
+
+
+.welcome-p-text{
+  padding: 20px;
+}
+
+.welcome-buttons {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.welcome-recipe-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-family: 'Montserrat', sans-serif;
+  margin: 50px;
+  align-items: center;
+  text-align: center;
+   border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    to bottom right,
+     #283618, #fefae0
+);
+}
+
+.featured-recipes{ 
+  background: linear-gradient(
+    to top left,
+     #fefae0, #fefae0
+);
 }
 
 /* COLOR PALETTE

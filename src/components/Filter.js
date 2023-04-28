@@ -9,12 +9,12 @@ import RecipeContext from '../contexts/RecipeContext'
 function Filter() {
     let params = useParams();
     const [ recipes, setRecipes ] = useState([]);
-    let { filter } = useContext(RecipeContext);
+    let { searchRecipe } = useContext(RecipeContext);
 
     useEffect(() => {
         async function fetch() {
-            await filter(params.filter).then(response => {
-                setRecipes(response)
+            await searchRecipe(params.filter).then(response => {
+                setRecipes(response.data)
             })
         }
     fetch();
@@ -35,14 +35,16 @@ function Filter() {
     }
 
     return (
-        <>
+        <div className="searchInputs">
+        
             <h1>Recipes</h1>
             <Stack direction="horizontal" gap={3}>
             <CardGroup className='card-group'>
                 {RecipeList()}
             </CardGroup>
             </Stack>
-        </>
+        
+        </div>
     )
 }
 

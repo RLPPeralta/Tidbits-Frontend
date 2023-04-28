@@ -87,7 +87,24 @@ const RecipePage = () => {
     
 
     function recipeComponent() {
-          if (token && currentUser == userId) {
+          if(!recipe) {
+            return (
+              <div class="RPRecipePage px-4">
+                <div class="row align-items-center ">
+                  <div class="col-sm-12 col-md-6 p-3">
+                    <div class="RPRecipeImg card w-50 mx-auto">
+                    <img src={logohome}alt="logo" /><br></br>                   
+                    <img src={Picture1}alt="logoname"/>                    
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <h1 className='RPErrorTitle'>Please romaine calm!</h1>
+                    <h3 className='RPErrorBody'>Unfortunately, this recipe doesn't exist anymore. Don't worry, there are polenta more. Have an egg-cellent day!</h3><br></br>
+                  </div>
+                </div>            
+              </div>
+            )
+          } else if (token && currentUser == userId) {
             return (
               <div class="RPRecipePage px-4">
                 <Button size="lg" variant="outline" onClick={() => [navigate(-1)]}><FaRegArrowAltCircleLeft></FaRegArrowAltCircleLeft>Go Back</Button>

@@ -46,13 +46,11 @@ const GeneralProfile = () => {
         <h2 className='h2-tag' >{firstName} {lastName}</h2><br></br>
         <p className='general-p'>A bit about me: {bio}</p>
         <p className='general-p'>{continent}</p><br></br>
-        {/* <div className='buttons'>
-                        <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
-                      </div> */}
       </div>
     )
   }
 
+  // Map through user recipes getRecipeByUserId//
   function userRecipes() {
     if (userRecipe != null) {
       return (userRecipe?.map((r) =>
@@ -88,6 +86,9 @@ const GeneralProfile = () => {
         </div>
         <Outlet />
       </Stack>
+      <div className='buttons'>
+          <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+        </div>
     </>
   )
 
