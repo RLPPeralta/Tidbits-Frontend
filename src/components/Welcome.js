@@ -12,7 +12,6 @@ const Welcome = () => {
   let navigate = useNavigate()
   let { getAllRecipes } = useContext(RecipeContext)
   let [userRecipes, setUserRecipes] = useState();
-  let [recipe, setRecipeCards] = useState();
 
 
   useEffect(() => {
@@ -26,6 +25,7 @@ const Welcome = () => {
     }
     fetch()
   }, []);
+
 
 
   function IndividualIntervalsExample() {
@@ -97,11 +97,9 @@ const Welcome = () => {
       </div>
     );
   }
-
-
-
-  function featuredRecipes(recipe) {
-    return (recipe?.slice(0,3).map((r) =>
+  
+  function featuredRecipes(userRecipes) {
+    return (userRecipes.slice(0,3).map((r) =>
       <div className='display-container' key={r.recipeId}  >
         <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
           <img variant="top" src={r.image} class="card-img" />
