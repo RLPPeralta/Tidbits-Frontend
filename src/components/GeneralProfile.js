@@ -16,8 +16,6 @@ const GeneralProfile = () => {
   let [userProfile, setUserProfile] = useState();
   let [userRecipe, setUserRecipes] = useState();
 
-  let token = localStorage.getItem('myRecipeToken')
-
   useEffect(() => {
     async function fetch() {
       await getUser(params.userId)
@@ -87,8 +85,8 @@ const GeneralProfile = () => {
         <Outlet />
       </Stack>
       <div className='buttons'>
-          <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
-        </div>
+        <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
+      </div>
     </>
   )
 

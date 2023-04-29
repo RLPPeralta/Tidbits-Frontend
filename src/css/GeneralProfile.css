@@ -1,27 +1,3 @@
-/* div { 
-    background-color: #fefae0;
-
-} */
-
-/* .page{
-    background-color: #dda15e;
-    padding-top: 100pt;
-    min-height: 90vh;
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;  
-} */
-
-/* 
-h1 {
-    text-align: center;
-    padding: 1rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 30px;
-    color: #283618;
-    font-weight: 700;
-    font-family: 'DM Serif Display', serif;
-} */
 
 
 .h1-tag-general {
@@ -98,7 +74,6 @@ h4 {
     text-align: center;
      border-radius: 10px;
     backdrop-filter: blur(10px);
-    
 }
 
 .defaultCard { 
