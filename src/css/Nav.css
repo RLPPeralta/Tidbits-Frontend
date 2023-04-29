@@ -31,30 +31,4 @@
 .items{
     object-fit: cover;
     object-position: center;
-    height: 50vh;
-    overflow: hidden;
      }
-
-/* .carousel img {
- object-fit: cover;
- object-position: center;
- height: 50vh;
- overflow: hidden;
-  } */
-
-/* .carousel.item:before {
-    content: "" ;
-    background-image:
-        linear-gradient(
-            to bottom, transparent, rgba(0,0,0,0.8)
-        );
-        display:block;
-        position: absolute;
-        top:0;
-        width: 100vw;
-        height: 100vh;   
-  } */
-
-/* .CarouselImg{
-height: 700px;
-} */

@@ -114,52 +114,6 @@ const RecipePage = () => {
                       <img src={image} className="img-fluid rounded" alt="recipe"/>
                     </div>
 
-                  {/* COMMENTS LIST */}
-                  <div className="row"> 
-                  <div className="col text-left">
-                      <div className="container-fluid py-3">
-                        <div className="row py-1">
-                          <div className="col-12 mb-2"> 
-                            <h5>Comments about {recipe} </h5>
-                                {Comments.map((comment, index) => {
-                                    return (
-                                      <div>
-                                          <div>{index + 1}. {comment.commentTitle}</div>
-                                      </div>
-                                            )
-                                              })}
-
-                              {/* COMMENT SECTION FOR CURRENT USER */}
-
-                              <div>
-                                    <Form onSubmit={handleSubmit}>
-                                      <Form.Group>
-                                        <div className="">
-                                          <Form.Control
-                                            className="custom-search-input"
-                                            placeholder=""
-                                            type="text"
-                                            name="commentTitle"
-                                            value={addComment.commentTitle}
-                                            onChange={handleChange}
-                                          />
-
-                                          <Button type="submit">Submit</Button>
-                                        </div>
-                                      </Form.Group>
-                                    </Form>
-                                </div>
-
-                              {/* -COMMENT SECTION END- */}
-
-                          </div>
-                                                
-                        </div>
-                      </div> 
-                  </div>
-                  </div> 
-
-
                   </div>
                   <div class="col-sm-12 col-md-6">
                     <div className='RPRLinks d-flex justify-content-center'>
@@ -188,6 +142,39 @@ const RecipePage = () => {
                     <p className='RPUserLink'>Recipe added by <Link to={`/userprofile/${userId}`} >{User?.firstName} {User?.lastName}</Link> Created: {createdAt} </p>
                   </div>
                 </div>
+
+                {/* COMMENTS LIST */}
+                  <div className="row"> 
+                  <div className="col text-left">
+                      <div className="container-fluid py-3">
+                            <h5>Comments about {recipe} </h5>
+                                {Comments.map((comment, index) => {
+                                    return (
+                                      <div>
+                                          <div>{index + 1}. {comment.commentTitle}</div>
+                                      </div>
+                                            )
+                                              })}
+
+                {/* COMMENT FORM SECTION FOR CURRENT USER */}
+                              <div>
+                                    <Form onSubmit={handleSubmit}>
+                                      <Form.Group >
+                                          <Form.Control 
+                                            className="w-50"
+                                            type="text"
+                                            name="commentTitle"
+                                            value={addComment.commentTitle}
+                                            onChange={handleChange}
+                                          />
+                                          <Button type="submit">Submit</Button>
+                                      </Form.Group>
+                                    </Form>
+                                </div>                                              
+                      </div> 
+                  </div>
+                  </div> 
+                {/* -COMMENT SECTION END- */}
               </div>
         )
           } else if(token){
@@ -199,50 +186,6 @@ const RecipePage = () => {
                     <div class="RPRecipeImg card w-75 mx-auto">
                       <img src={image} className="img-fluid rounded" alt="recipe"/>
                     </div>
-
-                     <div className="row"> 
-                    <div className="col text-left">
-                       <div className="container-fluid py-3">
-                        <div className="row py-1">
-                          <div className="col-12 mb-2"> 
-                            <h5>Comments about {recipe} </h5>
-                                {Comments.map((comment, index) => {
-                                    return (
-                                      <div>
-                                          <div>{index + 1}. {comment.commentTitle}</div>
-                                      </div>
-                                            )
-                                              })}
-
-                        {/* ADD COMMENT SECTION for guest user */}
-
-                        <div>
-                              <Form onSubmit={handleSubmit}>
-                                <Form.Group>
-                                  <div className="">
-                                    <Form.Control
-                                      className="custom-search-input"
-                                      placeholder=""
-                                      type="text"
-                                      name="commentTitle"
-                                      value={addComment.commentTitle}
-                                      onChange={handleChange}
-                                    />
-
-                                    <Button type="submit">Submit</Button>
-                                  </div>
-                                </Form.Group>
-                              </Form>
-                          </div>
-
-                        {/* -ADD COMMENT SECTION END- */}
-                                              
-                             </div>
-                                                
-                        </div>
-                      </div> 
-                  </div>
-                </div> 
 
                   </div>
                   <div class="col-sm-12 col-md-6">
@@ -267,6 +210,40 @@ const RecipePage = () => {
                     <p className='RPUserLink'>Recipe added by <Link to={`/userprofile/${userId}`} >{User?.firstName} {User?.lastName}</Link> Created: {createdAt} </p>
                   </div>
                 </div>
+
+                {/* COMMENTS LIST for TOKEN ONLY*/}
+                <div className="row"> 
+                <div className="col text-left">
+                      <div className="container-fluid py-3">
+                            <h5>Comments about {recipe} </h5>
+                                {Comments.map((comment, index) => {
+                                    return (
+                                      <div>
+                                          <div>{index + 1}. {comment.commentTitle}</div>
+                                      </div>
+                                            )
+                                              })}
+
+                {/* COMMENT FORM SECTION FOR CURRENT USER */}
+                              <div>
+                                    <Form onSubmit={handleSubmit}>
+                                      <Form.Group >
+                                          <Form.Control 
+                                            className="w-50"
+                                            type="text"
+                                            name="commentTitle"
+                                            value={addComment.commentTitle}
+                                            onChange={handleChange}
+                                          />
+                                          <Button type="submit">Submit</Button>
+                                      </Form.Group>
+                                    </Form>
+                                </div>                                              
+                      </div> 
+                  </div>
+                  </div> 
+                {/* -COMMENT SECTION END- */}
+
               </div>
               )
           } else {

@@ -7,6 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../contexts/RecipeContext';
 import '../css/Nav.css'
 import '../css/Welcome.css';
+import Team from './Team';
 
 // import ReactGlobe from 'react-globe';
 
@@ -33,40 +34,26 @@ const Welcome = () => {
     return (
       <div className='WelcomePage'>
         <Carousel indicators={false} controls={false} variant="dark">
-          <Carousel.Item className='items' interval={2000}>
+          <Carousel.Item className='items' interval={2500}>
             <img
               className="CarouselImg d-block w-100 "
-              // src="https://content.maltatoday.com.mt/ui_frontend/thumbnail/684/0/26_op_phyllisieena_gauci.jpg"
-              src="https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              src='3.png'
               alt="First slide"
             />
-            <Carousel.Caption className="text">
-              <h3 className='welcome-h3-tag-1'>Tidbits</h3>
-              <p className='welcome-p-tag-1'>for food lovers</p>
-            </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item className='items' interval={2000}>
+          <Carousel.Item className='items' interval={2500}>
             <img
               className="CarouselImg d-block w-100"
-              src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h3 className='welcome-h3-tag-2'>Tidbits</h3>
-              <p className='welcome-p-tag-2'>for food lovers</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className='items' interval={1500}>
-            <img
-              className="CarouselImg d-block w-100"
-              // src="https://www.shutterstock.com/image-vector/business-concept-people-hold-hands-260nw-1264023865.jpg"
-              src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+              src='6.png'
               alt="Third slide"
             />
-            <Carousel.Caption>
-              <h3 className='welcome-h3-tag-3'>Tidbits</h3>
-              <p className='welcome-p-tag-3'> for food lovers </p>
-            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item className='items' interval={2500}>
+            <img
+              className="CarouselImg d-block w-100"
+              src='1.png'
+              alt="Third slide"
+            />
           </Carousel.Item>
         </Carousel>
 
@@ -158,7 +145,7 @@ const Welcome = () => {
           </Stack>
         </div>
       </div>
-
+            <Team/>
     </>
   )
 };
