@@ -1,16 +1,15 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  } */
 .AboutTitle{
+  /* background-color: #fefae0 ; */
   background-color: #283618 ;
   padding-top: 40px;
   justify-content:center;
-  color: #fff;
+  /* color: #283618; */
+  color: #fefae0;
   text-align: center  ;
   font-family: 'Montserrat', sans-serif;
+}
+.teamtitle{
+  font-family: 'DM Serif Display', serif;
 }
   .mainAbout{
     width: 100%;
@@ -71,7 +70,7 @@
     text-align: center;
     transform: translateY(-230px);
     opacity: 0;
-    transition: .6s;
+    transition: .3s;
   }
   .profile-card:hover .caption{
     opacity: 1;
