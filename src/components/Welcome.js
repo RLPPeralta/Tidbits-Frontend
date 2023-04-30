@@ -7,12 +7,11 @@ import RecipeContext from '../contexts/RecipeContext';
 import '../css/Nav.css'
 import '../css/Welcome.css';
 
-// import ReactGlobe from 'react-globe';
 
 const Welcome = () => {
   let navigate = useNavigate()
   let { getAllRecipes } = useContext(RecipeContext)
-  let [userRecipe, setUserRecipes] = useState();
+  let [userRecipes, setUserRecipes] = useState();
 
 
   useEffect(() => {
@@ -26,6 +25,7 @@ const Welcome = () => {
     }
     fetch()
   }, []);
+
 
 
   function IndividualIntervalsExample() {
@@ -74,26 +74,30 @@ const Welcome = () => {
         </div>
 
         <div>
+
           <div class="row">
             <div class="column">
               <p className='welcome-p-text' style={{ fontWeight: 400 }}>
               Chocolate lollipop apple pie chocolate bar bear claw sweet roll pastry lemon drops tootsie roll. Cake cake apple pie gingerbread toffee. Jelly brownie liquorice donut tart croissant. Ice cream cheesecake muffin soufflé sweet roll soufflé. Toffee chocolate cake jelly beans cupcake tiramisu apple pie liquorice. Sesame snaps ice cream sweet roll carrot cake soufflé cheesecake biscuit. Powder topping soufflé sweet roll oat cake pudding caramels.
 
 Muffin oat cake marzipan pie soufflé cookie chocolate oat cake. Dragée powder fruitcake fruitcake lemon drops topping sweet. Shortbread chupa chups bonbon ice cream tiramisu macaroon tart. Bear claw biscuit pie lollipop oat cake. 
+
               </p>
             </div>
-            <div class="column">
+            <div className="column">
               {/* <ReactGlobe /> */}
               <img className="navbarBrand"
                 src={globelogo2}
                 height={350}
                 alt="logo" />
             </div>
+
             <div class="column">
               <p className='welcome-p-text' style={{ fontWeight: 400 }}>
               Chocolate lollipop apple pie chocolate bar bear claw sweet roll pastry lemon drops tootsie roll. Cake cake apple pie gingerbread toffee. Jelly brownie liquorice donut tart croissant. Ice cream cheesecake muffin soufflé sweet roll soufflé. Toffee chocolate cake jelly beans cupcake tiramisu apple pie liquorice. Sesame snaps ice cream sweet roll carrot cake soufflé cheesecake biscuit. Powder topping soufflé sweet roll oat cake pudding caramels.
 
 Muffin oat cake marzipan pie soufflé cookie chocolate oat cake. Dragée powder fruitcake fruitcake lemon drops topping sweet. Shortbread chupa chups bonbon ice cream tiramisu macaroon tart. Bear claw biscuit pie lollipop oat cake. 
+
               </p>
             </div>
           </div>
@@ -101,32 +105,14 @@ Muffin oat cake marzipan pie soufflé cookie chocolate oat cake. Dragée powder 
       </div>
     );
   }
-
-
-  // function shuffle(array) {
-  //   let shuffledArray = [];
-  //   let usedIndexes = [];
-
-  //   let i = 0; 
-  //   while(i > array.length) {
-  //    let randomNumber =  Math.floor(Math.random() * array.length);
-  //    if (!usedIndexes.includes(randomNumber)) { 
-  //     shuffledArray.push(array[randomNumber]);
-  //     usedIndexes.push(randomNumber);
-  //     i++;
-  //    }
-  //   }
-  //   return 
-  // }
-
-
+  
   function featuredRecipes(userRecipes) {
-    return (userRecipes.slice(0, 3).map((r) =>
-      <div className='display-container' >
+    return (userRecipes.slice(0,3).map((r) =>
+      <div className='display-container' key={r.recipeId}  >
         <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
           <img variant="top" src={r.image} class="card-img" />
-          <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-            <h3 class="card-title"> {r.recipe}</h3>
+          <div className="card-img-overlay text-white d-flex flex-column justify-content-center">
+            <h3 className="card-title"> {r.recipe}</h3>
             <div className='recipe-buttons'>
               <Link className='btn btn-recipe' to={`/recipe/${r.recipeId}`}>View</Link> <br></br>
             </div>
