@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Spinner, Card, Stack, Container } from 'react-bootstrap';
+import { Button, Stack } from 'react-bootstrap';
 import globelogo2 from "../globelogo2.png";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
@@ -74,22 +74,30 @@ const Welcome = () => {
         </div>
 
         <div>
-          <div className="row">
-            <div className="column">
-              <p className='welcome-p-text' style={{ fontWeight: 500 }}>
-                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive.
+
+          <div class="row">
+            <div class="column">
+              <p className='welcome-p-text' style={{ fontWeight: 400 }}>
+              Chocolate lollipop apple pie chocolate bar bear claw sweet roll pastry lemon drops tootsie roll. Cake cake apple pie gingerbread toffee. Jelly brownie liquorice donut tart croissant. Ice cream cheesecake muffin soufflé sweet roll soufflé. Toffee chocolate cake jelly beans cupcake tiramisu apple pie liquorice. Sesame snaps ice cream sweet roll carrot cake soufflé cheesecake biscuit. Powder topping soufflé sweet roll oat cake pudding caramels.
+
+Muffin oat cake marzipan pie soufflé cookie chocolate oat cake. Dragée powder fruitcake fruitcake lemon drops topping sweet. Shortbread chupa chups bonbon ice cream tiramisu macaroon tart. Bear claw biscuit pie lollipop oat cake. 
+
               </p>
             </div>
             <div className="column">
               {/* <ReactGlobe /> */}
               <img className="navbarBrand"
                 src={globelogo2}
-                height={300}
+                height={350}
                 alt="logo" />
             </div>
-            <div className="column">
-              <p className='welcome-p-text' style={{ fontWeight: 500 }}>
-                Doggo ipsum you are doin me a concern stop it fren he made many woofs long doggo, ur givin me a spook very good spot heck pupperino, puggo smol borking doggo with a long snoot for pats. Corgo wrinkler borking doggo long bois, extremely cuuuuuute ur givin me a spook. You are doin me a concern mlem clouds wrinkler, smol maximum borkdrive borkdrive pupperino, heck ur givin me a spook. many pats you are doin me a concern smol borking doggo with a long snoot for pats. Doggorino boofers pats heckin angery woofer, maximum borkdrive dat tungg tho, sub woofer maximum borkdrive.
+
+            <div class="column">
+              <p className='welcome-p-text' style={{ fontWeight: 400 }}>
+              Chocolate lollipop apple pie chocolate bar bear claw sweet roll pastry lemon drops tootsie roll. Cake cake apple pie gingerbread toffee. Jelly brownie liquorice donut tart croissant. Ice cream cheesecake muffin soufflé sweet roll soufflé. Toffee chocolate cake jelly beans cupcake tiramisu apple pie liquorice. Sesame snaps ice cream sweet roll carrot cake soufflé cheesecake biscuit. Powder topping soufflé sweet roll oat cake pudding caramels.
+
+Muffin oat cake marzipan pie soufflé cookie chocolate oat cake. Dragée powder fruitcake fruitcake lemon drops topping sweet. Shortbread chupa chups bonbon ice cream tiramisu macaroon tart. Bear claw biscuit pie lollipop oat cake. 
+
               </p>
             </div>
           </div>

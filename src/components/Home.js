@@ -6,19 +6,19 @@ import { MdOutlineLogin } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
 import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
-import RecipeContext from '../contexts/RecipeContext';
 import Picture1 from "../Picture1.png";
 import '../css/Nav.css'
+import '../css/Search.css'
 
 
 const Home = () => {
 
     let navigate = useNavigate();
-        const id = localStorage.getItem('userId');
-        const user = localStorage.getItem('user');
-    
-    let { searchRecipe } = useContext(RecipeContext);
-    const [ searchQuery, setSearchQuery ] = useState('');
+    // const id = localStorage.getItem('userId');
+    const user = localStorage.getItem('user');
+
+    // let { searchRecipe } = useContext(RecipeContext);
+    const [searchQuery, setSearchQuery] = useState('');
 
     function onSignOut() {
         localStorage.clear();
@@ -27,14 +27,14 @@ const Home = () => {
 
 
     function handleSearch(e) {
-        if ( e.target.value === "") return;
+        if (e.target.value === "") return;
         setSearchQuery(e.target.value);
-        
+
     };
 
     function submitSearch(e) {
-       // TODO create state searchQuery
-       navigate("/search/" + searchQuery)
+
+        navigate("/search/" + searchQuery)
     }
 
 
@@ -42,14 +42,14 @@ const Home = () => {
         if (user === null)
             return (
                 <Nav>
-                <Link to="/signin" className='nav-link'>Login<MdOutlineLogin></MdOutlineLogin></Link>
-                <Link to="/signup" className='nav-link'>Sign Up</Link>
+                    <Link to="/signin" className='nav-link'>Login<MdOutlineLogin></MdOutlineLogin></Link>
+                    <Link to="/signup" className='nav-link'>Sign Up</Link>
                 </Nav>
-               
-                )
+
+            )
         else {
-            return  <Nav className='user'>
-                <Link className='nav-link' to="/profile">{`Welcome back `+ user} <CgProfile></CgProfile></Link>
+            return <Nav className='user'>
+                <Link className='nav-link' to="/profile">{`Welcome back ` + user} <CgProfile></CgProfile></Link>
                 <Link to={`/profile`} className='nav-link'>My Profile</Link>
                 <Link className='nav-link' variant="link" to="/signin" onClick={onSignOut}>Sign Out</Link>
             </Nav>
@@ -59,45 +59,64 @@ const Home = () => {
 
     return (
 
-<div className='Homepage'>
-        <Navbar className='navbar' collapseOnSelect expand="lg">
-            <Container >
-            <Navbar.Brand href="/" className="d-inline-block">
-                <img
-                src={logohome}
-                height={65}
-                className="align-item-left"
-                alt="logo" />
-                <img
-                src={Picture1}
-                height={45}
-                alt="logoname"/>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-                <Nav>
+        <div className='Homepage'>
+            <Navbar className='navbar' collapseOnSelect expand="lg">
+                <Container >
+                    <Navbar.Brand href="/" className="d-inline-block">
+                        <img
+                            src={logohome}
+                            height={65}
+                            className="align-item-left"
+                            alt="logo" />
+                        <img
+                            src={Picture1}
+                            height={45}
+                            alt="logoname" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+                        <Nav>
                             {authLink()}
-                                    <Link to="/" className='nav-link'>Home</Link>
+                            <Link to="/" className='nav-link'>Home</Link>
                             <NavDropdown title="Select Continent" id="basic-nav-dropdown">
-                                    <Link to="/africa" className='nav-link'>Africa</Link>
-                                    <Link to="/antarctica" className='nav-link'>Antarctica</Link>
-                                    <Link to="/asia" className='nav-link'>Asia</Link>
-                                    <Link to="/australia" className='nav-link'>Australia</Link>
-                                    <Link to="/europe" className='nav-link'>Europe</Link>
-                                    <Link to="/northamerica" className='nav-link'>North America</Link>
-                                    <Link to="/southamerica" className='nav-link'>South America</Link>
+                                <Link to="/africa" className='nav-link'>Africa</Link>
+                                <Link to="/antarctica" className='nav-link'>Antarctica</Link>
+                                <Link to="/asia" className='nav-link'>Asia</Link>
+                                <Link to="/australia" className='nav-link'>Australia</Link>
+                                <Link to="/europe" className='nav-link'>Europe</Link>
+                                <Link to="/northamerica" className='nav-link'>North America</Link>
+                                <Link to="/southamerica" className='nav-link'>South America</Link>
                             </NavDropdown>
-                            
-                            <input onChange={handleSearch}/>
-                            <button onClick={submitSearch}>search</button>
-                </Nav>                 
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-                <Stack>
-                    <Outlet />
-                </Stack>
-    </div>
+                            {/* <div className="searchInputs">
+                                <input type="text" placeholder="Enter Recipe" onChange={handleSearch} />
+                            </div> */}
+
+                            {/* <button onClick={submitSearch}>search</button> */}
+                        
+
+                            <div class="container">
+                                <div class="row height d-flex justify-content-center align-items-center">
+                                    <div class="col-md-6">
+                                        <div class="search">
+                                            <i class="fa fa-search"></i>
+                                            <input type="text" class="form-control" placeholder="Recipes..." onChange={handleSearch}/>
+                                                <button class="btn btn-primary" onClick={submitSearch}>Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <Stack>
+                <Outlet />
+            </Stack>
+        </div>
 
     )
 };

@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Card, CardGroup } from 'react-bootstrap'
+import { CardGroup, Modal } from 'react-bootstrap'
 import Stack from 'react-bootstrap/Stack'
 import { Link, useParams } from 'react-router-dom'
-// import { RecipeContext } from './contexts/RecipeContext'
 import RecipeContext from '../contexts/RecipeContext'
+import '../css/Nav.css'
+import '../css/Welcome.css';
 
 
 function Filter() {
     let params = useParams();
-    const [ recipes, setRecipes ] = useState([]);
+    const [recipes, setRecipes] = useState([]);
     let { searchRecipe } = useContext(RecipeContext);
 
     useEffect(() => {
@@ -17,33 +18,41 @@ function Filter() {
                 setRecipes(response.data)
             })
         }
-    fetch();
+        fetch();
     }, [params.filter])
 
-    
+    const token = localStorage.getItem('myRecipeToken')
+
     function RecipeList() {
         if (recipes === null) return
-        return recipes.map((recipe) =>
-         <Card key={recipe.id}>
-            <Card.Body className='cardBody'>
-                <Card.Img variant="top" className="card-picture" src={recipe.image} />
-                <Card.Title>{recipe.recipeName}</Card.Title>
-                <Link to={`/recipes/${recipe.id}`} className="btn btn-outline-secondary mx-3" key={recipe.id}>View</Link>
-            </Card.Body>
-            </Card>
-        )
+        if (token) {
+            return recipes.map((r) =>
+                <div className='display-container' >
+                    <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
+                        <img variant="top" src={r.image} class="card-img" />
+                        <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                            <h3 class="card-title"> {r.recipe}</h3>
+                            <div className='recipe-buttons'>
+                                <Link className='btn btn-recipe' to={`/recipe/${r.recipeId}`}>View</Link> <br></br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     }
+
 
     return (
         <div className="searchInputs">
-        
+
             <h1>Recipes</h1>
             <Stack direction="horizontal" gap={3}>
-            <CardGroup className='card-group'>
-                {RecipeList()}
-            </CardGroup>
+                <CardGroup className='card-group'>
+                    {RecipeList()}
+                </CardGroup>
             </Stack>
-        
+
         </div>
     )
 }
