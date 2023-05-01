@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Nav, Navbar, NavDropdown, Stack } from 'react-bootstrap';
+import { Button, Form, Nav, Navbar, NavDropdown, Stack } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdOutlineLogin } from 'react-icons/md';
@@ -8,8 +8,6 @@ import logohome from "../logohome.png";
 import { Container } from 'react-bootstrap';
 import Picture1 from "../Picture1.png";
 import '../css/Nav.css'
-import '../css/Search.css'
-
 
 const Home = () => {
 
@@ -86,28 +84,18 @@ const Home = () => {
                                 <Link to="/europe" className='nav-link'>Europe</Link>
                                 <Link to="/northamerica" className='nav-link'>North America</Link>
                                 <Link to="/southamerica" className='nav-link'>South America</Link>
-                            </NavDropdown>
-                            {/* <div className="searchInputs">
-                                <input type="text" placeholder="Enter Recipe" onChange={handleSearch} />
-                            </div> */}
+                            </NavDropdown>                        
 
-                            {/* <button onClick={submitSearch}>search</button> */}
-                        
-
-                            <div class="container">
-                                <div class="row height d-flex justify-content-center align-items-center">
-                                    <div class="col-md-6">
-                                        <div class="search">
-                                            <i class="fa fa-search"></i>
-                                            <input type="text" class="form-control" placeholder="Recipes..." onChange={handleSearch}/>
-                                                <button class="btn btn-primary" onClick={submitSearch}>Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                            <Form className="d-flex">
+                                <Form.Control
+                                    type="search"
+                                    placeholder="Search"
+                                    className="me-2"
+                                    aria-label="Search"
+                                    onChange={handleSearch}
+                                />
+                                <Button variant="outline-success" onClick={submitSearch}>Search</Button>
+                            </Form>
 
                         </Nav>
                     </Navbar.Collapse>
