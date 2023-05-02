@@ -14,7 +14,7 @@ const GeneralProfile = () => {
   let { getUserRecipesById } = useContext(RecipeContext)
   let { deleteRecipe, } = useContext(RecipeContext)
   let [userProfile, setUserProfile] = useState();
-  let [userRecipe, setUserRecipes] = useState();
+  let [userRecipe, setUserRecipes] = useState([]);
 
   useEffect(() => {
     async function fetch() {
@@ -50,7 +50,8 @@ const GeneralProfile = () => {
 
   // Map through user recipes getRecipeByUserId//
   function userRecipes() {
-    if (userRecipe != null) {
+    let arr = userRecipe.length
+    if (arr != 0 ) {
       return (userRecipe?.map((r) =>
         <div className='display-container'>
           <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} class="row"  >
