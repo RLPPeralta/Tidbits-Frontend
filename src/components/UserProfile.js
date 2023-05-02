@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Spinner, Card, Stack, } from 'react-bootstrap';
+import { Button, Stack, } from 'react-bootstrap';
 import { Link, useNavigate, useParams, Outlet, useRevalidator } from 'react-router-dom';
 import RecipeContext from '../contexts/RecipeContext';
 import UserContext from '../contexts/UserContext';
 import '../css/UserProfile.css'
-import axios from 'axios';
 
 
 const UserProfile = () => {
@@ -15,7 +14,7 @@ const UserProfile = () => {
   let { getCurrentUser } = useContext(UserContext)
   let { deleteRecipe, getCurrentUserRecipes } = useContext(RecipeContext)
   let [userProfile, setUserProfile] = useState();
-  let [userRecipe, setUserRecipes] = useState();
+  let [userRecipe, setUserRecipes] = useState([]);
 
   let token = localStorage.getItem('myRecipeToken')
 
@@ -35,13 +34,13 @@ const UserProfile = () => {
     console.log("useEffect for user recipes");
     async function fetch() {
       await getCurrentUserRecipes()
-        .then((recipes) => setUserRecipes(recipes))
+        .then((recipes) => setUserRecipes(recipes),  console.log (getCurrentUserRecipes()))
         .catch((error) => {
           console.log(error);
         });
     }
     fetch()
-  }, [params.userId, getCurrentUserRecipes]);
+  }, [getCurrentUserRecipes]);
 
   function handleDeleteRecipe(recipeId) {
     deleteRecipe(recipeId)
@@ -79,7 +78,8 @@ const UserProfile = () => {
 
   //Map through user recipes getCurrentUserRecipes//
   function userRecipes() {
-    if (userRecipe != null) {
+    let arr = userRecipe.length
+    if (arr != 0 ) {
       return (userRecipe?.map((r) =>
         <div className='display-container' key={r.recipeId}>
           <div style={{ width: '15rem' }} key={r.recipeId} xs={12} md={8} className="row"  >
