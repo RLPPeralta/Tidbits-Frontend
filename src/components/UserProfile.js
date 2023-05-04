@@ -34,7 +34,7 @@ const UserProfile = () => {
     console.log("useEffect for user recipes");
     async function fetch() {
       await getCurrentUserRecipes()
-        .then((recipes) => setUserRecipes(recipes),  console.log (getCurrentUserRecipes()))
+        .then((recipes) => setUserRecipes(recipes))
         .catch((error) => {
           console.log(error);
         });
@@ -52,7 +52,7 @@ const UserProfile = () => {
     let { firstName, lastName, bio, continent, userId } = userProfile || {};
     if (token) {
       return (
-        <div className='profile-section' >
+        <div className='user-profile-section' >
           <h1 className='h1-tag'>Welcome back,</h1>
           <h2 className='h2-tag'>{firstName} {lastName}</h2><br></br>
           <p className='p-tag'>{bio}</p>
@@ -112,12 +112,12 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className='page d-flex justify-content-center align-items-center p-4 p-sm-3'>
+      <div className='page justify-content-center align-items-center p-4 p-sm-3'>
         {profileComponent(userProfile)}
       </div>
-      <br></br>
       <h1 className='h1-tag'>My Recipes</h1>
-      <Stack className=' page d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
+      <br></br>
+      <Stack className='page d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
         <div className="recipe-card-container">
           <RecipeContext.Consumer>
             {({ recipe }) => (
