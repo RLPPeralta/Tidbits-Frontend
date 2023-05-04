@@ -1,7 +1,7 @@
 
 .page{
-    background-color: #dda15e;
-    font-family: 'Montserrat', sans-serif;  
+    background-color:#fefae0;
+    font-family: 'Montserrat', sans-serif;   
 }
 
 .h1-tag {
@@ -56,7 +56,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.profile-section { 
+.user-profile-section{ 
     margin: 2rem;
     background-color: #536c38;
     box-shadow: 15px 15px 15px rgba(221, 161, 94, .5);
@@ -84,7 +84,7 @@
 .btn.btn-primary {
     background-color: #536c38;
     border: white;
-    color: fefae0;
+    color: #fefae0;
     margin: 5px;
     margin-bottom: 1rem;
 }

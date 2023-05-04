@@ -66,6 +66,14 @@ const GeneralProfile = () => {
         </div>
       ))
     }
+    else {
+      return (
+        <div className='no-recipe-display-container' >
+          <p className='currently-no-recipes'>This chef currently has no recipes!</p>
+          <Link to={`/`} className="btn btn-primary mx-3">Home</Link>
+        </div>
+      )
+    }
   }
 
   return (
@@ -75,7 +83,7 @@ const GeneralProfile = () => {
       </div>
       <h1 className='h1-tag'>Featured Recipes by this Creator</h1>
       <br></br>
-      <Stack className=' d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
+      <Stack className='page d-flex justify-content-center align-items-center p-4 p-sm-3' direction="horizontal" spacing={3}>
         <div className="recipe-card-container">
           <RecipeContext.Consumer>
             {({ recipe }) => (
@@ -85,9 +93,6 @@ const GeneralProfile = () => {
         </div>
         <Outlet />
       </Stack>
-      <div className='buttons'>
-        <Button className="btn btn-primary mx-3" variant="success" onClick={() => navigate('/')}>Go Back</Button>
-      </div>
     </>
   )
 

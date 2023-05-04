@@ -1,5 +1,8 @@
 
-
+.page{
+    background-color:#fefae0;
+    font-family: 'Montserrat', sans-serif;  
+}
 .h1-tag-general {
     text-align: center;
     padding: 10px;
@@ -88,7 +91,7 @@ h4 {
 .btn.btn-primary {
     background-color: #536c38;
     border: white;
-    color: fefae0;
+    color: #fefae0;
     margin: 5px;
     margin-bottom: 1rem;
 }
@@ -109,9 +112,10 @@ h4 {
 }
 
 
-.buttons {
+/* .buttons {
     text-align: center;
-}
+    background-color:#fefae0
+} */
 
 .display-container { 
     padding: 2rem;
@@ -138,3 +142,12 @@ h4 {
     backdrop-filter: blur(10px);
 }
 
+.currently-no-recipes { 
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 30px ;
+    color: #dda15e;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
