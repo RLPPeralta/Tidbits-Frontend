@@ -12,14 +12,21 @@ function Filter() {
     const [recipes, setRecipes] = useState([]);
     let { searchRecipe } = useContext(RecipeContext);
 
+
     useEffect(() => {
         async function fetch() {
             await searchRecipe(params.filter).then(response => {
-                setRecipes(response.data)
+                if (response.data.length === 0 ) {
+                    alert("No Recipes Found, try again or add one!");
+                } else {
+                    setRecipes(response.data)
+                }
+                console.log(response.data)
             })
         }
         fetch();
     }, [params.filter])
+
 
     const token = localStorage.getItem('myRecipeToken')
 
@@ -58,3 +65,24 @@ function Filter() {
 }
 
 export default Filter;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // useEffect(() => {
+    //     async function fetch() {
+    //         await searchRecipe(params.filter).then(response => {
+    //             setRecipes(response.data)
+    //         })
+    //     }
+    //     fetch();
+    // }, [params.filter])
