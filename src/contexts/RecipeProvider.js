@@ -84,8 +84,9 @@ export const RecipeProvider = (props) => {
     }
 
     function searchRecipe(searchQuery) {
-        return  axios.get(`${baseUrl}/search/${searchQuery}`);
+        return  axios.get(`${baseUrl}/search/${searchQuery}`)
       }
+
 
     return (
         <RecipeContext.Provider value={{
